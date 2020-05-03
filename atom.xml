@@ -2,12 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dr526.github.io/</id>
     <title>dr526</title>
-    <updated>2020-05-03T07:05:33.562Z</updated>
+    <updated>2020-05-03T07:10:27.401Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dr526.github.io/"/>
     <link rel="self" href="https://dr526.github.io/atom.xml"/>
-    <subtitle>当你的才华还撑不起你的野心的时候，
-你就应该静下心来学习。</subtitle>
+    <subtitle>十步one code，千里no bug</subtitle>
     <logo>https://dr526.github.io/images/avatar.png</logo>
     <icon>https://dr526.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, dr526</rights>

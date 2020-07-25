@@ -1,55 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<style>
-    .tags-container {
-        min-height: 100vh;
-        background: white;
-    }
-
-    .tagintro {
-        padding-top: 2%;
-        padding-left: 5%;
-        font-size: 2em;
-        font-weight: bold;
-        text-align: left;
-    }
-
-    .tag {
-        display: inline;
-        float: left;
-        width: 15%;
-        margin-left: 2%;
-        margin-top: 5%;
-        margin-right: 2%;
-        border: solid;
-        border-radius: 7px;
-        padding: 5px;
-        color: #3cdc82;
-        font-size: 1.2em;
-    }
-
-    .tagsimg {
-        width: 100%;
-    }
-
-    @media screen and (max-width: 1300px) {
-        .tag {
-            width: 80%;
-        }
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <meta name="description" content="标题
+“#”+“ ”+标题名字
+共有6级标题，‘#’个数代表级数
+字体
+粗体
+**+内容+和开头一致
+斜体
+”*“+内容+和开头一致
+粗体+斜体
+***+内容+和开头一致
+中划线
+~~+内容+和开头一致
+引用
+”&gt;“+空格+内容
+分割..." />
+    <meta name="keywords" content="额外" />
+    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
     <link rel="stylesheet" href="https://dr526.github.io//media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
     <title>dr526</title>
 </head>
-
 
 <body>
     <!-- 响应式布局，针对PC端内容显示 -->
@@ -306,24 +284,169 @@
             alert("博主暂未设置QQ联系方式");
     }
 </script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
                 <div id="main" class="col-xs-12 col-sm-7">
-                    <div class="tags-container">
-                        <img class="tagsimg" src="\media\images\custom-tagimage.jpg" alt="">
-                        
-                        <a class="tag" href="https://dr526.github.io/tag/QPgTARvpJ/"># 额外</a>
-                        
-                        <a class="tag" href="https://dr526.github.io/tag/Mw0NnJeqs/"># 随笔</a>
-                        
+                    <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
+                        <i class="fa fa-tag"></i> 额外
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>typora——Makedown语法</h2>
+            </div>
+            <div class="text ">
+                <h3 id="标题">标题</h3>
+<p>“#”+“ ”+标题名字<br>
+共有6级标题，‘#’个数代表级数</p>
+<h3 id="字体">字体</h3>
+<h4 id="粗体">粗体</h4>
+<p>**+内容+和开头一致</p>
+<h4 id="斜体">斜体</h4>
+<p>”*“+内容+和开头一致</p>
+<h4 id="粗体斜体">粗体+斜体</h4>
+<p>***+内容+和开头一致</p>
+<h4 id="中划线">中划线</h4>
+<p>~~+内容+和开头一致</p>
+<h3 id="引用">引用</h3>
+<p>”&gt;“+空格+内容</p>
+<h3 id="分割线">分割线</h3>
+<p>---+回车<br>
+***+回车</p>
+<h3 id="图片">图片</h3>
+<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
+<h3 id="代码">代码</h3>
+<p>&quot;&quot;+相应的代码名字</p>
+<h3 id="表格表示">表格表示</h3>
+<ol>
+<li>代码表示<br>
+”名字“+”|“+”性别“+”|“+”生日“<br>
+”--“+”|“+”--“+”|“+”--“+”|“<br>
+”张三“+”|“+”李四“+”|“+”王五“</li>
+<li>进入源码模式</li>
+<li>删除多余空行</li>
+</ol>
+<h3 id="列表">列表</h3>
+<p>####有序列表<br>
+1.+空格<br>
+####无序列表<br>
+-+空格</p>
+<h3 id="超链接">超链接</h3>
+<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/test/">
+                    test
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-2"></div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
+<li><a href="#%E5%AD%97%E4%BD%93">字体</a>
+<ul>
+<li><a href="#%E7%B2%97%E4%BD%93">粗体</a></li>
+<li><a href="#%E6%96%9C%E4%BD%93">斜体</a></li>
+<li><a href="#%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93">粗体+斜体</a></li>
+<li><a href="#%E4%B8%AD%E5%88%92%E7%BA%BF">中划线</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="#%E5%88%86%E5%89%B2%E7%BA%BF">分割线</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+<li><a href="#%E8%A1%A8%E6%A0%BC%E8%A1%A8%E7%A4%BA">表格表示</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
+<li><a href="#%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
             </div>
         </div>
         <div id="bg">
         </div>
         <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
     </div>
-
     <!-- 响应式布局，针对手机端内容显示 -->
     <div class="nav-small">
         <head>
@@ -398,14 +521,124 @@
   <!-- 引入BootStrap核心js文件 -->
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-        <div style="margin-top:50px"></div>
-        <div class="tags-container">
-            <img class="tagsimg" src="\media\images\custom-tagimage.jpg" alt="">
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
             
-            <a class="tag" href="https://dr526.github.io/tag/QPgTARvpJ/"># 额外</a>
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
+                        <i class="fa fa-tag"></i> 额外
+                    </a>
+                    
+                </div>
+            </div>
             
-            <a class="tag" href="https://dr526.github.io/tag/Mw0NnJeqs/"># 随笔</a>
+            <div id="texttitle" style="text-align: center">
+                <h2>typora——Makedown语法</h2>
+            </div>
+            <div class="text ">
+                <h3 id="标题">标题</h3>
+<p>“#”+“ ”+标题名字<br>
+共有6级标题，‘#’个数代表级数</p>
+<h3 id="字体">字体</h3>
+<h4 id="粗体">粗体</h4>
+<p>**+内容+和开头一致</p>
+<h4 id="斜体">斜体</h4>
+<p>”*“+内容+和开头一致</p>
+<h4 id="粗体斜体">粗体+斜体</h4>
+<p>***+内容+和开头一致</p>
+<h4 id="中划线">中划线</h4>
+<p>~~+内容+和开头一致</p>
+<h3 id="引用">引用</h3>
+<p>”&gt;“+空格+内容</p>
+<h3 id="分割线">分割线</h3>
+<p>---+回车<br>
+***+回车</p>
+<h3 id="图片">图片</h3>
+<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
+<h3 id="代码">代码</h3>
+<p>&quot;&quot;+相应的代码名字</p>
+<h3 id="表格表示">表格表示</h3>
+<ol>
+<li>代码表示<br>
+”名字“+”|“+”性别“+”|“+”生日“<br>
+”--“+”|“+”--“+”|“+”--“+”|“<br>
+”张三“+”|“+”李四“+”|“+”王五“</li>
+<li>进入源码模式</li>
+<li>删除多余空行</li>
+</ol>
+<h3 id="列表">列表</h3>
+<p>####有序列表<br>
+1.+空格<br>
+####无序列表<br>
+-+空格</p>
+<h3 id="超链接">超链接</h3>
+<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+
+            </div>
             
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/test/">
+                    test
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
         </div>
     </div>
     <div id="landlord">
@@ -413,15 +646,10 @@
         <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
     </div>
 </body>
-
-</html>
-<script src="https://dr526.github.io//media/js/index.js"></script>
 <script>
-    $(".tag").each(function () {
-        var rgb = '#' + Math.floor(Math.random() * 0xffffff).toString(16);;
-        $(this).css('color', rgb);
-    });
+    hljs.initHighlightingOnLoad()
 </script>
+<script src="https://dr526.github.io//media/js/post.js"></script>
 
 <script type="text/javascript">
     var message_Path = '/live2d/'

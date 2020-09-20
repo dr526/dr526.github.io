@@ -1,22 +1,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="标题
-“#”+“ ”+标题名字
-共有6级标题，‘#’个数代表级数
-字体
-粗体
-**+内容+和开头一致
-斜体
-”*“+内容+和开头一致
-粗体+斜体
-***+内容+和开头一致
-中划线
-~~+内容+和开头一致
-引用
-”&gt;“+空格+内容
-分割..." />
-    <meta name="keywords" content="额外" />
+    <meta name="description" content="Electron文档
+文档地址
+使用Electron脚手架
+
+
+下载Node.js
+参考连接
+
+
+克隆示例项目仓库
+git clone https://github.com/electron/electron-quick-start
+
+
+
+..." />
+    <meta name="keywords" content="前端" />
     <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
@@ -303,71 +303,154 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-20</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
-                        <i class="fa fa-tag"></i> 额外
+                    <a href="https://dr526.github.io/tag/3anS-Zn1o/" class="postlink">
+                        <i class="fa fa-tag"></i> 前端
                     </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>typora——Makedown语法</h2>
+                <h2>Electron的使用(1)</h2>
             </div>
             <div class="text ">
-                <h3 id="标题">标题</h3>
-<p>“#”+“ ”+标题名字<br>
-共有6级标题，‘#’个数代表级数</p>
-<h3 id="字体">字体</h3>
-<h4 id="粗体">粗体</h4>
-<p>**+内容+和开头一致</p>
-<h4 id="斜体">斜体</h4>
-<p>”*“+内容+和开头一致</p>
-<h4 id="粗体斜体">粗体+斜体</h4>
-<p>***+内容+和开头一致</p>
-<h4 id="中划线">中划线</h4>
-<p>~~+内容+和开头一致</p>
-<h3 id="引用">引用</h3>
-<p>”&gt;“+空格+内容</p>
-<h3 id="分割线">分割线</h3>
-<p>---+回车<br>
-***+回车</p>
-<h3 id="图片">图片</h3>
-<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
-<h3 id="代码">代码</h3>
-<p>&quot;&quot;+相应的代码名字</p>
-<h3 id="表格表示">表格表示</h3>
+                <h1 id="electron文档">Electron文档</h1>
+<p><a href="https://www.electronjs.org/docs">文档地址</a></p>
+<h1 id="使用electron脚手架">使用Electron脚手架</h1>
 <ol>
-<li>代码表示<br>
-”名字“+”|“+”性别“+”|“+”生日“<br>
-”--“+”|“+”--“+”|“+”--“+”|“<br>
-”张三“+”|“+”李四“+”|“+”王五“</li>
-<li>进入源码模式</li>
-<li>删除多余空行</li>
+<li>
+<p>下载Node.js</p>
+<p><a href="https://www.runoob.com/nodejs/nodejs-install-setup.html">参考连接</a></p>
+</li>
+<li>
+<p>克隆示例项目仓库</p>
+<pre><code class="language-bash">git clone https://github.com/electron/electron-quick-start
+</code></pre>
+</li>
+<li>
+<p>进入仓库</p>
+<pre><code class="language-bash">cd electron-quick-start
+</code></pre>
+</li>
+<li>
+<p>换源，提高速度</p>
+<pre><code class="language-bash">npm config set ELECTRON_MIRROR https://npm.taobao.org/mirrors/electron/
+</code></pre>
+</li>
+<li>
+<p>安装依赖</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+<li>
+<p>运行</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+</li>
 </ol>
-<h3 id="列表">列表</h3>
-<p>####有序列表<br>
-1.+空格<br>
-####无序列表<br>
--+空格</p>
-<h3 id="超链接">超链接</h3>
-<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+<h1 id="渲染进程和主进程">渲染进程和主进程</h1>
+<ul>
+<li>
+<p>Electron分为渲染进程和主进程</p>
+</li>
+<li>
+<p>渲染进程：用户看见的web界面就是由渲染进程描绘出来的。包括html，css和js</p>
+<ol>
+<li>
+<p>渲染进程获取process对象时出错</p>
+<figure data-type="image" tabindex="1"><img src="https://dr526.github.io//post-images/1600614355235.png" alt="process对象出错" loading="lazy"></figure>
+<p>Main.js在createwindow时少了一个参数nodeIntegration:true</p>
+<p>**require('electron')**出错也如上述所示</p>
+</li>
+<li>
+<p>渲染进程获取文件信息</p>
+<ol>
+<li>
+<p>设置一个dom对象</p>
+</li>
+<li>
+<p>获取dom对象</p>
+</li>
+<li>
+<p>为dom对象添加事件——“drop”并设置回调，传回事件参数</p>
+</li>
+<li>
+<p>阻止drop事件默认行为——preventDefault</p>
+</li>
+<li>
+<p>获取文件对象——e.dataTransfer.files</p>
+</li>
+<li>
+<p>为dom对象添加事件——“dragover&quot;并设置回调，传回参数e</p>
+</li>
+<li>
+<p>阻止dragover事件默认行为</p>
+<figure data-type="image" tabindex="2"><img src="https://dr526.github.io//post-images/1600614376392.png" alt="渲染进程获取文件路径信息" loading="lazy"></figure>
+</li>
+<li>
+<p>显示文件内容</p>
+<ol>
+<li>添加const fs=require(&quot;fs&quot;)</li>
+<li>读取fs.readFileSync(path)——默认是buffer</li>
+<li>需要toString()</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>主进程：Electron运行package.json的main脚本的进程被称为主进程。在主进程中运行的脚本通过创建web页面来展示用户界面。<strong>一个Electron应用总是有且只有一个主进程</strong></p>
+</li>
+<li>
+<p>主进程的调试：</p>
+<pre><code class="language-bash">electron --inspect=[port]
+例如：electron --inspect=5858 your/app
+打开浏览器输入：chrome://inspect
+</code></pre>
+</li>
+<li>
+<p>渲染进程调试：与web调试一致</p>
+<pre><code class="language-bash">npm start //运行项目
+View-&gt;toggle developer tools
+</code></pre>
+</li>
+</ul>
+<h1 id="一些常用事件">一些常用事件</h1>
+<ul>
+<li>APP常用事件
+<ul>
+<li>ready：当Electron完成初始化时被触发</li>
+<li>window-all-closed：所有窗口被关闭</li>
+<li>before-quit：在应用程序开始关闭窗口之前触发</li>
+<li>will-quit：当所有窗口都已经关闭并且应用程序将退出时发出</li>
+<li>quit：在应用程序退出时发出</li>
+</ul>
+</li>
+<li>webContents常用事件
+<ul>
+<li>did-finish-load：导航完成时触发，即选项卡的旋转器将停止旋转，并指派onload事件后</li>
+<li>dom-ready：一个框架中的文本加载完成后触发该事件</li>
+</ul>
+</li>
+</ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cqian-jia-yu-hou-jia/">
-                    c++前加与后加
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/czhong-de-0nullnullptr/">
+                    c++中的0、NULL、nullptr
                 </a>
             </div>
-            
             
         </div>
     </div>
@@ -437,30 +520,10 @@
                 </div>
                 <div class="toc-container">
                     <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
-<li><a href="#%E5%AD%97%E4%BD%93">字体</a>
-<ul>
-<li><a href="#%E7%B2%97%E4%BD%93">粗体</a></li>
-<li><a href="#%E6%96%9C%E4%BD%93">斜体</a></li>
-<li><a href="#%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93">粗体+斜体</a></li>
-<li><a href="#%E4%B8%AD%E5%88%92%E7%BA%BF">中划线</a></li>
-</ul>
-</li>
-<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="#%E5%88%86%E5%89%B2%E7%BA%BF">分割线</a></li>
-<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-<li><a href="#%E8%A1%A8%E6%A0%BC%E8%A1%A8%E7%A4%BA">表格表示</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
-<li><a href="#%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#electron%E6%96%87%E6%A1%A3">Electron文档</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8electron%E8%84%9A%E6%89%8B%E6%9E%B6">使用Electron脚手架</a></li>
+<li><a href="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E5%92%8C%E4%B8%BB%E8%BF%9B%E7%A8%8B">渲染进程和主进程</a></li>
+<li><a href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6">一些常用事件</a></li>
 </ul>
 
                 </div>
@@ -555,71 +618,154 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-20</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
-                        <i class="fa fa-tag"></i> 额外
+                    <a href="https://dr526.github.io/tag/3anS-Zn1o/" class="postlink">
+                        <i class="fa fa-tag"></i> 前端
                     </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>typora——Makedown语法</h2>
+                <h2>Electron的使用(1)</h2>
             </div>
             <div class="text ">
-                <h3 id="标题">标题</h3>
-<p>“#”+“ ”+标题名字<br>
-共有6级标题，‘#’个数代表级数</p>
-<h3 id="字体">字体</h3>
-<h4 id="粗体">粗体</h4>
-<p>**+内容+和开头一致</p>
-<h4 id="斜体">斜体</h4>
-<p>”*“+内容+和开头一致</p>
-<h4 id="粗体斜体">粗体+斜体</h4>
-<p>***+内容+和开头一致</p>
-<h4 id="中划线">中划线</h4>
-<p>~~+内容+和开头一致</p>
-<h3 id="引用">引用</h3>
-<p>”&gt;“+空格+内容</p>
-<h3 id="分割线">分割线</h3>
-<p>---+回车<br>
-***+回车</p>
-<h3 id="图片">图片</h3>
-<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
-<h3 id="代码">代码</h3>
-<p>&quot;&quot;+相应的代码名字</p>
-<h3 id="表格表示">表格表示</h3>
+                <h1 id="electron文档">Electron文档</h1>
+<p><a href="https://www.electronjs.org/docs">文档地址</a></p>
+<h1 id="使用electron脚手架">使用Electron脚手架</h1>
 <ol>
-<li>代码表示<br>
-”名字“+”|“+”性别“+”|“+”生日“<br>
-”--“+”|“+”--“+”|“+”--“+”|“<br>
-”张三“+”|“+”李四“+”|“+”王五“</li>
-<li>进入源码模式</li>
-<li>删除多余空行</li>
+<li>
+<p>下载Node.js</p>
+<p><a href="https://www.runoob.com/nodejs/nodejs-install-setup.html">参考连接</a></p>
+</li>
+<li>
+<p>克隆示例项目仓库</p>
+<pre><code class="language-bash">git clone https://github.com/electron/electron-quick-start
+</code></pre>
+</li>
+<li>
+<p>进入仓库</p>
+<pre><code class="language-bash">cd electron-quick-start
+</code></pre>
+</li>
+<li>
+<p>换源，提高速度</p>
+<pre><code class="language-bash">npm config set ELECTRON_MIRROR https://npm.taobao.org/mirrors/electron/
+</code></pre>
+</li>
+<li>
+<p>安装依赖</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+<li>
+<p>运行</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+</li>
 </ol>
-<h3 id="列表">列表</h3>
-<p>####有序列表<br>
-1.+空格<br>
-####无序列表<br>
--+空格</p>
-<h3 id="超链接">超链接</h3>
-<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+<h1 id="渲染进程和主进程">渲染进程和主进程</h1>
+<ul>
+<li>
+<p>Electron分为渲染进程和主进程</p>
+</li>
+<li>
+<p>渲染进程：用户看见的web界面就是由渲染进程描绘出来的。包括html，css和js</p>
+<ol>
+<li>
+<p>渲染进程获取process对象时出错</p>
+<figure data-type="image" tabindex="1"><img src="https://dr526.github.io//post-images/1600614355235.png" alt="process对象出错" loading="lazy"></figure>
+<p>Main.js在createwindow时少了一个参数nodeIntegration:true</p>
+<p>**require('electron')**出错也如上述所示</p>
+</li>
+<li>
+<p>渲染进程获取文件信息</p>
+<ol>
+<li>
+<p>设置一个dom对象</p>
+</li>
+<li>
+<p>获取dom对象</p>
+</li>
+<li>
+<p>为dom对象添加事件——“drop”并设置回调，传回事件参数</p>
+</li>
+<li>
+<p>阻止drop事件默认行为——preventDefault</p>
+</li>
+<li>
+<p>获取文件对象——e.dataTransfer.files</p>
+</li>
+<li>
+<p>为dom对象添加事件——“dragover&quot;并设置回调，传回参数e</p>
+</li>
+<li>
+<p>阻止dragover事件默认行为</p>
+<figure data-type="image" tabindex="2"><img src="https://dr526.github.io//post-images/1600614376392.png" alt="渲染进程获取文件路径信息" loading="lazy"></figure>
+</li>
+<li>
+<p>显示文件内容</p>
+<ol>
+<li>添加const fs=require(&quot;fs&quot;)</li>
+<li>读取fs.readFileSync(path)——默认是buffer</li>
+<li>需要toString()</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>主进程：Electron运行package.json的main脚本的进程被称为主进程。在主进程中运行的脚本通过创建web页面来展示用户界面。<strong>一个Electron应用总是有且只有一个主进程</strong></p>
+</li>
+<li>
+<p>主进程的调试：</p>
+<pre><code class="language-bash">electron --inspect=[port]
+例如：electron --inspect=5858 your/app
+打开浏览器输入：chrome://inspect
+</code></pre>
+</li>
+<li>
+<p>渲染进程调试：与web调试一致</p>
+<pre><code class="language-bash">npm start //运行项目
+View-&gt;toggle developer tools
+</code></pre>
+</li>
+</ul>
+<h1 id="一些常用事件">一些常用事件</h1>
+<ul>
+<li>APP常用事件
+<ul>
+<li>ready：当Electron完成初始化时被触发</li>
+<li>window-all-closed：所有窗口被关闭</li>
+<li>before-quit：在应用程序开始关闭窗口之前触发</li>
+<li>will-quit：当所有窗口都已经关闭并且应用程序将退出时发出</li>
+<li>quit：在应用程序退出时发出</li>
+</ul>
+</li>
+<li>webContents常用事件
+<ul>
+<li>did-finish-load：导航完成时触发，即选项卡的旋转器将停止旋转，并指派onload事件后</li>
+<li>dom-ready：一个框架中的文本加载完成后触发该事件</li>
+</ul>
+</li>
+</ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cqian-jia-yu-hou-jia/">
-                    c++前加与后加
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/czhong-de-0nullnullptr/">
+                    c++中的0、NULL、nullptr
                 </a>
             </div>
-            
             
         </div>
     </div>

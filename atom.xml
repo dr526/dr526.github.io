@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dr526.github.io/</id>
     <title>dr526</title>
-    <updated>2020-09-20T09:45:38.665Z</updated>
+    <updated>2020-09-20T15:07:16.259Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dr526.github.io/"/>
     <link rel="self" href="https://dr526.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://dr526.github.io/images/avatar.png</logo>
     <icon>https://dr526.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, dr526</rights>
+    <entry>
+        <title type="html"><![CDATA[Electron的使用(1)]]></title>
+        <id>https://dr526.github.io/post/electron-de-shi-yong-1/</id>
+        <link href="https://dr526.github.io/post/electron-de-shi-yong-1/">
+        </link>
+        <updated>2020-09-20T14:55:32.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[c++中的0、NULL、nullptr]]></title>
         <id>https://dr526.github.io/post/czhong-de-0nullnullptr/</id>

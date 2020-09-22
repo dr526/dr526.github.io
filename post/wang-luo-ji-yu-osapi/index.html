@@ -1,22 +1,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="标题
-“#”+“ ”+标题名字
-共有6级标题，‘#’个数代表级数
-字体
-粗体
-**+内容+和开头一致
-斜体
-”*“+内容+和开头一致
-粗体+斜体
-***+内容+和开头一致
-中划线
-~~+内容+和开头一致
-引用
-”&gt;“+空格+内容
-分割..." />
-    <meta name="keywords" content="额外" />
+    <meta name="description" content="网络通讯和IP地址
+
+
+两台主机通过网络来传输数据，称为网络通讯
+
+
+一些术语
+
+主机：Host，包含台式机、笔记本、手机等设备
+网络：Internet
+网络介质：Media，网线，光纤，无线局域网wifi，移动3G网络
+数据：Data，一..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
@@ -303,71 +300,193 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
-                        <i class="fa fa-tag"></i> 额外
-                    </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>typora——Makedown语法</h2>
+                <h2>网络—基于OSAPI</h2>
             </div>
             <div class="text ">
-                <h3 id="标题">标题</h3>
-<p>“#”+“ ”+标题名字<br>
-共有6级标题，‘#’个数代表级数</p>
-<h3 id="字体">字体</h3>
-<h4 id="粗体">粗体</h4>
-<p>**+内容+和开头一致</p>
-<h4 id="斜体">斜体</h4>
-<p>”*“+内容+和开头一致</p>
-<h4 id="粗体斜体">粗体+斜体</h4>
-<p>***+内容+和开头一致</p>
-<h4 id="中划线">中划线</h4>
-<p>~~+内容+和开头一致</p>
-<h3 id="引用">引用</h3>
-<p>”&gt;“+空格+内容</p>
-<h3 id="分割线">分割线</h3>
-<p>---+回车<br>
-***+回车</p>
-<h3 id="图片">图片</h3>
-<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
-<h3 id="代码">代码</h3>
-<p>&quot;&quot;+相应的代码名字</p>
-<h3 id="表格表示">表格表示</h3>
+                <h1 id="网络通讯和ip地址">网络通讯和IP地址</h1>
+<ul>
+<li>
+<p>两台主机通过网络来传输数据，称为网络通讯</p>
+</li>
+<li>
+<p>一些术语</p>
 <ol>
-<li>代码表示<br>
-”名字“+”|“+”性别“+”|“+”生日“<br>
-”--“+”|“+”--“+”|“+”--“+”|“<br>
-”张三“+”|“+”李四“+”|“+”王五“</li>
-<li>进入源码模式</li>
-<li>删除多余空行</li>
+<li>主机：<strong>Host</strong>，包含台式机、笔记本、手机等设备</li>
+<li>网络：<strong>Internet</strong></li>
+<li>网络介质：<strong>Media</strong>，网线，光纤，无线局域网wifi，移动3G网络</li>
+<li>数据：<strong>Data</strong>，一串字节</li>
 </ol>
-<h3 id="列表">列表</h3>
-<p>####有序列表<br>
-1.+空格<br>
-####无序列表<br>
--+空格</p>
-<h3 id="超链接">超链接</h3>
-<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+</li>
+<li>
+<p>网络通讯的观测</p>
+<ol>
+<li>安装<strong>Wireshark</strong>，即可对网络通讯进行观测</li>
+<li>抓：<strong>capture</strong></li>
+<li>包：<strong>packet</strong>，数据包</li>
+</ol>
+</li>
+<li>
+<p>IP地址：<strong>Internet Protocol Address</strong></p>
+<ol>
+<li>用于标识网络上的一台主机，IP地址用<strong>4字节</strong>表示，称为<strong>IPv4</strong></li>
+<li>用字符串表示时，10进制，以点号分开**(0-255)**<br>
+“192.168.1.1”</li>
+<li>用16进制表示<br>
+C0 A8 01 01(192.168.1.1)</li>
+</ol>
+</li>
+<li>
+<p><strong>ping</strong>命令：检测连通</p>
+<ol>
+<li>
+<p>不连通的三种可能性</p>
+<p>（1） 对方关机、离线<br>
+（2） 己方没有连网<br>
+（3） 对方在线，但对方屏蔽了PING服务</p>
+</li>
+</ol>
+</li>
+<li>
+<p>查看自己的IP地址</p>
+<ol>
+<li>windows上，输入<strong>ipconfig</strong></li>
+<li>linux下，输入<strong>ifconfig</strong></li>
+</ol>
+</li>
+</ul>
+<h1 id="socket与复用技术">Socket与复用技术</h1>
+<ul>
+<li>
+<p>Socket概念</p>
+<p>两台主机进行通讯，运行不同的程序，它们都在使用网络进行数据传输，如何区分？</p>
+<p>Socket原意时“插座”，它形象的表示：用一根线连接两个插座，即形成一个数据通道</p>
+<p>每个插口用一个数字标识**（0-65535）<strong>，这个数字就称为端口</strong>（port)**</p>
+</li>
+<li>
+<p>复用技术</p>
+<ol>
+<li>
+<p>待解决问题：</p>
+<p>多个Socket，每个Socket上同时传输着不同的数据（视频流、文件流等），但是，网线只有一根，字节是<strong>串行</strong>传输的（一个字节一个字节地发送）</p>
+</li>
+<li>
+<p>解决办法：</p>
+<p><strong>封包</strong>：将（IP，Port)放在包头，<strong>交替</strong>发送包</p>
+<p>这种在一个信道内，交叉间隔地传输数据的方案，称为**“分时复用”**</p>
+<p>发送方：复用Mux，将每个Socket上的数据，<strong>拆分成固定格式的小包</strong>，每个小包前面加上IP/Port，按照时间间隔，轮番发送到信道中</p>
+<p>接收方：解复用Demux，从信道中接收到小包，根据包头的Port，将小包<strong>还原</strong>成原始数据，再<strong>分发</strong>给不同的Socket处理</p>
+<p>分包目的：<strong>各Socket均匀占用网络</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="udp基本用法">UDP基本用法</h1>
+<ul>
+<li>
+<p>Socket的种类</p>
+<ol>
+<li>UDP</li>
+<li>TCP</li>
+</ol>
+</li>
+<li>
+<p>UDP Socket</p>
+<ol>
+<li>
+<p>UDP（User Datagram Protocol），用户数据报文协议，<strong>适用于局域网的主机间的通信</strong></p>
+</li>
+<li>
+<p>UDP的单机测试</p>
+<p><strong>发送方</strong></p>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+int main() {
+	std::cout &lt;&lt; &quot;发送方：port=9000\n&quot;;
+    //创建Socket
+	OS_SockAddr local(&quot;192.168.51.65&quot;, 9000);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+		//让用户输入一段文本
+		char buf[128];
+		std::cout &lt;&lt; &quot;&gt;&quot;;
+		gets_s(buf);
+		int n = strlen(buf);
+
+		//发送
+		OS_SockAddr peer(&quot;192.168.51.65&quot;, 9001);//对方地址
+		sock.SendTo(buf, n, peer);
+
+		//结束
+		if (strcmp(&quot;bye&quot;, buf) == 0) {
+			break;
+		}
+	}
+
+	//关闭Socket
+	sock.Close();
+	return 0;
+}
+</code></pre>
+<p><strong>接受方</strong></p>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+int main() {
+	std::cout &lt;&lt; &quot;接受方：port=9001\n&quot;;
+    //创建Socket
+	OS_SockAddr local(&quot;192.168.51.65&quot;, 9001);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+        //接受
+		char buf[128];
+		OS_SockAddr peer;//对方的地址
+		int n = sock.RecvFrom(buf, 128, peer);
+		if (n &lt;= 0) {
+			break;
+		}
+		buf[n] = 0;
+		printf_s(&quot;Got：%s\n&quot;, buf);
+		//结束
+		if (strcmp(&quot;bye&quot;, buf) == 0) {
+			break;
+		}
+	}
+	//关闭socket
+	sock.Close();
+	return 0;
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li></li>
+</ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cqian-jia-yu-hou-jia/">
-                    c++前加与后加
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/dao-ru-di-san-fang-ku-osapi/">
+                    导入第三方库—OSAPI
                 </a>
             </div>
-            
             
         </div>
     </div>
@@ -437,30 +556,9 @@
                 </div>
                 <div class="toc-container">
                     <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
-<li><a href="#%E5%AD%97%E4%BD%93">字体</a>
-<ul>
-<li><a href="#%E7%B2%97%E4%BD%93">粗体</a></li>
-<li><a href="#%E6%96%9C%E4%BD%93">斜体</a></li>
-<li><a href="#%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93">粗体+斜体</a></li>
-<li><a href="#%E4%B8%AD%E5%88%92%E7%BA%BF">中划线</a></li>
-</ul>
-</li>
-<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="#%E5%88%86%E5%89%B2%E7%BA%BF">分割线</a></li>
-<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
-<li><a href="#%E8%A1%A8%E6%A0%BC%E8%A1%A8%E7%A4%BA">表格表示</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
-<li><a href="#%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF%E5%92%8Cip%E5%9C%B0%E5%9D%80">网络通讯和IP地址</a></li>
+<li><a href="#socket%E4%B8%8E%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF">Socket与复用技术</a></li>
+<li><a href="#udp%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">UDP基本用法</a></li>
 </ul>
 
                 </div>
@@ -555,71 +653,193 @@
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg" class="postimage" style="cursor:auto">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-07-25</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-22</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="postlink">
-                        <i class="fa fa-tag"></i> 额外
-                    </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>typora——Makedown语法</h2>
+                <h2>网络—基于OSAPI</h2>
             </div>
             <div class="text ">
-                <h3 id="标题">标题</h3>
-<p>“#”+“ ”+标题名字<br>
-共有6级标题，‘#’个数代表级数</p>
-<h3 id="字体">字体</h3>
-<h4 id="粗体">粗体</h4>
-<p>**+内容+和开头一致</p>
-<h4 id="斜体">斜体</h4>
-<p>”*“+内容+和开头一致</p>
-<h4 id="粗体斜体">粗体+斜体</h4>
-<p>***+内容+和开头一致</p>
-<h4 id="中划线">中划线</h4>
-<p>~~+内容+和开头一致</p>
-<h3 id="引用">引用</h3>
-<p>”&gt;“+空格+内容</p>
-<h3 id="分割线">分割线</h3>
-<p>---+回车<br>
-***+回车</p>
-<h3 id="图片">图片</h3>
-<p>”！“+”[“+图片名+”]“+”（“+图片路径+”）“</p>
-<h3 id="代码">代码</h3>
-<p>&quot;&quot;+相应的代码名字</p>
-<h3 id="表格表示">表格表示</h3>
+                <h1 id="网络通讯和ip地址">网络通讯和IP地址</h1>
+<ul>
+<li>
+<p>两台主机通过网络来传输数据，称为网络通讯</p>
+</li>
+<li>
+<p>一些术语</p>
 <ol>
-<li>代码表示<br>
-”名字“+”|“+”性别“+”|“+”生日“<br>
-”--“+”|“+”--“+”|“+”--“+”|“<br>
-”张三“+”|“+”李四“+”|“+”王五“</li>
-<li>进入源码模式</li>
-<li>删除多余空行</li>
+<li>主机：<strong>Host</strong>，包含台式机、笔记本、手机等设备</li>
+<li>网络：<strong>Internet</strong></li>
+<li>网络介质：<strong>Media</strong>，网线，光纤，无线局域网wifi，移动3G网络</li>
+<li>数据：<strong>Data</strong>，一串字节</li>
 </ol>
-<h3 id="列表">列表</h3>
-<p>####有序列表<br>
-1.+空格<br>
-####无序列表<br>
--+空格</p>
-<h3 id="超链接">超链接</h3>
-<p>”[“+超链接名+”]“+”（“+”超链接地址“+”）“</p>
+</li>
+<li>
+<p>网络通讯的观测</p>
+<ol>
+<li>安装<strong>Wireshark</strong>，即可对网络通讯进行观测</li>
+<li>抓：<strong>capture</strong></li>
+<li>包：<strong>packet</strong>，数据包</li>
+</ol>
+</li>
+<li>
+<p>IP地址：<strong>Internet Protocol Address</strong></p>
+<ol>
+<li>用于标识网络上的一台主机，IP地址用<strong>4字节</strong>表示，称为<strong>IPv4</strong></li>
+<li>用字符串表示时，10进制，以点号分开**(0-255)**<br>
+“192.168.1.1”</li>
+<li>用16进制表示<br>
+C0 A8 01 01(192.168.1.1)</li>
+</ol>
+</li>
+<li>
+<p><strong>ping</strong>命令：检测连通</p>
+<ol>
+<li>
+<p>不连通的三种可能性</p>
+<p>（1） 对方关机、离线<br>
+（2） 己方没有连网<br>
+（3） 对方在线，但对方屏蔽了PING服务</p>
+</li>
+</ol>
+</li>
+<li>
+<p>查看自己的IP地址</p>
+<ol>
+<li>windows上，输入<strong>ipconfig</strong></li>
+<li>linux下，输入<strong>ifconfig</strong></li>
+</ol>
+</li>
+</ul>
+<h1 id="socket与复用技术">Socket与复用技术</h1>
+<ul>
+<li>
+<p>Socket概念</p>
+<p>两台主机进行通讯，运行不同的程序，它们都在使用网络进行数据传输，如何区分？</p>
+<p>Socket原意时“插座”，它形象的表示：用一根线连接两个插座，即形成一个数据通道</p>
+<p>每个插口用一个数字标识**（0-65535）<strong>，这个数字就称为端口</strong>（port)**</p>
+</li>
+<li>
+<p>复用技术</p>
+<ol>
+<li>
+<p>待解决问题：</p>
+<p>多个Socket，每个Socket上同时传输着不同的数据（视频流、文件流等），但是，网线只有一根，字节是<strong>串行</strong>传输的（一个字节一个字节地发送）</p>
+</li>
+<li>
+<p>解决办法：</p>
+<p><strong>封包</strong>：将（IP，Port)放在包头，<strong>交替</strong>发送包</p>
+<p>这种在一个信道内，交叉间隔地传输数据的方案，称为**“分时复用”**</p>
+<p>发送方：复用Mux，将每个Socket上的数据，<strong>拆分成固定格式的小包</strong>，每个小包前面加上IP/Port，按照时间间隔，轮番发送到信道中</p>
+<p>接收方：解复用Demux，从信道中接收到小包，根据包头的Port，将小包<strong>还原</strong>成原始数据，再<strong>分发</strong>给不同的Socket处理</p>
+<p>分包目的：<strong>各Socket均匀占用网络</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="udp基本用法">UDP基本用法</h1>
+<ul>
+<li>
+<p>Socket的种类</p>
+<ol>
+<li>UDP</li>
+<li>TCP</li>
+</ol>
+</li>
+<li>
+<p>UDP Socket</p>
+<ol>
+<li>
+<p>UDP（User Datagram Protocol），用户数据报文协议，<strong>适用于局域网的主机间的通信</strong></p>
+</li>
+<li>
+<p>UDP的单机测试</p>
+<p><strong>发送方</strong></p>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+int main() {
+	std::cout &lt;&lt; &quot;发送方：port=9000\n&quot;;
+    //创建Socket
+	OS_SockAddr local(&quot;192.168.51.65&quot;, 9000);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+		//让用户输入一段文本
+		char buf[128];
+		std::cout &lt;&lt; &quot;&gt;&quot;;
+		gets_s(buf);
+		int n = strlen(buf);
+
+		//发送
+		OS_SockAddr peer(&quot;192.168.51.65&quot;, 9001);//对方地址
+		sock.SendTo(buf, n, peer);
+
+		//结束
+		if (strcmp(&quot;bye&quot;, buf) == 0) {
+			break;
+		}
+	}
+
+	//关闭Socket
+	sock.Close();
+	return 0;
+}
+</code></pre>
+<p><strong>接受方</strong></p>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+int main() {
+	std::cout &lt;&lt; &quot;接受方：port=9001\n&quot;;
+    //创建Socket
+	OS_SockAddr local(&quot;192.168.51.65&quot;, 9001);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+        //接受
+		char buf[128];
+		OS_SockAddr peer;//对方的地址
+		int n = sock.RecvFrom(buf, 128, peer);
+		if (n &lt;= 0) {
+			break;
+		}
+		buf[n] = 0;
+		printf_s(&quot;Got：%s\n&quot;, buf);
+		//结束
+		if (strcmp(&quot;bye&quot;, buf) == 0) {
+			break;
+		}
+	}
+	//关闭socket
+	sock.Close();
+	return 0;
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li></li>
+</ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cqian-jia-yu-hou-jia/">
-                    c++前加与后加
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/dao-ru-di-san-fang-ku-osapi/">
+                    导入第三方库—OSAPI
                 </a>
             </div>
-            
             
         </div>
     </div>

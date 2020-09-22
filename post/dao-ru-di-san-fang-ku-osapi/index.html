@@ -1,21 +1,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="左值与右值
+    <meta name="description" content="下载osapi
+下载地址
+导入osapi
 
 
-左值：占据内存中某个地址的对象
+Visual Studio版本：Visual Studio Community 2019 16.7.3
 
 
-右值：没有占据内存中某个地址的对象，即：只存在于计算过程中的某个临时寄存器中
+新建项目
 
 
-左值能够进行赋值操作，而右值不能，因为右值没有与之对应的内存存储数据
 
 
-例如：
-int foo(){re..." />
-    <meta name="keywords" content="c++" />
+导入osapi
+
+
+
+
+
+
+
+
+
+
+..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
@@ -305,73 +316,49 @@ int foo(){re..." />
                 <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-20</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-22</div>
                 <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>c++前加与后加</h2>
+                <h2>导入第三方库—OSAPI</h2>
             </div>
             <div class="text ">
-                <h1 id="左值与右值">左值与右值</h1>
+                <h1 id="下载osapi">下载osapi</h1>
+<p><a href="https://wws.lanzous.com/iLLplgu3aih">下载地址</a></p>
+<h1 id="导入osapi">导入osapi</h1>
 <ul>
 <li>
-<p>左值：占据内存中某个地址的对象</p>
+<p>Visual Studio版本：Visual Studio Community 2019 16.7.3</p>
 </li>
 <li>
-<p>右值：没有占据内存中某个地址的对象，即：只存在于计算过程中的某个临时寄存器中</p>
+<p>新建项目</p>
+<figure data-type="image" tabindex="1"><img src="https://dr526.github.io//post-images/1600743246078.png" alt="1" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://dr526.github.io//post-images/1600743264763.png" alt="2" loading="lazy"></figure>
 </li>
 <li>
-<p>左值能够进行赋值操作，而右值不能，因为右值没有与之对应的内存存储数据</p>
-</li>
-<li>
-<p>例如：</p>
-<pre><code class="language-c++">int foo(){return 2;}//#func1
-int&amp; foo(){int* a=new int;return *a;}//#func2
-int main(){
-    foo()=2;
-}
-</code></pre>
-<p>当调用的函数是#func1时，由于#func1返回的值是一个临时值，不会占据内存某个地址，因此是一个右值，所以无法进行赋值操作，编译器会报错。而#func2则相反</p>
-</li>
-</ul>
-<h1 id="前加与后加">前加与后加</h1>
-<ul>
-<li>
-<p>前加：变量先进行加1运算，再返回加1运算后的<strong>左值</strong></p>
-</li>
-<li>
-<p>后加：将变量取一个副本，自己调用前加进行加1运算，并将副本作为<strong>右值</strong>返回，即：后加返回的是<strong>未进行加1运算的左值</strong></p>
-</li>
-<li>
-<p>例如：</p>
-<pre><code class="language-c++">++i=3;//正确
-i++=3;//错误，不能对右值进行赋值操作
-</code></pre>
+<p>导入osapi</p>
+<figure data-type="image" tabindex="3"><img src="https://dr526.github.io//post-images/1600743295195.png" alt="1" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://dr526.github.io//post-images/1600743309483.png" alt="2" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://dr526.github.io//post-images/1600743330514.png" alt="3" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://dr526.github.io//post-images/1600743342995.png" alt="4" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://dr526.github.io//post-images/1600743368836.png" alt="5" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://dr526.github.io//post-images/1600743416571.png" alt="6" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://dr526.github.io//post-images/1600743440162.png" alt="7" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://dr526.github.io//post-images/1600743454254.png" alt="8" loading="lazy"></figure>
 </li>
 </ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/czhong-de-0nullnullptr/">
-                    c++中的0、NULL、nullptr
-                </a>
-            </div>
-            
             
             <div class="next-post">
                 下一篇
-                <a href="https://dr526.github.io/post/typora-makedown-yu-fa/">
-                    typora——Makedown语法
+                <a href="https://dr526.github.io/post/electron-de-shi-yong-1/">
+                    Electron的使用(1)
                 </a>
             </div>
             
@@ -443,8 +430,8 @@ i++=3;//错误，不能对右值进行赋值操作
                 </div>
                 <div class="toc-container">
                     <ul class="markdownIt-TOC">
-<li><a href="#%E5%B7%A6%E5%80%BC%E4%B8%8E%E5%8F%B3%E5%80%BC">左值与右值</a></li>
-<li><a href="#%E5%89%8D%E5%8A%A0%E4%B8%8E%E5%90%8E%E5%8A%A0">前加与后加</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDosapi">下载osapi</a></li>
+<li><a href="#%E5%AF%BC%E5%85%A5osapi">导入osapi</a></li>
 </ul>
 
                 </div>
@@ -542,73 +529,49 @@ i++=3;//错误，不能对右值进行赋值操作
                 <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
             </div>
             <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-20</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-22</div>
                 <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
                 <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
                     
                 </div>
             </div>
             
             <div id="texttitle" style="text-align: center">
-                <h2>c++前加与后加</h2>
+                <h2>导入第三方库—OSAPI</h2>
             </div>
             <div class="text ">
-                <h1 id="左值与右值">左值与右值</h1>
+                <h1 id="下载osapi">下载osapi</h1>
+<p><a href="https://wws.lanzous.com/iLLplgu3aih">下载地址</a></p>
+<h1 id="导入osapi">导入osapi</h1>
 <ul>
 <li>
-<p>左值：占据内存中某个地址的对象</p>
+<p>Visual Studio版本：Visual Studio Community 2019 16.7.3</p>
 </li>
 <li>
-<p>右值：没有占据内存中某个地址的对象，即：只存在于计算过程中的某个临时寄存器中</p>
+<p>新建项目</p>
+<figure data-type="image" tabindex="1"><img src="https://dr526.github.io//post-images/1600743246078.png" alt="1" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://dr526.github.io//post-images/1600743264763.png" alt="2" loading="lazy"></figure>
 </li>
 <li>
-<p>左值能够进行赋值操作，而右值不能，因为右值没有与之对应的内存存储数据</p>
-</li>
-<li>
-<p>例如：</p>
-<pre><code class="language-c++">int foo(){return 2;}//#func1
-int&amp; foo(){int* a=new int;return *a;}//#func2
-int main(){
-    foo()=2;
-}
-</code></pre>
-<p>当调用的函数是#func1时，由于#func1返回的值是一个临时值，不会占据内存某个地址，因此是一个右值，所以无法进行赋值操作，编译器会报错。而#func2则相反</p>
-</li>
-</ul>
-<h1 id="前加与后加">前加与后加</h1>
-<ul>
-<li>
-<p>前加：变量先进行加1运算，再返回加1运算后的<strong>左值</strong></p>
-</li>
-<li>
-<p>后加：将变量取一个副本，自己调用前加进行加1运算，并将副本作为<strong>右值</strong>返回，即：后加返回的是<strong>未进行加1运算的左值</strong></p>
-</li>
-<li>
-<p>例如：</p>
-<pre><code class="language-c++">++i=3;//正确
-i++=3;//错误，不能对右值进行赋值操作
-</code></pre>
+<p>导入osapi</p>
+<figure data-type="image" tabindex="3"><img src="https://dr526.github.io//post-images/1600743295195.png" alt="1" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://dr526.github.io//post-images/1600743309483.png" alt="2" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://dr526.github.io//post-images/1600743330514.png" alt="3" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://dr526.github.io//post-images/1600743342995.png" alt="4" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://dr526.github.io//post-images/1600743368836.png" alt="5" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://dr526.github.io//post-images/1600743416571.png" alt="6" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://dr526.github.io//post-images/1600743440162.png" alt="7" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://dr526.github.io//post-images/1600743454254.png" alt="8" loading="lazy"></figure>
 </li>
 </ul>
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/czhong-de-0nullnullptr/">
-                    c++中的0、NULL、nullptr
-                </a>
-            </div>
-            
             
             <div class="next-post">
                 下一篇
-                <a href="https://dr526.github.io/post/typora-makedown-yu-fa/">
-                    typora——Makedown语法
+                <a href="https://dr526.github.io/post/electron-de-shi-yong-1/">
+                    Electron的使用(1)
                 </a>
             </div>
             

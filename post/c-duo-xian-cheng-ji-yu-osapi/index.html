@@ -1,0 +1,2014 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="线程的调度
+
+所有线程分享CPU
+线程的调度——分时复用
+
+操作系统把CPU时间划分为多个均等的时间片。例如：每5ms一个时间片，在每个时间片内运行一个线程。不同时间片运行不同的线程，让线程在同一段时间段内进行交替运行，即并发
+在系统调度过..." />
+    <meta name="keywords" content="c++" />
+    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://dr526.github.io//media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+    <title>dr526</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
+    <meta name="description" content="十步one code，千里no bug" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://dr526.github.io//images/avatar.png?v=1601906251901" class="avatar">
+        </div>
+        <div class="sitename">dr526</div>
+        <span class="describtion" data-text='["十步one code，千里no bug"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://dr526.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        <a href="https://www.zhihu.com/people/xiao-fen-rui-14" target="_blank"><i><img class="icon"
+                    src="https://dr526.github.io//media/images/zh.png" alt=""></i></a>
+        
+        
+        <a href="https://space.bilibili.com/86884992" target="_blank"><i><img class="icon"
+                    src="https://dr526.github.io//media/images/bilibili.png" alt=""></i></a>
+        
+        
+        
+    </div>
+    <div id="qq" style="display:none">3227438823</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://dr526.github.io//friends" class="menubutton">友人帐</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/02/2020</div>
+    </div>
+</body>
+
+</html>
+<script src="https://dr526.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 15 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
+                        <i class="fa fa-tag"></i> c++
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>c++ 多线程 基于OSAPI</h2>
+            </div>
+            <div class="text ">
+                <h1 id="线程的调度">线程的调度</h1>
+<ul>
+<li>所有线程分享CPU</li>
+<li>线程的调度——<strong>分时复用</strong>
+<ol>
+<li>操作系统把CPU时间划分为多个均等的时间片。例如：每5ms一个时间片，在每个时间片内运行一个线程。不同时间片运行不同的线程，让线程在<strong>同一段时间段</strong>内进行<strong>交替</strong>运行，即<strong>并发</strong></li>
+<li>在系统调度过程中，当线程的时间片用完被切换后，过一段时间会重新接着运行<br>
+主线程不能轻易退出，一旦退出，表示整个程序结束</li>
+</ol>
+</li>
+<li>线程切换
+<ol>
+<li>存储当前线程的状态，并把当前的线程切到后台，进入队列等待</li>
+<li>从队列中取得一个正在排队的线程，运行一个时间片后，再次切换，这个队列称为<strong>候选队列</strong>，表示这里面的线程都希望自己被立刻执行，即：这些线程的各种资源齐全，只差<strong>CPU</strong></li>
+<li>每个线程都要自觉地让出CPU，让别的线程也有机会被运行。</li>
+<li>程序中使用<strong>Sleep()函数</strong>，可以主动让自己的线程<strong>提前让出CPU</strong></li>
+<li>Sleep时间到的时候，该线程并不是被立刻执行，而是进入了候选队列</li>
+<li>不同操作系统从候选队列中挑选下一个线程的方法不同，一般是相同优先级根据到达队列的先后顺序进行排队，优先级高的能够排在更前面</li>
+</ol>
+</li>
+</ul>
+<h1 id="创建一个线程">创建一个线程</h1>
+<ul>
+<li>线程的创建是由操作系统完成的</li>
+<li>基于OSAPI实现</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+using namespace std;
+//定义一个类
+class Buddhist :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &lt; 10; ++i) {
+            cout &lt;&lt; &quot;ma mi ma mi hong\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+class Confucian :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &lt; 100; ++i) {
+            cout &lt;&lt; &quot;人之初，性本善\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+int main()
+{
+    //运行线程
+    Buddhist buddhist;
+    buddhist.Run();
+
+    Confucian confucian;
+    confucian.Run();
+
+    printf(&quot;------主线程开始-------&quot;);
+    for (int i = 0; i &lt; 10; ++i) {
+        cout &lt;&lt; &quot;我是主线程\n&quot;;
+        OS_Thread::Sleep(1);
+    }
+
+    getchar();//防止主线程退出，从而导致其他线程中止
+    return 0;
+}
+</code></pre>
+<h1 id="线程的停止与回收">线程的停止与回收</h1>
+<ul>
+<li>线程的停止</li>
+</ul>
+<ol>
+<li>正常停止<br>
+(1) <em><strong>正常中止的办法</strong>：</em><br>
+a. 设置<strong>标志法</strong><br>
+b. 在线程主函数<strong>Routine()中</strong>，检查标识量，当标识量为true时，应该退出<br>
+c. 线程在处理任务的时候，会不停的检测标识量，及时退出线程。退出的时候，保存当前任务的进度，以便下次继续。或者保存所有其它需要保存的数据<br>
+d. 获取线程正常退出的时间，线程退出也需要时间。使用静态函数Join()来实现，即：<strong>OS_Thread::Join</strong>(&amp;线程对象)函数<br>
+(2) <em><strong>Join函数的作用：</strong></em><br>
+a. <strong>等待</strong>目标线程的退出<br>
+b. <strong>回收</strong>这个线程的相关系统资源<br>
+(3) <em><strong>Join的调用位置：</strong></em><br>
+不能只看字面上的位置，而是要从运行时的角度来看待问题，即：类中只有<strong>Routine</strong>()函数中的那部分才是线程<br>
+<strong>注：不能回收自己，即：在自己的Routine()中调用自己，Join(this)</strong></li>
+<li>异常停止<br>
+主线程（主程序）退出的时候，有线程正在运行，但是所有的线程都会被立刻终止，这种终止是不正常的，因为它可能正在处理某个任务，从而造成了<strong>不完整数据</strong></li>
+</ol>
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+using namespace std;
+
+
+class MyTask :public OS_Thread {
+public:
+    void Start() {
+        m_quitflag = false;
+        Run();
+    }
+    void Stop() {
+        m_quitflag = true;
+        Join(this);//没有在Routine()中，没有让线程自己调用自己
+    }
+private:
+    virtual int Routine() {
+        for (int i = 0; !this-&gt;m_quitflag&amp;&amp;i &lt; 10; ++i) {
+            cout &lt;&lt; &quot;c++最榜\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        cout &lt;&lt; &quot;线程退出\n&quot;;//正常退出
+        //保存数据
+        return 0;
+    }
+private:
+    bool m_quitflag;
+};
+
+int main()
+{
+    MyTask task;
+    task.Start();
+    getchar();//不让主程序退出
+    task.Stop();
+    return 0;
+}
+</code></pre>
+<h1 id="线程间共享数据-互斥锁">线程间共享数据、互斥锁</h1>
+<ul>
+<li>共享数据（生命周期长）的种类<br>
+全局对象<br>
+堆对象（动态创建的对象，即：new)</li>
+<li>数据的完整性<br>
+定义：定义一个数组char key[16]，规定：key的每一个元素的值都必须<strong>相等</strong>，否则视为不完整的<br>
+例如，key[0],key[1],……,key[15]的值全为100<br>
+两个线程：<br>
+KeyGenerator：定时生成key，更新key，即：写操作<br>
+KeyChecker：获取key,检验其完整性，即：读操作<br>
+数据不完整性的根本原因：<strong>线程在运行时，可能会在任意位置被切换。</strong></li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+char g_key[16];//Generator更新，Checker获取
+OS_Mutex g_mutex;
+
+class KeyGenerator :public OS_Thread {
+private:
+    virtual int Routine() {
+        int times = 0;
+        while (!quit_flag) {
+            //更新key
+            char key_new[16];
+            for (int i = 0; i &lt; 16; ++i) {
+                OS_Thread::Msleep(5);
+                key_new[i] = times;
+            }
+            g_mutex.Lock();
+            memcpy(g_key, key_new, 16);
+            g_mutex.Unlock();
+            ++times;
+            if (times &gt;= 128)times = 0;
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+class KeyChecker :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            char key_copy[16];
+            g_mutex.Lock();
+            memcpy(key_copy, g_key, 16);
+            g_mutex.Unlock();
+            for (int i = 1; i &lt; 16; ++i) {
+                if (key_copy[i] != key_copy[i - 1]) {
+                    cout &lt;&lt; &quot;不完整!!\n&quot;;
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    KeyGenerator a;
+    a.Start();
+    KeyChecker b;
+    b.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<ul>
+<li>互斥锁——<strong>系统资源</strong></li>
+</ul>
+<ol>
+<li>c++一般称为<strong>Mutex</strong>，Java里则一般称为Lock</li>
+<li>定义：<br>
+当多个线程<strong>同时访问一块内存</strong>，就有可能出现的数据不完整性的问题，此时我们需要一种机制来“<strong>同步</strong>”各线程对它的访问。（所谓“同步”，是指协调、安排，使之步调一致），这种机制就是“<strong>互斥锁</strong>”机制</li>
+<li>使用：<br>
+在访问共享数据之前，先获取Mutex<br>
+在访问完毕后，释放Mutex</li>
+<li>机制：<br>
+在一个线程获取Mutex之后，另外一个线程的Mutex操作会<strong>阻塞</strong>，直到该Mutex被释放后<br>
+使用模式<br>
+创建全局对象，或者堆对象（动态创建的对象）</li>
+</ol>
+<pre><code class="language-cpp">char g_data[128];//共享数据
+OS_Mutex g_mutex;
+</code></pre>
+<p>在线程中要访问共享数据，必须要先获取锁</p>
+<pre><code class="language-cpp">g_mutex.Lock();//此函数会进行阻塞，一直等待拥有锁
+for(int i=0;i&lt;128;++i) g_data[i]=i;
+g_mutex.Unlock();//释放锁
+</code></pre>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+
+#include &quot;osapi/osapi.h&quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 更新key
+			g_mutex.Lock();
+			for(int i=0; i&lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				g_key[i] = times;
+			}
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 数据处理
+			// 检查完整性
+			g_mutex.Lock();
+			for(int i=1; i&lt;16; i++)
+			{
+				if(g_key[i] != g_key[i-1])
+				{
+					printf(&quot;不完整!!\n&quot;);
+					PrintKey();
+					//return 0;
+				}
+			}
+			g_mutex.Unlock();
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		printf(&quot;Key: &quot;);
+		for(int i=0; i&lt;16; i++)
+			printf(&quot;%02X &quot;, g_key[i]);					
+		printf(&quot;\n&quot;);
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+</code></pre>
+<ol start="5">
+<li>使用原则<br>
+当一个线程占有锁时，应该尽快地完成对共享数据的访问，因为别的线程还在等待这个锁<br>
+一般策略：直接把数据<strong>拷贝</strong>一份出来，然后再做处理（假设处理数据需要较长的时间）<br>
+例如：让处理线程处理拷贝的那一份，然后再获取锁，将处理完的数据拷贝回去。<strong>尽量缩短锁的占有时间</strong></li>
+</ol>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include &quot;osapi/osapi.h&quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 生成key: 需要80ms
+			char key_new[16];			
+			for(int i=0; i&lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				key_new[i] = times;
+			}
+
+			// 更新key: 占有锁的时间非常短
+			g_mutex.Lock();
+			memcpy(g_key, key_new, 16);
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 尽量缩短对共享数据的访问时间
+			char copy[16];
+			g_mutex.Lock();
+			memcpy(copy, g_key, 16);
+			g_mutex.Unlock();
+
+			// 数据处理
+			// 检查完整性			
+			for(int i=1; i&lt;16; i++)
+			{
+				if(copy[i] != copy[i-1])
+				{
+					std::cout&lt;&lt;&quot;不完整性\n&quot;;
+					PrintKey();
+					//return 0;
+				}
+			}			
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		std::cout&lt;&lt;&quot;Key: \n&quot;;
+		for(int i=0; i&lt;16; i++)
+			printf(&quot;%02X &quot;, g_key[i]);					
+		std::cout&lt;&lt;&quot;\n&quot;;
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+
+</code></pre>
+<h1 id="线程安全的函数">线程安全的函数</h1>
+<ul>
+<li><strong>可重入</strong>（reentrant)的函数，又称为线程安全（thread safe)的函数<br>
+是指一个函数，在多个线程里同时调用（<strong>并发调用</strong>）的时候，<strong>功能仍然正常</strong></li>
+<li>判断函数可重入</li>
+</ul>
+<ol>
+<li>在单线程的情况下，该函数表现正常，如果单线程不行，说明函数写错了</li>
+<li>在多线程并发调用此函数时，该函数仍然表现正常，则称该函数是可重入</li>
+</ol>
+<ul>
+<li>以下函数很可能不可重入</li>
+</ul>
+<ol>
+<li>一个全局函数（写在类体之外的函数），如果它借助于全局对象来实现，并且有写的操作，那么就是不可重入的</li>
+<li>一个类的成员函数，它访问并修改了成员变量，纳闷一般情况下他就是不可重入的</li>
+</ol>
+<ul>
+<li>将不可重入的函数修改为可重入的</li>
+</ul>
+<ol>
+<li>不借助外部变量来实现</li>
+<li>尽量用本函数内部定义的局部变量来实现。或者在本函数内部动态创建对象，并在退出前进行销毁</li>
+<li>加上互斥锁控制</li>
+</ol>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+int result;
+OS_Mutex g_mutex;
+//求和：1+2+3……+n
+int sum(int n) {
+    g_mutex.Lock();
+    result=0;
+    for (int i = 1; i &lt;= n; ++i) {
+        result += i;
+    }
+    int r = result;
+    g_mutex.Unlock();
+    return r;
+}
+
+class MyTask :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int ret = sum(100);
+            //cout &lt;&lt; &quot;ret=&quot; &lt;&lt; ret &lt;&lt; endl;
+            if (ret != 5050)cout &lt;&lt; &quot;ret=&quot; &lt;&lt; ret &lt;&lt; endl;
+            OS_Thread::Msleep(5);
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+int main()
+{
+    MyTask task1, task2;
+    task1.Start();
+    task2.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<h1 id="线程间的通知机制信号量">线程间的通知机制，信号量</h1>
+<ul>
+<li>轮询机制：每隔一定的时间，查询一次<br>
+缺点：查询不能太频繁（浪费CPU），也不能太不频繁（缓冲区满），难以把握。性能不佳<br>
+标志：有Sleep</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &lt;&lt; &quot;放入物品：&quot; &lt;&lt; r &lt;&lt; endl;
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        //轮询机制：频繁地查询当前物品个数
+        while (!quit_flag) {
+            OS_Thread::Msleep(50);
+            g_mutex.Lock();
+            if (g_count &gt; 0) {
+                for (int i = 0; i &lt; g_count; ++i) {
+                    cout &lt;&lt; &quot;消耗物品：&quot; &lt;&lt; g_buf[i] &lt;&lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<ul>
+<li>通知机制<br>
+信号量：<strong>Semaphore</strong>，用于实现线程间的通信机制（和Mutex一样，是一个<strong>系统级对象</strong>）<br>
+使用</li>
+</ul>
+<pre><code class="language-cpp">//定义一个信号量，并将内部的值置为0
+OS_Semaphore g_sem（0）;
+//第一个线程通知,信号量内部的值加1
+g_sem.Post();
+//第二个线程等待通知，信号量的值减1，如果信号量的值为0，线程进行等待
+g_sem.Wait();
+//超时等待
+int ret=g_sem.Wait(1000); //单位为毫秒
+if(ret!=0){ //如果返回值不为0，表明已经超时
+	//超时处理
+}
+线程在等待信号的时候，是不占cpu的，相当于被阻塞的状态
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+OS_Semaphore g_sem(0);
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &lt;&lt; &quot;放入物品：&quot; &lt;&lt; r &lt;&lt; endl;
+            g_mutex.Unlock();
+            g_sem.Post();//把信号量的值加1
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            g_sem.Wait();
+            g_mutex.Lock();
+            if (g_count &gt; 0) {
+                for (int i = 0; i &lt; g_count; ++i) {
+                    cout &lt;&lt; &quot;消耗物品：&quot; &lt;&lt; g_buf[i] &lt;&lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/">
+                    操作系统导论（1）
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/wang-luo-ji-yu-osapi/">
+                    网络—基于OSAPI
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            
+                            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li><a href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6">线程的调度</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B">创建一个线程</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%81%9C%E6%AD%A2%E4%B8%8E%E5%9B%9E%E6%94%B6">线程的停止与回收</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE-%E4%BA%92%E6%96%A5%E9%94%81">线程间共享数据、互斥锁</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%87%BD%E6%95%B0">线程安全的函数</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%E4%BF%A1%E5%8F%B7%E9%87%8F">线程间的通知机制，信号量</a></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">dr526&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://dr526.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 15 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
+                        <i class="fa fa-tag"></i> c++
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>c++ 多线程 基于OSAPI</h2>
+            </div>
+            <div class="text ">
+                <h1 id="线程的调度">线程的调度</h1>
+<ul>
+<li>所有线程分享CPU</li>
+<li>线程的调度——<strong>分时复用</strong>
+<ol>
+<li>操作系统把CPU时间划分为多个均等的时间片。例如：每5ms一个时间片，在每个时间片内运行一个线程。不同时间片运行不同的线程，让线程在<strong>同一段时间段</strong>内进行<strong>交替</strong>运行，即<strong>并发</strong></li>
+<li>在系统调度过程中，当线程的时间片用完被切换后，过一段时间会重新接着运行<br>
+主线程不能轻易退出，一旦退出，表示整个程序结束</li>
+</ol>
+</li>
+<li>线程切换
+<ol>
+<li>存储当前线程的状态，并把当前的线程切到后台，进入队列等待</li>
+<li>从队列中取得一个正在排队的线程，运行一个时间片后，再次切换，这个队列称为<strong>候选队列</strong>，表示这里面的线程都希望自己被立刻执行，即：这些线程的各种资源齐全，只差<strong>CPU</strong></li>
+<li>每个线程都要自觉地让出CPU，让别的线程也有机会被运行。</li>
+<li>程序中使用<strong>Sleep()函数</strong>，可以主动让自己的线程<strong>提前让出CPU</strong></li>
+<li>Sleep时间到的时候，该线程并不是被立刻执行，而是进入了候选队列</li>
+<li>不同操作系统从候选队列中挑选下一个线程的方法不同，一般是相同优先级根据到达队列的先后顺序进行排队，优先级高的能够排在更前面</li>
+</ol>
+</li>
+</ul>
+<h1 id="创建一个线程">创建一个线程</h1>
+<ul>
+<li>线程的创建是由操作系统完成的</li>
+<li>基于OSAPI实现</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+using namespace std;
+//定义一个类
+class Buddhist :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &lt; 10; ++i) {
+            cout &lt;&lt; &quot;ma mi ma mi hong\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+class Confucian :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &lt; 100; ++i) {
+            cout &lt;&lt; &quot;人之初，性本善\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+int main()
+{
+    //运行线程
+    Buddhist buddhist;
+    buddhist.Run();
+
+    Confucian confucian;
+    confucian.Run();
+
+    printf(&quot;------主线程开始-------&quot;);
+    for (int i = 0; i &lt; 10; ++i) {
+        cout &lt;&lt; &quot;我是主线程\n&quot;;
+        OS_Thread::Sleep(1);
+    }
+
+    getchar();//防止主线程退出，从而导致其他线程中止
+    return 0;
+}
+</code></pre>
+<h1 id="线程的停止与回收">线程的停止与回收</h1>
+<ul>
+<li>线程的停止</li>
+</ul>
+<ol>
+<li>正常停止<br>
+(1) <em><strong>正常中止的办法</strong>：</em><br>
+a. 设置<strong>标志法</strong><br>
+b. 在线程主函数<strong>Routine()中</strong>，检查标识量，当标识量为true时，应该退出<br>
+c. 线程在处理任务的时候，会不停的检测标识量，及时退出线程。退出的时候，保存当前任务的进度，以便下次继续。或者保存所有其它需要保存的数据<br>
+d. 获取线程正常退出的时间，线程退出也需要时间。使用静态函数Join()来实现，即：<strong>OS_Thread::Join</strong>(&amp;线程对象)函数<br>
+(2) <em><strong>Join函数的作用：</strong></em><br>
+a. <strong>等待</strong>目标线程的退出<br>
+b. <strong>回收</strong>这个线程的相关系统资源<br>
+(3) <em><strong>Join的调用位置：</strong></em><br>
+不能只看字面上的位置，而是要从运行时的角度来看待问题，即：类中只有<strong>Routine</strong>()函数中的那部分才是线程<br>
+<strong>注：不能回收自己，即：在自己的Routine()中调用自己，Join(this)</strong></li>
+<li>异常停止<br>
+主线程（主程序）退出的时候，有线程正在运行，但是所有的线程都会被立刻终止，这种终止是不正常的，因为它可能正在处理某个任务，从而造成了<strong>不完整数据</strong></li>
+</ol>
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+
+using namespace std;
+
+
+class MyTask :public OS_Thread {
+public:
+    void Start() {
+        m_quitflag = false;
+        Run();
+    }
+    void Stop() {
+        m_quitflag = true;
+        Join(this);//没有在Routine()中，没有让线程自己调用自己
+    }
+private:
+    virtual int Routine() {
+        for (int i = 0; !this-&gt;m_quitflag&amp;&amp;i &lt; 10; ++i) {
+            cout &lt;&lt; &quot;c++最榜\n&quot;;
+            OS_Thread::Sleep(1);
+        }
+        cout &lt;&lt; &quot;线程退出\n&quot;;//正常退出
+        //保存数据
+        return 0;
+    }
+private:
+    bool m_quitflag;
+};
+
+int main()
+{
+    MyTask task;
+    task.Start();
+    getchar();//不让主程序退出
+    task.Stop();
+    return 0;
+}
+</code></pre>
+<h1 id="线程间共享数据-互斥锁">线程间共享数据、互斥锁</h1>
+<ul>
+<li>共享数据（生命周期长）的种类<br>
+全局对象<br>
+堆对象（动态创建的对象，即：new)</li>
+<li>数据的完整性<br>
+定义：定义一个数组char key[16]，规定：key的每一个元素的值都必须<strong>相等</strong>，否则视为不完整的<br>
+例如，key[0],key[1],……,key[15]的值全为100<br>
+两个线程：<br>
+KeyGenerator：定时生成key，更新key，即：写操作<br>
+KeyChecker：获取key,检验其完整性，即：读操作<br>
+数据不完整性的根本原因：<strong>线程在运行时，可能会在任意位置被切换。</strong></li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+char g_key[16];//Generator更新，Checker获取
+OS_Mutex g_mutex;
+
+class KeyGenerator :public OS_Thread {
+private:
+    virtual int Routine() {
+        int times = 0;
+        while (!quit_flag) {
+            //更新key
+            char key_new[16];
+            for (int i = 0; i &lt; 16; ++i) {
+                OS_Thread::Msleep(5);
+                key_new[i] = times;
+            }
+            g_mutex.Lock();
+            memcpy(g_key, key_new, 16);
+            g_mutex.Unlock();
+            ++times;
+            if (times &gt;= 128)times = 0;
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+class KeyChecker :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            char key_copy[16];
+            g_mutex.Lock();
+            memcpy(key_copy, g_key, 16);
+            g_mutex.Unlock();
+            for (int i = 1; i &lt; 16; ++i) {
+                if (key_copy[i] != key_copy[i - 1]) {
+                    cout &lt;&lt; &quot;不完整!!\n&quot;;
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    KeyGenerator a;
+    a.Start();
+    KeyChecker b;
+    b.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<ul>
+<li>互斥锁——<strong>系统资源</strong></li>
+</ul>
+<ol>
+<li>c++一般称为<strong>Mutex</strong>，Java里则一般称为Lock</li>
+<li>定义：<br>
+当多个线程<strong>同时访问一块内存</strong>，就有可能出现的数据不完整性的问题，此时我们需要一种机制来“<strong>同步</strong>”各线程对它的访问。（所谓“同步”，是指协调、安排，使之步调一致），这种机制就是“<strong>互斥锁</strong>”机制</li>
+<li>使用：<br>
+在访问共享数据之前，先获取Mutex<br>
+在访问完毕后，释放Mutex</li>
+<li>机制：<br>
+在一个线程获取Mutex之后，另外一个线程的Mutex操作会<strong>阻塞</strong>，直到该Mutex被释放后<br>
+使用模式<br>
+创建全局对象，或者堆对象（动态创建的对象）</li>
+</ol>
+<pre><code class="language-cpp">char g_data[128];//共享数据
+OS_Mutex g_mutex;
+</code></pre>
+<p>在线程中要访问共享数据，必须要先获取锁</p>
+<pre><code class="language-cpp">g_mutex.Lock();//此函数会进行阻塞，一直等待拥有锁
+for(int i=0;i&lt;128;++i) g_data[i]=i;
+g_mutex.Unlock();//释放锁
+</code></pre>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+
+#include &quot;osapi/osapi.h&quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 更新key
+			g_mutex.Lock();
+			for(int i=0; i&lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				g_key[i] = times;
+			}
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 数据处理
+			// 检查完整性
+			g_mutex.Lock();
+			for(int i=1; i&lt;16; i++)
+			{
+				if(g_key[i] != g_key[i-1])
+				{
+					printf(&quot;不完整!!\n&quot;);
+					PrintKey();
+					//return 0;
+				}
+			}
+			g_mutex.Unlock();
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		printf(&quot;Key: &quot;);
+		for(int i=0; i&lt;16; i++)
+			printf(&quot;%02X &quot;, g_key[i]);					
+		printf(&quot;\n&quot;);
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+</code></pre>
+<ol start="5">
+<li>使用原则<br>
+当一个线程占有锁时，应该尽快地完成对共享数据的访问，因为别的线程还在等待这个锁<br>
+一般策略：直接把数据<strong>拷贝</strong>一份出来，然后再做处理（假设处理数据需要较长的时间）<br>
+例如：让处理线程处理拷贝的那一份，然后再获取锁，将处理完的数据拷贝回去。<strong>尽量缩短锁的占有时间</strong></li>
+</ol>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include &quot;osapi/osapi.h&quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 生成key: 需要80ms
+			char key_new[16];			
+			for(int i=0; i&lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				key_new[i] = times;
+			}
+
+			// 更新key: 占有锁的时间非常短
+			g_mutex.Lock();
+			memcpy(g_key, key_new, 16);
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 尽量缩短对共享数据的访问时间
+			char copy[16];
+			g_mutex.Lock();
+			memcpy(copy, g_key, 16);
+			g_mutex.Unlock();
+
+			// 数据处理
+			// 检查完整性			
+			for(int i=1; i&lt;16; i++)
+			{
+				if(copy[i] != copy[i-1])
+				{
+					std::cout&lt;&lt;&quot;不完整性\n&quot;;
+					PrintKey();
+					//return 0;
+				}
+			}			
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		std::cout&lt;&lt;&quot;Key: \n&quot;;
+		for(int i=0; i&lt;16; i++)
+			printf(&quot;%02X &quot;, g_key[i]);					
+		std::cout&lt;&lt;&quot;\n&quot;;
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+
+</code></pre>
+<h1 id="线程安全的函数">线程安全的函数</h1>
+<ul>
+<li><strong>可重入</strong>（reentrant)的函数，又称为线程安全（thread safe)的函数<br>
+是指一个函数，在多个线程里同时调用（<strong>并发调用</strong>）的时候，<strong>功能仍然正常</strong></li>
+<li>判断函数可重入</li>
+</ul>
+<ol>
+<li>在单线程的情况下，该函数表现正常，如果单线程不行，说明函数写错了</li>
+<li>在多线程并发调用此函数时，该函数仍然表现正常，则称该函数是可重入</li>
+</ol>
+<ul>
+<li>以下函数很可能不可重入</li>
+</ul>
+<ol>
+<li>一个全局函数（写在类体之外的函数），如果它借助于全局对象来实现，并且有写的操作，那么就是不可重入的</li>
+<li>一个类的成员函数，它访问并修改了成员变量，纳闷一般情况下他就是不可重入的</li>
+</ol>
+<ul>
+<li>将不可重入的函数修改为可重入的</li>
+</ul>
+<ol>
+<li>不借助外部变量来实现</li>
+<li>尽量用本函数内部定义的局部变量来实现。或者在本函数内部动态创建对象，并在退出前进行销毁</li>
+<li>加上互斥锁控制</li>
+</ol>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+int result;
+OS_Mutex g_mutex;
+//求和：1+2+3……+n
+int sum(int n) {
+    g_mutex.Lock();
+    result=0;
+    for (int i = 1; i &lt;= n; ++i) {
+        result += i;
+    }
+    int r = result;
+    g_mutex.Unlock();
+    return r;
+}
+
+class MyTask :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int ret = sum(100);
+            //cout &lt;&lt; &quot;ret=&quot; &lt;&lt; ret &lt;&lt; endl;
+            if (ret != 5050)cout &lt;&lt; &quot;ret=&quot; &lt;&lt; ret &lt;&lt; endl;
+            OS_Thread::Msleep(5);
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+int main()
+{
+    MyTask task1, task2;
+    task1.Start();
+    task2.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<h1 id="线程间的通知机制信号量">线程间的通知机制，信号量</h1>
+<ul>
+<li>轮询机制：每隔一定的时间，查询一次<br>
+缺点：查询不能太频繁（浪费CPU），也不能太不频繁（缓冲区满），难以把握。性能不佳<br>
+标志：有Sleep</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &lt;&lt; &quot;放入物品：&quot; &lt;&lt; r &lt;&lt; endl;
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        //轮询机制：频繁地查询当前物品个数
+        while (!quit_flag) {
+            OS_Thread::Msleep(50);
+            g_mutex.Lock();
+            if (g_count &gt; 0) {
+                for (int i = 0; i &lt; g_count; ++i) {
+                    cout &lt;&lt; &quot;消耗物品：&quot; &lt;&lt; g_buf[i] &lt;&lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+<ul>
+<li>通知机制<br>
+信号量：<strong>Semaphore</strong>，用于实现线程间的通信机制（和Mutex一样，是一个<strong>系统级对象</strong>）<br>
+使用</li>
+</ul>
+<pre><code class="language-cpp">//定义一个信号量，并将内部的值置为0
+OS_Semaphore g_sem（0）;
+//第一个线程通知,信号量内部的值加1
+g_sem.Post();
+//第二个线程等待通知，信号量的值减1，如果信号量的值为0，线程进行等待
+g_sem.Wait();
+//超时等待
+int ret=g_sem.Wait(1000); //单位为毫秒
+if(ret!=0){ //如果返回值不为0，表明已经超时
+	//超时处理
+}
+线程在等待信号的时候，是不占cpu的，相当于被阻塞的状态
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include&quot;osapi/osapi.h&quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+OS_Semaphore g_sem(0);
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &lt;&lt; &quot;放入物品：&quot; &lt;&lt; r &lt;&lt; endl;
+            g_mutex.Unlock();
+            g_sem.Post();//把信号量的值加1
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            g_sem.Wait();
+            g_mutex.Lock();
+            if (g_count &gt; 0) {
+                for (int i = 0; i &lt; g_count; ++i) {
+                    cout &lt;&lt; &quot;消耗物品：&quot; &lt;&lt; g_buf[i] &lt;&lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+</code></pre>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/">
+                    操作系统导论（1）
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://dr526.github.io/post/wang-luo-ji-yu-osapi/">
+                    网络—基于OSAPI
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+                
+                
+                
+            </div>
+        </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://dr526.github.io//media/js/post.js"></script>
+
+<script type="text/javascript">
+    var message_Path = '/live2d/'
+    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
+</script>
+<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/message.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "https://dr526.github.io//media/live2d/assets/tororo.model.json");
+</script>

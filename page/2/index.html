@@ -1,122 +1,3226 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="十步one code，千里no bug">
+<meta name="theme-color" content="#000">
 <title>dr526</title>
-<link rel="shortcut icon" href="https://dr526.github.io//favicon.ico?v=1602046645180">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
+<link rel="shortcut icon" href="/favicon.ico?v=1602047641580">
+<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link href="/media/hljs/styles/default.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
 
 
 
-  </head>
-  <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://dr526.github.io/">
-  <img class="avatar" src="https://dr526.github.io//images/avatar.png?v=1602046645180" alt="">
-  </a>
-  <h1 class="site-title">
-    dr526
-  </h1>
-  <p class="site-description">
-    十步one code，千里no bug
-  </p>
-  <div class="menu-container">
+
+
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
     
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
+<div class="gemini">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>dr526</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">精于心，简于形</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
 </div>
 
-    
-        <div class="post-container">
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
   
-    <article class="post">
-      <a href="https://dr526.github.io/post/typora-makedown-yu-fa/">
-        <h2 class="post-title">typora——Makedown语法</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2020-07-25 ·
-        </time>
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout gemini ">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">适用 Gemini,Pisces 布局,版权说明需配置</p>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
         
-          <a href="https://dr526.github.io/tag/QPgTARvpJ/" class="post-tag">
-            # 额外
+        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box gemini">
+          <section class="section  posts-expand slide-down-in">
+            
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://dr526.github.io/post/typora-makedown-yu-fa/">
+      typora——Makedown语法
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-07-25 21:45:04">2020-07-25</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://dr526.github.io/tag/QPgTARvpJ/">
+        <span>额外</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>152<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><h3 id="标题">标题</h3>
+<p>“#”+“ ”+标题名字<br>
+共有6级标题，‘#’个数代表级数</p>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://dr526.github.io/post/typora-makedown-yu-fa/" rel="contents">
+            阅读全文 »
           </a>
+        </div>
         
       </div>
       
-        <a href="https://dr526.github.io/post/typora-makedown-yu-fa/" class="post-feature-image" style="background-image: url('https://dr526.github.io//post-images/typora-makedown-yu-fa.jpg')">
+    </div>
+  </article>
+  
+            
+            
+<div class="page bg-color">
+  <ul class="pagination-ul">
+    
+      <li class="pagination-dir">
+        <a href="https://dr526.github.io/">
+          <i class="fa fa-angle-left"></i>
         </a>
+      </li>
+    
+    
       
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-</div>
-
+        <li class="pagination-li ">
+            <a href="/page/../">
+              1
+            </a>
+        </li>
+      
+        <li class="pagination-li pagination-active">
+            <a href="/page/2">
+              2
+            </a>
+        </li>
+      
     
-        <div class="pagination-container">
-  
-    <a href="https://dr526.github.io/" class="prev-page">上一页</a>
-  
-  
-</div>
-
     
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://dr526.github.io//atom.xml" target="_blank">RSS</a>
+  </ul>
 </div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
+          </section>
+        </div>
       </div>
     </div>
-  </body>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = "";
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+  </div>
+</body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/cshi-xian-duo-xian-cheng-xia-zai-qi/"" data-c="
+          &lt;h1 id=&#34;多线程下载原理&#34;&gt;多线程下载原理&lt;/h1&gt;
+&lt;p&gt;对于一个指定长度的文件F，假如它的长度为L，若需要n个线程来来下载。有两种情况需要考虑：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当L%n==0时&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20201005112348276.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当L%n!=0时&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20201005112406979.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;注：由于各个线程都是下载文件的不同部分，那么它们请求的时候就该请求文件的不同部分，即：使用http协议中的&lt;strong&gt;范围请求&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;开发环境配置&#34;&gt;开发环境配置&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;开发工具：Visual Studio Community 2019 16.7.3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第三方库：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;libcurl（curl-7.72.0)&lt;/p&gt;
+&lt;p&gt;配置参考：&lt;a href=&#34;https://blog.csdn.net/wanghualin033/article/details/78234474&#34;&gt;libcurl库源码编译，安装c++_wanghualin033的博客-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我已经编译完成，需要自取：https://wws.lanzous.com/iKOU7h6o4ri&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;osapi&lt;/p&gt;
+&lt;p&gt;配置参考：&lt;a href=&#34;https://blog.csdn.net/qq_43326744/article/details/108760582&#34;&gt;c++导入第三方库_qq_43326744的博客-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href=&#34;https://wws.lanzous.com/iLLplgu3aih&#34;&gt;osapi.rar - 蓝奏云 (lanzous.com)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;程序设计&#34;&gt;程序设计&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;完整项目下载地址：&lt;a href=&#34;https://wws.lanzous.com/ifRHPh6p8cd&#34;&gt;下载&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主要框架图&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20201005112538843.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主线程&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获取文件长度&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+    要下载文件的大小
+**/
+long getDownloadFileLenth(const char* url)
+{
+    double downloadFileLenth = 0;
+    CURL* handle = curl_easy_init();
+    curl_easy_setopt(handle, CURLOPT_URL, url);
+    curl_easy_setopt(handle, CURLOPT_HEADER, 1);	//只需要header头
+    curl_easy_setopt(handle, CURLOPT_NOBODY, 1);	//不需要body
+    if (curl_easy_perform(handle) == CURLE_OK)
+    {
+        curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &amp;amp;downloadFileLenth);
+    }
+    else
+    {
+        downloadFileLenth = -1;
+    }
+    return downloadFileLenth;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线程分配&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;       long fileLength = getDownloadFileLenth(url);
+        long partSize = fileLength / threadNum;
+        //计算每个线程负责的大小
+        for (int i = 0; i &amp;lt;= threadNum; ++i) {
+            tNode* tnode = new tNode;
+            if (i &amp;lt; threadNum) {
+                tnode-&amp;gt;startPos = i * partSize;
+                tnode-&amp;gt;endPos = (i + 1) * partSize - 1;
+            }
+            else {
+                if (fileLength % threadNum != 0) {
+                    tnode-&amp;gt;startPos = i * partSize;
+                    tnode-&amp;gt;endPos = fileLength - 1;
+                }
+                else
+                    break;
+            }
+            tnode-&amp;gt;curl = curl_easy_init();
+            tnode-&amp;gt;fp = fp;
+            tnode-&amp;gt;id = i;
+            downLoad(url, tnode);
+            DownThread* task = new DownThread(tnode);
+            task-&amp;gt;start();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+    文件下载的准备工作
+**/
+void downLoad(char* url,tNode* tnode) {
+    char progress_data[3] = &amp;quot;* &amp;quot;;
+    char range[64] = { 0 };
+    snprintf(range, sizeof(range), &amp;quot;%ld-%ld&amp;quot;, tnode-&amp;gt;startPos, tnode-&amp;gt;endPos);
+    if (tnode-&amp;gt;curl)
+    {
+        //设置请求路径
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_URL, url);
+
+        //允许跳转
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_FOLLOWLOCATION, 1);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+
+        //写入文件
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_WRITEDATA, tnode);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_WRITEFUNCTION, curlWriteFunction);
+
+        //设置进度回调
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_NOPROGRESS, FALSE);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_PROGRESSFUNCTION, my_progress_func);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_PROGRESSDATA, &amp;amp;tnode-&amp;gt;id);
+
+        //设置范围请求
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_NOSIGNAL, 1L);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_LOW_SPEED_LIMIT, 1L);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_LOW_SPEED_TIME, 5L);
+        curl_easy_setopt(tnode-&amp;gt;curl, CURLOPT_RANGE, range);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+    将数据写入文件中
+**/
+size_t curlWriteFunction(void* ptr, size_t size, size_t nmemb, tNode* tnode)
+{
+    //ptr指向待下载数据，size为被写入每个元素的大小，大小为字节，nmemb是元素个数，大小为size字节
+    size_t written = 0;
+    mutex.Lock();
+    if (tnode-&amp;gt;startPos + size * nmemb &amp;lt;= tnode-&amp;gt;endPos) {
+        fseek(tnode-&amp;gt;fp, tnode-&amp;gt;startPos, SEEK_SET);
+        written = fwrite(ptr, size, nmemb, tnode-&amp;gt;fp);
+        tnode-&amp;gt;startPos += size * nmemb;
+    }
+    else {
+        fseek(tnode-&amp;gt;fp, tnode-&amp;gt;startPos, SEEK_SET);
+        written = fwrite(ptr, 1, tnode-&amp;gt;endPos - tnode-&amp;gt;startPos + 1, tnode-&amp;gt;fp);
+        tnode-&amp;gt;startPos = tnode-&amp;gt;endPos;
+    }
+    mutex.Unlock();
+    return written;
+}
+
+/**
+    显示文件下载进度
+**/
+int my_progress_func(int* progress_data,
+    double t, /* 下载数据大小 */
+    double d, /* 当前已经下载大小 */
+    double ultotal,
+    double ulnow)
+{
+    printf_s(&amp;quot;当前线程为：%d %g / %g (%g %%)\n&amp;quot;, *progress_data, d, t, d * 100.0 / t);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载线程&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#pragma once
+#include&amp;quot;osapi/osapi.h&amp;quot;
+#include&amp;quot;tNode.h&amp;quot;
+#include&amp;lt;iostream&amp;gt;
+using namespace std;
+class DownThread :public OS_Thread {
+public:
+    DownThread(tNode* tnode) :tnode(tnode) {
+        id = tnode-&amp;gt;id;
+        alive = false;
+    }
+    bool getAlive()const {
+        return this-&amp;gt;alive;
+    }
+    void start() {
+        Run();
+        alive = true;
+    }
+    int getId() {
+        return id;
+    }
+private:
+    virtual int Routine() {
+        int res = curl_easy_perform(tnode-&amp;gt;curl);
+        if (res != 0) {
+            cout &amp;lt;&amp;lt; &amp;quot;下载出错&amp;quot; &amp;lt;&amp;lt; endl;
+        }
+        curl_easy_cleanup(tnode-&amp;gt;curl);
+        this-&amp;gt;alive = false;
+        delete tnode;
+        return 0;
+    }
+private:
+    bool alive;
+    tNode* tnode;
+    int id;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回收管理&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;//ThreadMonitor.h
+#pragma once
+#include&amp;quot;osapi/osapi.h&amp;quot;
+#include&amp;quot;DownThread.h&amp;quot;
+#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;list&amp;gt;
+using namespace std;
+class ThreadMonitor :public OS_Thread
+{
+public:
+	//单例模式
+	static ThreadMonitor* object();
+private:
+	ThreadMonitor(){}
+	~ThreadMonitor(){}
+public:
+	void start();
+	void stop();
+	void monitor(DownThread* task);
+private:
+	virtual int Routine();
+private:
+	list&amp;lt;DownThread*&amp;gt;tasks;//线程的列表
+	bool quit_flag;
+	OS_Mutex mutex;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;//ThreadMonitor.cpp
+#include &amp;quot;ThreadMonitor.h&amp;quot;
+
+//单例模式的实现
+ThreadMonitor* ThreadMonitor::object() {
+	static ThreadMonitor only;
+	return &amp;amp;only;
+}
+
+void ThreadMonitor::start() {
+	quit_flag = false;
+	Run();
+}
+
+void ThreadMonitor::stop() {
+	quit_flag = false;
+	Join(this);
+}
+
+void ThreadMonitor::monitor(DownThread* task) {
+	mutex.Lock();
+	tasks.push_back(task);
+	mutex.Unlock();
+}
+
+int ThreadMonitor::Routine() {
+	while (!quit_flag) {
+		mutex.Lock();
+		//遍历tasks，找到已经完成的线程并回收
+		for (auto iter = tasks.begin(); iter != tasks.end();) {
+			DownThread* task = *iter;
+			if (task-&amp;gt;getAlive())++iter;
+			else {
+				cout &amp;lt;&amp;lt; &amp;quot;已经回收DownThread：&amp;quot; &amp;lt;&amp;lt; task-&amp;gt;getId() &amp;lt;&amp;lt; endl;
+				iter = tasks.erase(iter);
+				Join(task);
+				delete(task);
+			}
+		}
+		mutex.Unlock();
+		OS_Thread::Sleep(1);
+	}
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;//tNode.h
+#pragma once
+#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;curl\curl.h&amp;gt;
+#pragma comment(lib,&amp;quot;libcurl-d_imp.lib&amp;quot;)
+struct tNode
+{
+    int id;
+    FILE* fp;
+    long startPos;
+    long endPos;
+    CURL* curl;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;运行结果&#34;&gt;运行结果&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;char fileName[50] = &amp;quot;TIM.exe&amp;quot;;//保存路径，在当前项目目录下
+char url[128] = &amp;quot;https://dldir1.qq.com/qqfile/qq/PCTIM/TIM3.2.0/TIM3.2.0.21856.exe&amp;quot;;//下载路径
+int threadNum = 36;//要使用的线程数量
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20201005112601581.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20201005112612771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+">c++实现多线程下载器</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/"" data-c="
+          &lt;h1 id=&#34;tcp基本用法&#34;&gt;TCP基本用法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP设计模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;C/S&lt;/strong&gt;（client-server）：客户端-服务器模式&lt;/li&gt;
+&lt;li&gt;UDP则是&lt;strong&gt;peer-to-peer&lt;/strong&gt;模式，即：对等模式，两端地位相等，而TCP两端地位不等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP Socket的工作模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;客户端&lt;br&gt;
+（1）连接服务器&lt;br&gt;
+（2）通讯&lt;/li&gt;
+&lt;li&gt;服务器&lt;br&gt;
+（1）主Socket接受连接&lt;br&gt;
+（2）当有连接到来时，创建一个WorkingSocket为Client Socket提供服务&lt;/li&gt;
+&lt;li&gt;注：每个Client都分配有一个Socket，专门地、一对一地提供服务&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200926161853655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;示例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;TCP中应该使用多线程技术&lt;/li&gt;
+&lt;li&gt;服务器&lt;br&gt;
+（1）创建：serverSock.Open(OS_SockAddr(9000),true);&lt;br&gt;
+（2）监听：serverSock.Listen();&lt;br&gt;
+（3）接收：serverSock.Accept(&amp;amp;workSock);&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//TcpWork.h
+#pragma once
+#include&amp;quot;osapi/osapi.h&amp;quot;
+class TcpWork :
+    public OS_Thread
+{
+private:
+    OS_TcpSocket workSocket;
+public:
+    TcpWork(OS_TcpSocket workSocket):workSocket(workSocket){}
+private:
+    int Routine();
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//TcpWork.cpp
+#include &amp;quot;TcpWork.h&amp;quot;
+int TcpWork::Routine() {
+	//为client提供服务
+	char buf[128];
+	//接受客户的请求
+	int n = workSocket.Recv(buf, 128);
+	buf[n] = 0;
+	printf_s(&amp;quot;客户请求：%s\n&amp;quot;, buf);
+
+	//应答客户
+	strcpy_s(buf, &amp;quot;我已收到\n&amp;quot;);
+	n = strlen(buf);
+	workSocket.Send(buf, n);
+	workSocket.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+#include&amp;quot;TcpWork.h&amp;quot;
+
+using namespace std;
+
+int main() {
+	//创建server socket
+	OS_SockAddr local(&amp;quot;127.0.0.1&amp;quot;, 9002);
+	OS_TcpSocket serverSocket;
+	serverSocket.Open(local, true);
+
+	//监听请求，没有请求会阻塞
+	serverSocket.Listen();
+
+	while (true) {
+		//接受请求，并创建workSocket
+		OS_TcpSocket workSocket;
+		if (serverSocket.Accept(&amp;amp;workSocket) &amp;lt; 0) {
+			break;
+		}
+
+		//新建一个线程，处理client的请求
+        //?如何销毁
+		TcpWork* conn = new TcpWork(workSocket);//不能TcpWork tcpWork(workSocket)
+		conn-&amp;gt;Run();
+	}
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;客户端&lt;br&gt;
+（1）创建：Open();&lt;br&gt;
+（2）连接：Connect();&lt;br&gt;
+（3）发送：Send();&lt;br&gt;
+（4）接收：Recv();&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+
+/**
+	客户端
+**/
+int main() {
+	//打开Socket
+	OS_SockAddr local(&amp;quot;127.0.0.1&amp;quot;, 9005);
+	OS_TcpSocket clientSock;
+	clientSock.Open(local,true);
+
+	//连接服务器
+	OS_SockAddr serverAddr(&amp;quot;127.0.0.1&amp;quot;, 9002);
+	if (clientSock.Connect(serverAddr) &amp;lt; 0) {
+		cout &amp;lt;&amp;lt; &amp;quot;无法连接服务器&amp;quot; &amp;lt;&amp;lt; endl;
+		return -1;
+	}
+
+	char buf[128];
+
+	//发送请求
+	strcpy_s(buf, &amp;quot;I&#39;m client\n&amp;quot;);
+	int n = strlen(buf);
+	clientSock.Send(buf, n);
+
+	//接受应答
+	n = clientSock.Recv(buf, sizeof(buf));
+	buf[n] = 0;
+	printf_s(&amp;quot;Got：%s\n&amp;quot;, buf);
+
+	//关闭Socket
+	clientSock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;注意事项&lt;br&gt;
+（1）请求/应答模式&lt;br&gt;
+一般情况下，需要客户端发起一个请求（request），然后服务器做出针对性的应答。即：&lt;strong&gt;客户端&lt;/strong&gt;是&lt;strong&gt;主动&lt;/strong&gt;的，&lt;strong&gt;服务器&lt;/strong&gt;是&lt;strong&gt;被动&lt;/strong&gt;的&lt;br&gt;
+（2）服务器应该处于常开的状态，服务器程序应该保持一直运行，随时等待由Client发起请求&lt;br&gt;
+（3）Send/Recv不需要再指定目标地址，在Connect成功之后，Client和服务器的某个Working Socket已经配对成功，变为一对一的通话&lt;br&gt;
+（4）服务器一般只需要指定端口号OS_SocketAddr(9002);相当于OS_Socket(&amp;quot;127.0.0.1&amp;quot;,9002);&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;tcp内部缓冲区&#34;&gt;TCP内部缓冲区&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;发送/接收缓冲区——与UDP相比&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;相同点&lt;br&gt;
+每个Socket都拥有一个发送缓冲区和接受缓冲区&lt;/li&gt;
+&lt;li&gt;不同点&lt;br&gt;
+UDP Socket的缓冲区：&lt;strong&gt;包式存取&lt;/strong&gt;，每个包带地址&lt;br&gt;
+TCP Socket的缓冲区：&lt;strong&gt;流式存取&lt;/strong&gt;，每个包不带地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;流式存储——针对缓冲区&lt;br&gt;
+类似于管道中的水，第一次放出200斤的水到盆中，第二次放出300斤的水到盆中，然后你在盆中取的时候，是无法区分哪些来自第一次，哪些来自第二次，它们是&lt;strong&gt;没有界限&lt;/strong&gt;的。&lt;br&gt;
+例如：发送数据时，第一次发送hello，第二次发送word，两次达到接受缓冲区后，操作系统取出的就是helloword，没法区分界限了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//服务器端和上述一致
+#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+
+/**
+	客户端
+**/
+int main() {
+	//打开Socket
+	OS_SockAddr local(&amp;quot;127.0.0.1&amp;quot;, 9005);
+	OS_TcpSocket clientSock;
+	clientSock.Open(local,true);
+
+	//连接服务器
+	OS_SockAddr serverAddr(&amp;quot;127.0.0.1&amp;quot;, 9002);
+	if (clientSock.Connect(serverAddr) &amp;lt; 0) {
+		cout &amp;lt;&amp;lt; &amp;quot;无法连接服务器&amp;quot; &amp;lt;&amp;lt; endl;
+		return -1;
+	}
+
+	char buf[128];
+
+	clientSock.Send(&amp;quot;hello&amp;quot;, 5);
+	clientSock.Send(&amp;quot;world&amp;quot;, 5);
+	
+	//接受应答
+	int n = clientSock.Recv(buf, 128);
+	buf[n] = 0;
+	printf_s(&amp;quot;Got：%s\n&amp;quot;, buf);
+
+	//关闭Socket
+	clientSock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200926162519630.png#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;定义边界&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;背景：由于TCP Socket是流式存取，如何判断Recv()已经取走了全部数据（接收方是不知道发送方发送数据的大小）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方法&lt;/p&gt;
+&lt;p&gt;（1）先发送长度，后发送数据。例如：05 hello，发送方先发送长度，接受方接受后，发送方再发送数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;int WaitBytes(OS_TcpSocket sock, void* buf, int count, int timeout) {
+	//设置超时
+	if (timeout &amp;gt; 0) {
+		sock.SetOpt_RecvTimeout(timeout);
+	}
+
+	//反复接受，知道接满指定的字节数
+	int bytes = 0;
+	while (bytes &amp;lt; count) {
+		int n = sock.Recv((char*)buf + bytes, count - bytes);
+		if (n &amp;lt;= 0) {
+			return bytes;
+		}
+		bytes += n;
+	}
+	return bytes;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//客户端
+#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+
+//unsigned short类型转换为按大端方式的2个字节
+inline void itob_16be(unsigned short a, unsigned char bytes[])
+{
+	bytes[0] = (unsigned char)(a &amp;gt;&amp;gt; 8);
+	bytes[1] = (unsigned char)(a);
+}
+
+/**
+	客户端
+**/
+int main() {
+	//打开Socket
+	OS_SockAddr local(&amp;quot;127.0.0.1&amp;quot;, 9005);
+	OS_TcpSocket clientSock;
+	clientSock.Open(local,true);
+
+	//连接服务器
+	OS_SockAddr serverAddr(&amp;quot;127.0.0.1&amp;quot;, 9002);
+	if (clientSock.Connect(serverAddr) &amp;lt; 0) {
+		cout &amp;lt;&amp;lt; &amp;quot;无法连接服务器&amp;quot; &amp;lt;&amp;lt; endl;
+		return -1;
+	}
+
+	char buf[128];
+
+	unsigned char bytes[2];
+	itob_16be(10, bytes);//长度为5个字节，并转换为2个字节放在bytes中
+	clientSock.Send(bytes, 2);
+	clientSock.Send(&amp;quot;helloworld&amp;quot;, 10);
+	
+	//接受应答
+	int n = clientSock.Recv(buf, 128);
+	buf[n] = 0;
+	printf_s(&amp;quot;Got：%s\n&amp;quot;, buf);
+
+	//关闭Socket
+	clientSock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//服务端，改动TcpWork.cpp
+#include &amp;quot;TcpWork.h&amp;quot;
+
+//将按大端方式的2个字节转换为unsigned short类型
+inline unsigned short btoi_16be(unsigned char bytes[])
+{
+	unsigned short a = 0;
+	a += (bytes[0] &amp;lt;&amp;lt; 8);
+	a += (bytes[1]);
+	return a;
+}
+
+int TcpWork::WaitBytes(OS_TcpSocket sock, void* buf, int count, int timeout) {
+	//设置超时
+	if (timeout &amp;gt; 0) {
+		sock.SetOpt_RecvTimeout(timeout);
+	}
+
+	//反复接受，知道接满指定的字节数
+	int bytes = 0;
+	while (bytes &amp;lt; count) {
+		int n = sock.Recv((char*)buf + bytes, count - bytes);
+		if (n &amp;lt;= 0) {
+			return bytes;
+		}
+		bytes += n;
+	}
+	return bytes;
+}
+
+int TcpWork::Routine() {
+	//为client提供服务
+	char buf[128];
+	unsigned char length[2];
+
+	//使用边界,获取接受数据的长度
+	WaitBytes(workSocket, length, 2);
+	unsigned short count = btoi_16be(length);
+	int n = WaitBytes(workSocket, buf, count);
+	buf[n] = 0;
+	printf(&amp;quot;Got：%s\n&amp;quot;, buf);
+	
+
+	//应答客户
+	workSocket.Send(&amp;quot;我接受到了\n&amp;quot;, 12);
+
+	workSocket.Close();
+	return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;（2）每段消息加上结束符（结束符不属于正文）&lt;/p&gt;
+&lt;p&gt;例如：hello\n，当接受方接受到\n时，就知道接受完毕了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;阻塞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Send()阻塞：当发送缓冲区满的时候&lt;br&gt;
+例如：发送方不停发送数据，将接收缓冲区填满，此时发送方操作系统就无法发送数据，最终导致发送缓冲区满，Send()阻塞&lt;/li&gt;
+&lt;li&gt;Recv()阻塞：当接收缓冲区为空的时候&lt;/li&gt;
+&lt;li&gt;Socket默认是阻塞方式，也可以手工设置为非阻塞方式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//设置成非阻塞模式
+sock.Ioctl_SetBlockedIo(false);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;获取缓冲区大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;// 获取发送缓冲区的大小 
+int bufsize = 0; 
+socklen_t len = 4;
+int ret = getsockopt(clientSocket.hSock,SOL_SOCKET,
+			SO_SNDBUF,
+			(char*)&amp;amp;bufsize,&amp;amp;len);
+if(ret &amp;lt; 0){
+	// 获取失败
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;设置缓冲区大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;// 设置发送缓冲区的大小
+int bufsize = 128*1024; // 128K
+int ret = setsockopt(clientSocket.hSock,SOL_SOCKET,
+			SO_SNDBUF,
+			(const char*)&amp;amp;bufsize,sizeof(int));
+if(ret &amp;lt; 0){
+	// 设置失败
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;数据包的传输&#34;&gt;数据包的传输&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;数据的发送/接收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;交换机的职责：交换数据，即：将从一个口进入数据的数据包转发到其他口&lt;/li&gt;
+&lt;li&gt;交换机的转发&lt;br&gt;
+（1）交换机直接将数据包复制转发到每一个口&lt;br&gt;
+（2）交换机记录了每个口的主机的IP，选择对应的口转发&lt;/li&gt;
+&lt;li&gt;发送：操作系统把数据包通过网卡、上行传输到交换机&lt;/li&gt;
+&lt;li&gt;接收：操作系统从网卡获取数据包&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200926163041128.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;UDP的传输&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;正常的传输流程：&lt;br&gt;
+（1）主机A发出一个UDP包并抵达交换机的1口&lt;br&gt;
+（2）交换机将此包复制到2，3，4口&lt;br&gt;
+（3）处于2口的主机B，接收到这个包&lt;/li&gt;
+&lt;li&gt;不正常的情况：交换机丢掉了这个包，没有转到2口&lt;/li&gt;
+&lt;li&gt;问题：主机A无法得知这个包有没有抵达目标主机&lt;/li&gt;
+&lt;li&gt;UDP是&lt;strong&gt;不可靠&lt;/strong&gt;的传输协议&lt;br&gt;
+（１）A将数据包发出后，可能会丢包，无法抵达B&lt;br&gt;
+（２）当（１）发生时，A无法得知此包已经被丢失。注：A接收B的应答属于B发送一个数据包给A，属于我们的设计&lt;br&gt;
+（3）UDP的发送端不会失败，它只负责将数据发送出去，不会负责数据是否抵达&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP的传输&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;正常的传输流程&lt;br&gt;
+（1）主机Ａ发送数据包，抵达１口&lt;br&gt;
+（２）交换机将１口的数据复制到２口&lt;br&gt;
+（３）主机Ｂ接收到包后，会回发一个&lt;strong&gt;确认包&lt;/strong&gt;（&lt;strong&gt;操作系统完成&lt;/strong&gt;）&lt;br&gt;
+（４）交换机将２口的确认包复制到１口&lt;br&gt;
+（５）主机Ａ收到确认包&lt;/li&gt;
+&lt;li&gt;TCP是一来一回，带有确认回复的，当没有收到确认包时，操作系统会重发数据包&lt;/li&gt;
+&lt;li&gt;TCP是&lt;strong&gt;可靠&lt;/strong&gt;的传输协议&lt;br&gt;
+（1）发送端能够知道数据包有没有抵达目标，并且操作系统还有重发机制&lt;br&gt;
+（2）TCP的发送端可能会失败，当网络断开或者没有收到确认包时，就是发送失败了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;select查询机制&#34;&gt;Select查询机制&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Select&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;select是一个函数，用于向操作系统查询，即：在一堆socket中，查出可以读、写的socket&lt;/li&gt;
+&lt;li&gt;OS_Socket对其做了一个封装，用于查询单个socket是否可以读写&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//返回值：&amp;gt;0表示可以读或写
+//&amp;lt;0表示不可读或写
+//=0表示超时
+//timeout单位为毫秒
+int Select_ForReading(int timeout);
+int Select_ForWriting(int timeout);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//客户端
+#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+
+
+/**
+	客户端
+**/
+int main() {
+	//打开Socket
+	OS_SockAddr local(&amp;quot;127.0.0.1&amp;quot;, 9005);
+	OS_TcpSocket clientSock;
+	clientSock.Open(local,true);
+
+	//连接服务器
+	OS_SockAddr serverAddr(&amp;quot;127.0.0.1&amp;quot;, 9002);
+	if (clientSock.Connect(serverAddr) &amp;lt; 0) {
+		cout &amp;lt;&amp;lt; &amp;quot;无法连接服务器&amp;quot; &amp;lt;&amp;lt; endl;
+		return -1;
+	}
+
+	char buf[128];
+	int n;
+
+	//发送请求
+	strcpy_s(buf, &amp;quot;I&#39;m client\n&amp;quot;);
+	n = strlen(buf);
+	clientSock.Send(buf, n);
+
+	//select
+	cout &amp;lt;&amp;lt; &amp;quot;wait……&amp;quot; &amp;lt;&amp;lt; endl;
+    //等待6秒的原因是服务器需要等待5秒才响应
+    //小于5秒会超时
+	int ret = clientSock.Select_ForReading(6000);
+	cout &amp;lt;&amp;lt; &amp;quot;ret：&amp;quot; &amp;lt;&amp;lt; ret &amp;lt;&amp;lt; endl;
+
+	//接受应答
+	n = clientSock.Recv(buf, 128);
+	buf[n] = 0;
+	printf_s(&amp;quot;Got：%s\n&amp;quot;, buf);
+
+	//关闭Socket
+	clientSock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//服务器端的TcpWork.cpp
+#include &amp;quot;TcpWork.h&amp;quot;
+
+int TcpWork::Routine() {
+	//为client提供服务
+	char buf[128];
+	
+	//接收客户的请求
+	int n = workSocket.Recv(buf, 128);
+	buf[n] = 0;
+	printf_s(&amp;quot;客户请求：%s\n&amp;quot;, buf);
+
+	OS_Thread::Msleep(5000);
+
+	//应答客户
+	workSocket.Send(&amp;quot;我接受到了\n&amp;quot;, 12);
+
+	workSocket.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;select函数简介&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//fds表示socket列表
+//tm表示超时
+//具体信息可以查看OSAPI中的Socket.cpp
+select(hSock+1,&amp;amp;fds,NULL,NULL,&amp;amp;tm);
+//在指定时间内，有任意的socket处于可读的状态，则select立刻返回，在fds中只剩下可读的socket。返回值为socket个数
+//到了指定时间，没有任何socket可读，则返回0，意味超时
+//如果出错返回-1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;select用途&lt;br&gt;
+当服务器同时和大量客户端交互，可以用select查询那些socket有发送来的数据，才做响应&lt;/li&gt;
+&lt;/ol&gt;
+">c++ TCP相关——基于OSAPI</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-2/"" data-c="
+          &lt;h1 id=&#34;进程的调度&#34;&gt;进程的调度&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;考虑因素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;为了构建调度策略，需要做一些&lt;strong&gt;简化假设&lt;/strong&gt;，这些假设和系统中运行的&lt;strong&gt;进程相关&lt;/strong&gt;，统称为&lt;strong&gt;工作负载&lt;/strong&gt;(workload)&lt;/p&gt;
+&lt;p&gt;（1）每一个进程（工作）&lt;strong&gt;运行相同的时间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（2）所有工作&lt;strong&gt;同时到达&lt;/strong&gt;，有时候当多个工作到达的时间相差很小的时候，也近似认为是同时到达的&lt;/p&gt;
+&lt;p&gt;（3）一旦开始工作，每个&lt;strong&gt;工作将保持运行直到完成&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（4）所有工作&lt;strong&gt;只是使用CPU&lt;/strong&gt;，即：它们不执行I/O操作&lt;/p&gt;
+&lt;p&gt;（5）每个工作的&lt;strong&gt;运行时间&lt;/strong&gt;是&lt;strong&gt;已知&lt;/strong&gt;的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了能够衡量不同调度策略的优缺点，提出一个指标——&lt;strong&gt;周转时间&lt;/strong&gt;（turnaround time)&lt;/p&gt;
+&lt;p&gt;（1）定义：任务完成时间减去任务到达的时间，即：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184635947.png#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt; （2）当满足假设同时到达时，到达时间为0，周转时间等于完成时间
+
+ （3）周转时间是一个**性能**（performance）**指标**。而性能和公平在调度系统往往时矛盾的。调度系统可以优化性能，但代价时阻止一些任务运行，这就降低了公平
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先进先出（FIFO）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先进先出（First In First Out)：先就绪的工作先执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假设有A、B、C三个工作，A比B早一点点，B比C早一点点，此时根据我们的假设，可以将A、B、C近似看作时同时到达的。但是根据实际情况，是A先执行，其次是B，最后是C。假设每个工作运行10s，求工作的平均周转时间（average turnaround time)？&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/2020092718470180.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A的周转时间为10s，B的周转时间为20s，C的周转时间为30s&lt;/p&gt;
+&lt;p&gt;平均周转时间为（10+20+30）/3=20&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在放宽假设1，让&lt;strong&gt;A、B、C运行时间不同&lt;/strong&gt;，考虑FIFO是否存在平均周转时间较长的情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假设A、B、C三个工作，A运行时间为100s，B和C运行时间为10s，如果依旧是A先早到一点，然后是B，最后是C（仍然近似认为是同时到达的），此时系统的&lt;strong&gt;平均周转时间较长&lt;/strong&gt;（100+110+120）/3=110&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927185220517.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FIFO出现4这种情况被称为&lt;strong&gt;护航效应&lt;/strong&gt;（convoy effect），即：一些耗时较少的潜在资源消耗者排在重量级的资源消费者后面。例如：在杂货店只有一个排队队伍的时候，你看见前面的装满了3辆购物车的货物时，这会让你等很长时间&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最短任务优先（SJF）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;最短任务优先（Shortest Job First）：先运行最短的时间，然后是次短的时间，如此继续&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;依旧在上述4的情况下，按照SJF的策略，平均周转时间为（10+20+120）/3=50，和FIFO相比，显著降低了平均周转时间。但前提是&lt;strong&gt;满足&lt;/strong&gt;假设2——&lt;strong&gt;同时到达&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184743434.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在放宽假设2，即：工作能够随时到达，考虑SJF平均周转时间较长的情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;依旧是FIFO中4的情况，假设A在t=0时到达，并且需要运行100s，而B和C在t=10s到达，各自运行10s。则A的周转时间为100s，B的周转时间为110-10=100，C的周转时间为120-10=110。平均周转时间为（100+100+110）/3=103.33s&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;很明显当&lt;strong&gt;工作能够随时到达&lt;/strong&gt;的情况下，SJF可能会出现平&lt;strong&gt;均周转时间较长&lt;/strong&gt;的情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最短完成时间优先（STCF）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;最短完成时间优先（Shortest Time-to-Completion First）：放宽假设3，即：调度程序可以安排其它工作&lt;strong&gt;抢占&lt;/strong&gt;正在运行的工作占用的CPU。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在SJF中添加了抢占，每当新工作进入就绪状态时，它就会确定剩余工作和新工作中，谁的完成时间最少，然后调度这个工作&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在上述4的情况下，STCF将抢占A并先运行完B和C后，才会继续运行。则A的周转时间为120s，B的周转时间为10s，C的周转时间为20s，平均周转时间为(120+10+20)/3=50，显著降低了SJF相同情况下的平均周转时间&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184814172.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;增加考虑因素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当符合假设4、5成立时，即：知道任务长度，并且任务只使用CPU，根据当前的唯一衡量指标为周转时间时，STCF是一个很好的策略。但是，引入分时系统时，就出现了问题，因为此时需要任务和用户进行交互，而周转时间无法衡量任务的交互性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;响应时间（response time）：能够&lt;strong&gt;衡量&lt;/strong&gt;任务的&lt;strong&gt;交互性&lt;/strong&gt;，定义为从任务到达系统到首次运行的时间&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184834948.png#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;轮转（RR）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;轮转（Round-Robin）：在一个时间片内运行一个工作，然后切换到运行队列的下一个任务，而不是运行一个任务直到结束。它反复执行，直到所有任务完成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;时间片长度必须时时钟周期的倍数。如果不是，进行上下文切换的时候需要等待一段时间，此时CPU没工作，就浪费了CPU资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假设3个任务，A、B、C在系统中同时到达，并且它们都希望运行5s，SJF调度程序必须运行完当前任务才能运行下一个任务，而1s时间片的RR能够快速循环工作。RR平均响应时间为：（0+1+2）/3=1（注：同时到达，到达时间为0），SJF算法平均响应时间为（0+5+10）/3=5&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184921655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;时间片长度对RR至关重要，越短，RR在响应时间上的表现越好，但是时间片不能设置得太短：突然上下文切换会影响整体性能。因为上下文切换的成本不仅仅来自保存和恢复少量寄存器的操作系统操作。程序在运行时，还会在CPU高速缓存、TLB、分支预测器和其他片上的硬件中建立了大量的状态。所以&lt;strong&gt;时间片长度需要慎重权衡，让它足够长，以便摊销上下文切换成本，而又不会让系统不及时响应&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;摊销&lt;/strong&gt;（amortize)：通过减少成本的频度（即：执行较少的操作），系统的总成本就会降低。例如：如果时间片设置为10ms，并且上下文切换时间为1ms，大约会浪费10%的时间用于上下文切换。为了摊销这个成本，可以把时间片长度增加到100ms，则只有不到1%的时间会用于上下文切换。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在3中，我们只考虑了响应时间，没考虑周转时间，如果计算RR的周转时间，A为13，B为14，C为15，平均14。而SJF的周转时间为，A为5，B为10，C为15，平均10.此时RR虽然响应时间较好，但是周转时间较差。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;到目前为止。有两类调度程序&lt;/p&gt;
+&lt;p&gt;（1）SJF、STCF优化了周转时间，但是响应时间——交互性不好&lt;/p&gt;
+&lt;p&gt;（2）RR优化了响应时间，但是周转时间不好&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;结合I/O&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;放宽假设4，即：工作会执行I/O，此时调度程序会面临两个问题&lt;/p&gt;
+&lt;p&gt;（1）发起I/O请求做出决定，因为当前运行的任务在I/O期间&lt;strong&gt;不会使用CPU&lt;/strong&gt;，它会被阻塞等待I/O完成。这时调度程序需要考虑是否等待该任务的执行还是安排另一项任务&lt;/p&gt;
+&lt;p&gt;（2）I/O完成时做出决定。I/O完成时会产生中断，操作系统运行并将发出I/O的进程从阻塞状态移回到就绪状态。此时调度程序将考虑是继续执行该任务，还是执行其他任务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假设有两项工作A、B，每项工作需要50ms的CPU时间。A每运行10ms，就会发出一次I/O请求，而B只是单纯地使用CPU50ms.调度程序先运行A再运行B。假设构建STCF调度程序。可以将A的每个10ms的子工作看作是一项独立的工作。所以任务运行时，先执行A10ms的子任务，完成后，会执行B，当I/O请求完成后，就会抢占B并运行10ms，这样就会充分利用系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927184940288.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;当交互式作业（即：I/O请求较多）正在执行I/O时，其他CPU密集型任务（即：I/O操作很少）将运行，从而更好的利用处理器&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多级反馈队列（MLFQ）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;多级反馈队列（Multi-level Feedback Queue，MLFQ）需要解决的问题&lt;/p&gt;
+&lt;p&gt;（1）优化周转时间&lt;/p&gt;
+&lt;p&gt;（2）放宽假设5，即：不知道任务运行时间&lt;/p&gt;
+&lt;p&gt;（3）降低响应时间，获取更好的交互体验&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基本构成：有许多独立的队列，每个队列有不同的&lt;strong&gt;优先级&lt;/strong&gt;（priority level）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基本规则：&lt;/p&gt;
+&lt;p&gt;（1）&lt;strong&gt;规则1&lt;/strong&gt;：如果A的优先级&amp;gt;B的优先级，运行A（不运行B）&lt;/p&gt;
+&lt;p&gt;（2）&lt;strong&gt;规则2&lt;/strong&gt;：如果A的优先级=B的优先级，轮转运行A和B&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何改变优先级（1）？&lt;/p&gt;
+&lt;p&gt;（1）系统需要执行的任务可以分为下列两类&lt;/p&gt;
+&lt;p&gt;​		a. 运行时间很短、频繁放弃CPU的&lt;strong&gt;交互性任务&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​		b. 需要很多CPU时间、响应时间不是很重要的长时间&lt;strong&gt;计算密集型任务&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（2）优先级调整算法&lt;/p&gt;
+&lt;p&gt;​		a. &lt;strong&gt;规则3&lt;/strong&gt;：任务进入系统时，放在最高优先级（最上层队列）&lt;/p&gt;
+&lt;p&gt;​		b. &lt;strong&gt;规则4a&lt;/strong&gt;：任务用完整个时间片后，降低优先级（移入下一个队列）&lt;/p&gt;
+&lt;p&gt;​		c. &lt;strong&gt;规则4b&lt;/strong&gt;：如果工作再其时间片内主动释放CPU，则优先级不变&lt;/p&gt;
+&lt;p&gt;（3）实例1：单个长工作&lt;/p&gt;
+&lt;p&gt;下图展示了一个有三个队列的调度程序。该工作首先进入最高优先级（Q2），执行10ms的时间片后，优先级-1，最终进入Q1，并一直到执行完毕&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927185009681.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;（4）实例2：来了一个短工作&lt;/p&gt;
+&lt;p&gt;有两个工作：A时一个长时间运行的CPU密集任务，B是一个运行时间很短的交互型任务。假设A执行一段时间后B到达。下图中A（用黑色表示）在最低优先队列中（由（3）可知：长时间任务很长时间都会在最低队列中），B（用灰色表示）在时间T=100时到达，并加入最高优先级队列中。由于它运行时间很短，经过两个时间片，在被移入最低优先级队列之前，B执行完毕。然后A继续运行。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927185023424.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;（5）MLFQ算法的目标：如果不知道任务时短任务还是长任务，那么就在考试的时候假设它时短任务，并赋予最高优先级。如果确实是短任务，则会很快执行完毕。否则就会被慢慢移入低优先级队列，而这个时候该任务也被认为是长任务了。通过这种方式，MLFQ近似于SJF。&lt;/p&gt;
+&lt;p&gt;（6）实例3：有I/O&lt;/p&gt;
+&lt;p&gt;根据4b，交互型工作中有大量的I/O操作（比如等待用户的键盘或鼠标输入），它会在时间片用完之前放弃CPU，在这种情况下，我们会保持它的优先级不变&lt;/p&gt;
+&lt;p&gt;假设交互型工作B（用灰色表示）每执行1ms便需要进行I/O操作，它与长时间运行的工作A（用黑色表示）竞争CPU。MLFQ算法保持B在最高优先级，因为B总是让CPU。如果B是交互型工作，MLFQ就进一步实现了它的目标，让交互型工作快速运行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在，MLFQ在长时间任务之间可以公平地分享CPU，又能给短工作或交互型工作很好地响应时间。这样就完美呢？其实还有问题&lt;/p&gt;
+&lt;p&gt;a. 饥饿问题（starvation）问题。即：系统有许多交互型工作，就会不停地抢占长时间任务地CPU，让它们永远无法得到CPU&lt;/p&gt;
+&lt;p&gt;b. 愚弄调度程序（game the scheduler）。即：进程在时间片用完之前，调用一个I/O操作（比如访问一个无关的文件），从而主动释放CPU。如此便可以保持吃在高优先级，占用更多的CPU时间&lt;/p&gt;
+&lt;p&gt;c. 一个程序可能在不同时间表现不同。即：一个计算密集型的进程可能在某段时间表现为一个交互型的进程&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何提高优先级（2)?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如何解决上述5中的问题？&lt;/p&gt;
+&lt;p&gt;周期性地提升所有任务地优先级。最简单的就是周期性的将所有任务放到最高优先级队列中&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;规则5&lt;/strong&gt;：经过&lt;strong&gt;一段时间S&lt;/strong&gt;，就将系统的任务&lt;strong&gt;重新加入到最高优先级队列&lt;/strong&gt;中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新规则解决的问题&lt;/p&gt;
+&lt;p&gt;（1）进程不会饿死——在最高优先级队列中，它会以RR的方式，和其他高优先级工作分享CPU，从而最终获得执行&lt;/p&gt;
+&lt;p&gt;（2）如果一个CPU密集型工作变成了交互型，当它的优先级提升，调度程序会正确对待它&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下边有两张图，左边没有优先级提升，长时间任务在两个短任务到达后被饿死。右边的每隔50ms就有一次优先级提升（50ms只是举例），因此至少保证了长任务的工作会有一定的进程，每过50ms就被提升到最高优先级，从而定期获得执行。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/202009271850459.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;剩余问题&lt;/p&gt;
+&lt;p&gt;（1）S的值如何设置？如果S设置得太高，长任务会被饿死，如果太低，交互型工作得不到合适的CPU时间比例&lt;/p&gt;
+&lt;p&gt;（2）如何阻止调度程序被愚弄？工作在时间片以内释放CPU就保留它的优先级是存在问题的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择好的计时方式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;更完善的CPU计时方式：调度程序应该记录一个进程在某一层消耗的总时间，只要进程用完了自己的配额，就将它降到低一级的优先级队列中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重写规则4a和4b&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;规则4&lt;/strong&gt;：一旦工作用完了其在某一层的时间配额（无论中间主动放弃了多少次的CPU），就降低其优先级（移入低一级队列）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下图对比了在规则4a、4b的策略下（左图），以及在新的规则4（右图）的策略下，同样试图愚弄调度程序的进程的表现。灭有规则4的保护下，进程可以在每个时间片结束前发起一次I/O操作，从而垄断CPU时间，有了这样的保护，无论进程的I/O行为如何，都会慢慢降低优先级&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20200927185100423.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MLFQ调优以及其他问题&lt;/p&gt;
+&lt;p&gt;问题：&lt;/p&gt;
+&lt;p&gt;（1）配置多少队列&lt;/p&gt;
+&lt;p&gt;（2）每一层队列的时间片配置多大&lt;/p&gt;
+&lt;p&gt;这些问题没有显而易见的答案，只有利用对工作负载的经验以及后续对调优程序的调优，才会取得令人满意的平衡&lt;/p&gt;
+&lt;p&gt;例如：高优先级队列通常只有较短的时间片，使得交互型工作能够更快的切换。而低优先级队列中更多的是CPU密集性工作，配置更长的时间片会更好&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MLFQ规则小结&lt;/p&gt;
+&lt;p&gt;（1）&lt;strong&gt;规则1&lt;/strong&gt;：如果A的优先级&amp;gt;B的优先级，运行A（不运行B）&lt;/p&gt;
+&lt;p&gt;（2）&lt;strong&gt;规则2&lt;/strong&gt;：如果A的优先级=B的优先级，轮转运行A和B&lt;/p&gt;
+&lt;p&gt;（3） &lt;strong&gt;规则3&lt;/strong&gt;：任务进入系统时，放在最高优先级（最上层队列）&lt;/p&gt;
+&lt;p&gt;（4）&lt;strong&gt;规则4&lt;/strong&gt;：一旦工作用完了其在某一层的时间配额（无论中间主动放弃了多少次的CPU），就降低其优先级（移入低一级队列）&lt;/p&gt;
+&lt;p&gt;（5）&lt;strong&gt;规则5&lt;/strong&gt;：经过&lt;strong&gt;一段时间S&lt;/strong&gt;，就将系统的任务&lt;strong&gt;重新加入到最高优先级队列&lt;/strong&gt;中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">操作系统导论（2）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/"" data-c="
+          &lt;h1 id=&#34;cpu虚拟化&#34;&gt;CPU虚拟化&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是虚拟化？&lt;br&gt;
+物理概念上不存在，但逻辑概念上是存在的。&lt;br&gt;
+比如：宾馆的房间，当你使用的时候，别人是无法使用的，在这段时间内，它是独属于你，同理，在其它用户使用期间，它是独属于其它用户的。换句话说，宾馆在物理意义上只有一间，在每个用户使用期间，它都是独属于每个用户，就好像每个人都拥有一间房间一样，即：逻辑上存在很多间房间&lt;/li&gt;
+&lt;li&gt;为什么需要虚拟化？&lt;br&gt;
+计算机的各种资源有限，但是实际情况下，用户往往希望计算机能“同时”运行多个程序。&lt;/li&gt;
+&lt;li&gt;如何实现虚拟化？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;时分复用——分时复用&lt;br&gt;
+为每个程序建立至少一个进程，让所有进程进行并发执行。&lt;br&gt;
+即：操作系统把CPU时间划分为多个均等的时间片。例如：每5ms一个时间片，在每个时间片内运行一个进程。当进程的时间片用完被切换后，过一段时间会重新接着运行。&lt;/li&gt;
+&lt;li&gt;空分复用&lt;br&gt;
+由于计算机的内存资源有限，操作系统会惰性执行进程，即：仅在程序执行期间需要加载的代码或数据片段才会被加载，运行完毕后，操作系统会将该部分换出，再重新加载另外一部分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;进程&#34;&gt;进程&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是进程？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;进程是程序的一次执行&lt;/li&gt;
+&lt;li&gt;进程是一个程序及其数据在处理机上顺序执行时所发生的活动&lt;/li&gt;
+&lt;li&gt;进程是具有独立功能的程序在一个数据集合上&lt;strong&gt;运行的过程&lt;/strong&gt;，它是系统进行&lt;strong&gt;资源分配&lt;/strong&gt;和&lt;strong&gt;调度&lt;/strong&gt;的一个&lt;strong&gt;独立单位&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;进程的组成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;进程控制块（Process Control Block，PCB)：存储进程的调度信息、控制信息、处理机状态等，位于操作系统&lt;strong&gt;内核&lt;/strong&gt;（kernel）中，受到保护，无法查看。&lt;/li&gt;
+&lt;li&gt;程序段&lt;/li&gt;
+&lt;li&gt;相关的数据段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;程序如何转化为进程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;将代码和静态数据加载（load）到内存&lt;/li&gt;
+&lt;li&gt;为程序的运行时栈（run-time stack）分配一些内存用于存放局部变量、函数参数和返回地址&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可能&lt;/strong&gt;会为程序的堆分配一些内存。在C程序中，堆用于显示请求的动态分配数据。如：通过malloc()或者realloc()请求空间，并通过free()释放空间&lt;/li&gt;
+&lt;li&gt;执行一些其他初始化任务，特别是和输入/输出相关的任务&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200925212105299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;进程的状态&lt;br&gt;
+&lt;strong&gt;运行&lt;/strong&gt;（running）：进程获得CPU，程序正在执行的状态&lt;br&gt;
+&lt;strong&gt;就绪&lt;/strong&gt;（ready）：进程已处于准备号运行的状态，即：进程已分配到除CPU以外的所有必要资源后，只需要再获得CPU，便可立即执行&lt;br&gt;
+&lt;strong&gt;阻塞&lt;/strong&gt;（blocked）：正在执行的进程由于发生某事件（如I/O请求，申请缓冲器失败等）暂时无法继续执行的状态，即：进程的执行收到阻塞&lt;br&gt;
+&lt;strong&gt;创建状态&lt;/strong&gt;：系统没有足够的内存让内存装入其中，进程的创建工作没有完成，进程无法被调度执行&lt;br&gt;
+&lt;strong&gt;终止状态&lt;/strong&gt;：系统可以处于已退出但尚未清理（将PCB清0，并将PCB空间返还系统）的状态&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200925211810770.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;li&gt;进程是受限直接执行的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;什么是受限直接执行？&lt;/p&gt;
+&lt;p&gt;“直接执行”：只需要在CPU上运行&lt;/p&gt;
+&lt;p&gt;“受限”：进程的操作收到操作系统的限制，比如：向磁盘发出I/O请求或者获得更多的系统资源（比如：CPU或者内存）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;受限直接执行的原因？&lt;/p&gt;
+&lt;p&gt;“直接执行”：为了让程序尽可能快的执行&lt;/p&gt;
+&lt;p&gt;“受限”：避免进程执行一些危险的操作&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何实现受限直接执行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;实现“受限”&lt;br&gt;
+（1）用户模式（user mode）：用户模式下，运行的代码会受到限制。比如：在用户模式下运行，进程不能发出I/O请求。&lt;br&gt;
+（2）内核模式（kernel mode）：和用户模式相对，操作系统（或内核）都是在这种模式下运行&lt;br&gt;
+（3）系统调用：用户希望执行某种特权操作（比如：从硬盘读取数据），&lt;strong&gt;硬件&lt;/strong&gt;为用户程序提供了执行系统调用的能力，允许内核小心地向用户程序暴露某些关键功能，例如：访问文件系统，创建和销毁进程、和其它进程通信，以及分配更多的内存）&lt;br&gt;
+（4）陷阱（trap）指令：要执行系统调用就必须执行陷阱指令，该指令在被操作系统&lt;strong&gt;加载到内核的同时将用户模式提升为内核模式&lt;/strong&gt;。完成后，操作系统会调用一个从陷阱返回指令（return-from-trap），回到用户模式&lt;br&gt;
+（5）陷阱表（trap table）：计算机启动时，操作系统就会初始化陷阱表，并且CPU会记住它的位置。当执行陷阱指令时，CPU就会根据陷阱表找到需要运行的指令。&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200925211855573.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实现直接执行——实现&lt;strong&gt;进程&lt;/strong&gt;的&lt;strong&gt;切换&lt;/strong&gt;&lt;br&gt;
+（1）操作系统获取CPU的控制权&lt;br&gt;
+​		a. 协作方式（等待系统调用）：操作系统等待进程进行系统调用或者某种非法操作发生时，从而获得CPU控制权&lt;br&gt;
+​		b. 非协作方式（操作系统进行控制）：通过&lt;strong&gt;时钟中断&lt;/strong&gt;（timer interrupt），时钟设备可以每隔几秒钟产生一次中断，产生中断时，正在运行的程序停止，操作系统中预先配置的中断处理程序（iterrput handler)会运行，此时操作系统会重新获得CPU控制权&lt;br&gt;
+（２）保存和恢复上下文&lt;br&gt;
+​		 a.  调度程序（scheduler）：决定继续运行当前正在运行的程序还是切换到另一个进程&lt;br&gt;
+​		 b. &lt;strong&gt;上下文切换&lt;/strong&gt;：为当前正在运行的进程保存一些信息，并为即将执行的进程恢复一些信息（借助PCB实现）&lt;br&gt;
+​		 c. 进行上下文切换时，操作系统会执行一些底层汇编代码，来保存通用寄存器（GR）、程序计数器（PC），以及当前正在运行进程的内核栈指针，然后恢复寄存器、程序计数器，并切换内核栈，供即将运行的进程使用。&lt;br&gt;
+&lt;img src=&#34;https://img-blog.csdnimg.cn/20200925212018200.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;系统调用期间发生时钟中断怎么办？&lt;/li&gt;
+&lt;li&gt;处理一个中断时发生另外一个中断怎么办？&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/qq_43326744/article/details/108834086&#34;&gt;操作系统导论（2）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">操作系统导论（1）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/c-duo-xian-cheng-ji-yu-osapi/"" data-c="
+          &lt;h1 id=&#34;线程的调度&#34;&gt;线程的调度&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;所有线程分享CPU&lt;/li&gt;
+&lt;li&gt;线程的调度——&lt;strong&gt;分时复用&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;操作系统把CPU时间划分为多个均等的时间片。例如：每5ms一个时间片，在每个时间片内运行一个线程。不同时间片运行不同的线程，让线程在&lt;strong&gt;同一段时间段&lt;/strong&gt;内进行&lt;strong&gt;交替&lt;/strong&gt;运行，即&lt;strong&gt;并发&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;在系统调度过程中，当线程的时间片用完被切换后，过一段时间会重新接着运行&lt;br&gt;
+主线程不能轻易退出，一旦退出，表示整个程序结束&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;线程切换
+&lt;ol&gt;
+&lt;li&gt;存储当前线程的状态，并把当前的线程切到后台，进入队列等待&lt;/li&gt;
+&lt;li&gt;从队列中取得一个正在排队的线程，运行一个时间片后，再次切换，这个队列称为&lt;strong&gt;候选队列&lt;/strong&gt;，表示这里面的线程都希望自己被立刻执行，即：这些线程的各种资源齐全，只差&lt;strong&gt;CPU&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;每个线程都要自觉地让出CPU，让别的线程也有机会被运行。&lt;/li&gt;
+&lt;li&gt;程序中使用&lt;strong&gt;Sleep()函数&lt;/strong&gt;，可以主动让自己的线程&lt;strong&gt;提前让出CPU&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sleep时间到的时候，该线程并不是被立刻执行，而是进入了候选队列&lt;/li&gt;
+&lt;li&gt;不同操作系统从候选队列中挑选下一个线程的方法不同，一般是相同优先级根据到达队列的先后顺序进行排队，优先级高的能够排在更前面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;创建一个线程&#34;&gt;创建一个线程&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;线程的创建是由操作系统完成的&lt;/li&gt;
+&lt;li&gt;基于OSAPI实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+//定义一个类
+class Buddhist :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &amp;lt; 10; ++i) {
+            cout &amp;lt;&amp;lt; &amp;quot;ma mi ma mi hong\n&amp;quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+class Confucian :public OS_Thread {
+private:
+    virtual int Routine() {
+        //线程体，执行它的任务
+        for (int i = 0; i &amp;lt; 100; ++i) {
+            cout &amp;lt;&amp;lt; &amp;quot;人之初，性本善\n&amp;quot;;
+            OS_Thread::Sleep(1);
+        }
+        return 0;
+    }
+};
+
+int main()
+{
+    //运行线程
+    Buddhist buddhist;
+    buddhist.Run();
+
+    Confucian confucian;
+    confucian.Run();
+
+    printf(&amp;quot;------主线程开始-------&amp;quot;);
+    for (int i = 0; i &amp;lt; 10; ++i) {
+        cout &amp;lt;&amp;lt; &amp;quot;我是主线程\n&amp;quot;;
+        OS_Thread::Sleep(1);
+    }
+
+    getchar();//防止主线程退出，从而导致其他线程中止
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;线程的停止与回收&#34;&gt;线程的停止与回收&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;线程的停止&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;正常停止&lt;br&gt;
+(1) &lt;em&gt;&lt;strong&gt;正常中止的办法&lt;/strong&gt;：&lt;/em&gt;&lt;br&gt;
+a. 设置&lt;strong&gt;标志法&lt;/strong&gt;&lt;br&gt;
+b. 在线程主函数&lt;strong&gt;Routine()中&lt;/strong&gt;，检查标识量，当标识量为true时，应该退出&lt;br&gt;
+c. 线程在处理任务的时候，会不停的检测标识量，及时退出线程。退出的时候，保存当前任务的进度，以便下次继续。或者保存所有其它需要保存的数据&lt;br&gt;
+d. 获取线程正常退出的时间，线程退出也需要时间。使用静态函数Join()来实现，即：&lt;strong&gt;OS_Thread::Join&lt;/strong&gt;(&amp;amp;线程对象)函数&lt;br&gt;
+(2) &lt;em&gt;&lt;strong&gt;Join函数的作用：&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+a. &lt;strong&gt;等待&lt;/strong&gt;目标线程的退出&lt;br&gt;
+b. &lt;strong&gt;回收&lt;/strong&gt;这个线程的相关系统资源&lt;br&gt;
+(3) &lt;em&gt;&lt;strong&gt;Join的调用位置：&lt;/strong&gt;&lt;/em&gt;&lt;br&gt;
+不能只看字面上的位置，而是要从运行时的角度来看待问题，即：类中只有&lt;strong&gt;Routine&lt;/strong&gt;()函数中的那部分才是线程&lt;br&gt;
+&lt;strong&gt;注：不能回收自己，即：在自己的Routine()中调用自己，Join(this)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;异常停止&lt;br&gt;
+主线程（主程序）退出的时候，有线程正在运行，但是所有的线程都会被立刻终止，这种终止是不正常的，因为它可能正在处理某个任务，从而造成了&lt;strong&gt;不完整数据&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;代码示例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+using namespace std;
+
+
+class MyTask :public OS_Thread {
+public:
+    void Start() {
+        m_quitflag = false;
+        Run();
+    }
+    void Stop() {
+        m_quitflag = true;
+        Join(this);//没有在Routine()中，没有让线程自己调用自己
+    }
+private:
+    virtual int Routine() {
+        for (int i = 0; !this-&amp;gt;m_quitflag&amp;amp;&amp;amp;i &amp;lt; 10; ++i) {
+            cout &amp;lt;&amp;lt; &amp;quot;c++最榜\n&amp;quot;;
+            OS_Thread::Sleep(1);
+        }
+        cout &amp;lt;&amp;lt; &amp;quot;线程退出\n&amp;quot;;//正常退出
+        //保存数据
+        return 0;
+    }
+private:
+    bool m_quitflag;
+};
+
+int main()
+{
+    MyTask task;
+    task.Start();
+    getchar();//不让主程序退出
+    task.Stop();
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;线程间共享数据-互斥锁&#34;&gt;线程间共享数据、互斥锁&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;共享数据（生命周期长）的种类&lt;br&gt;
+全局对象&lt;br&gt;
+堆对象（动态创建的对象，即：new)&lt;/li&gt;
+&lt;li&gt;数据的完整性&lt;br&gt;
+定义：定义一个数组char key[16]，规定：key的每一个元素的值都必须&lt;strong&gt;相等&lt;/strong&gt;，否则视为不完整的&lt;br&gt;
+例如，key[0],key[1],……,key[15]的值全为100&lt;br&gt;
+两个线程：&lt;br&gt;
+KeyGenerator：定时生成key，更新key，即：写操作&lt;br&gt;
+KeyChecker：获取key,检验其完整性，即：读操作&lt;br&gt;
+数据不完整性的根本原因：&lt;strong&gt;线程在运行时，可能会在任意位置被切换。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+using namespace std;
+
+char g_key[16];//Generator更新，Checker获取
+OS_Mutex g_mutex;
+
+class KeyGenerator :public OS_Thread {
+private:
+    virtual int Routine() {
+        int times = 0;
+        while (!quit_flag) {
+            //更新key
+            char key_new[16];
+            for (int i = 0; i &amp;lt; 16; ++i) {
+                OS_Thread::Msleep(5);
+                key_new[i] = times;
+            }
+            g_mutex.Lock();
+            memcpy(g_key, key_new, 16);
+            g_mutex.Unlock();
+            ++times;
+            if (times &amp;gt;= 128)times = 0;
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+class KeyChecker :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            char key_copy[16];
+            g_mutex.Lock();
+            memcpy(key_copy, g_key, 16);
+            g_mutex.Unlock();
+            for (int i = 1; i &amp;lt; 16; ++i) {
+                if (key_copy[i] != key_copy[i - 1]) {
+                    cout &amp;lt;&amp;lt; &amp;quot;不完整!!\n&amp;quot;;
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    KeyGenerator a;
+    a.Start();
+    KeyChecker b;
+    b.Start();
+    getchar();
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;互斥锁——&lt;strong&gt;系统资源&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;c++一般称为&lt;strong&gt;Mutex&lt;/strong&gt;，Java里则一般称为Lock&lt;/li&gt;
+&lt;li&gt;定义：&lt;br&gt;
+当多个线程&lt;strong&gt;同时访问一块内存&lt;/strong&gt;，就有可能出现的数据不完整性的问题，此时我们需要一种机制来“&lt;strong&gt;同步&lt;/strong&gt;”各线程对它的访问。（所谓“同步”，是指协调、安排，使之步调一致），这种机制就是“&lt;strong&gt;互斥锁&lt;/strong&gt;”机制&lt;/li&gt;
+&lt;li&gt;使用：&lt;br&gt;
+在访问共享数据之前，先获取Mutex&lt;br&gt;
+在访问完毕后，释放Mutex&lt;/li&gt;
+&lt;li&gt;机制：&lt;br&gt;
+在一个线程获取Mutex之后，另外一个线程的Mutex操作会&lt;strong&gt;阻塞&lt;/strong&gt;，直到该Mutex被释放后&lt;br&gt;
+使用模式&lt;br&gt;
+创建全局对象，或者堆对象（动态创建的对象）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;char g_data[128];//共享数据
+OS_Mutex g_mutex;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在线程中要访问共享数据，必须要先获取锁&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;g_mutex.Lock();//此函数会进行阻塞，一直等待拥有锁
+for(int i=0;i&amp;lt;128;++i) g_data[i]=i;
+g_mutex.Unlock();//释放锁
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+
+#include &amp;quot;osapi/osapi.h&amp;quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 更新key
+			g_mutex.Lock();
+			for(int i=0; i&amp;lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				g_key[i] = times;
+			}
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &amp;gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 数据处理
+			// 检查完整性
+			g_mutex.Lock();
+			for(int i=1; i&amp;lt;16; i++)
+			{
+				if(g_key[i] != g_key[i-1])
+				{
+					printf(&amp;quot;不完整!!\n&amp;quot;);
+					PrintKey();
+					//return 0;
+				}
+			}
+			g_mutex.Unlock();
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		printf(&amp;quot;Key: &amp;quot;);
+		for(int i=0; i&amp;lt;16; i++)
+			printf(&amp;quot;%02X &amp;quot;, g_key[i]);					
+		printf(&amp;quot;\n&amp;quot;);
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;使用原则&lt;br&gt;
+当一个线程占有锁时，应该尽快地完成对共享数据的访问，因为别的线程还在等待这个锁&lt;br&gt;
+一般策略：直接把数据&lt;strong&gt;拷贝&lt;/strong&gt;一份出来，然后再做处理（假设处理数据需要较长的时间）&lt;br&gt;
+例如：让处理线程处理拷贝的那一份，然后再获取锁，将处理完的数据拷贝回去。&lt;strong&gt;尽量缩短锁的占有时间&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include &amp;quot;osapi/osapi.h&amp;quot;
+
+OS_Mutex g_mutex;
+char g_key[16]; // Generator更新它，Checker获取它
+
+class KeyGenerator : public OS_Thread
+{
+private:
+	virtual int Routine()
+	{
+		int times = 0;
+		while(1)
+		{
+			// 生成key: 需要80ms
+			char key_new[16];			
+			for(int i=0; i&amp;lt;16; i++)
+			{
+				OS_Thread::Msleep(5);
+				key_new[i] = times;
+			}
+
+			// 更新key: 占有锁的时间非常短
+			g_mutex.Lock();
+			memcpy(g_key, key_new, 16);
+			g_mutex.Unlock();
+
+			times ++;
+			if(times &amp;gt;= 128) times = 0;
+			//OS_Thread::Msleep(50);
+		}
+		return 0; 
+	}
+};
+
+class KeyChecker : public OS_Thread
+{
+private:
+	// 线程主函数
+	virtual int Routine()
+	{
+		while(1)
+		{		
+			// 尽量缩短对共享数据的访问时间
+			char copy[16];
+			g_mutex.Lock();
+			memcpy(copy, g_key, 16);
+			g_mutex.Unlock();
+
+			// 数据处理
+			// 检查完整性			
+			for(int i=1; i&amp;lt;16; i++)
+			{
+				if(copy[i] != copy[i-1])
+				{
+					std::cout&amp;lt;&amp;lt;&amp;quot;不完整性\n&amp;quot;;
+					PrintKey();
+					//return 0;
+				}
+			}			
+
+			//OS_Thread::Msleep(50);
+		}
+		return 0; // 正常退出
+	}
+
+	void PrintKey()
+	{
+		std::cout&amp;lt;&amp;lt;&amp;quot;Key: \n&amp;quot;;
+		for(int i=0; i&amp;lt;16; i++)
+			printf(&amp;quot;%02X &amp;quot;, g_key[i]);					
+		std::cout&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+	}
+};
+
+
+int main()
+{
+	KeyGenerator a;
+	a.Run();
+
+	KeyChecker b;
+	b.Run();
+
+	getchar();
+
+
+	return 0;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;线程安全的函数&#34;&gt;线程安全的函数&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可重入&lt;/strong&gt;（reentrant)的函数，又称为线程安全（thread safe)的函数&lt;br&gt;
+是指一个函数，在多个线程里同时调用（&lt;strong&gt;并发调用&lt;/strong&gt;）的时候，&lt;strong&gt;功能仍然正常&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;判断函数可重入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;在单线程的情况下，该函数表现正常，如果单线程不行，说明函数写错了&lt;/li&gt;
+&lt;li&gt;在多线程并发调用此函数时，该函数仍然表现正常，则称该函数是可重入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;以下函数很可能不可重入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;一个全局函数（写在类体之外的函数），如果它借助于全局对象来实现，并且有写的操作，那么就是不可重入的&lt;/li&gt;
+&lt;li&gt;一个类的成员函数，它访问并修改了成员变量，纳闷一般情况下他就是不可重入的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将不可重入的函数修改为可重入的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;不借助外部变量来实现&lt;/li&gt;
+&lt;li&gt;尽量用本函数内部定义的局部变量来实现。或者在本函数内部动态创建对象，并在退出前进行销毁&lt;/li&gt;
+&lt;li&gt;加上互斥锁控制&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+using namespace std;
+
+int result;
+OS_Mutex g_mutex;
+//求和：1+2+3……+n
+int sum(int n) {
+    g_mutex.Lock();
+    result=0;
+    for (int i = 1; i &amp;lt;= n; ++i) {
+        result += i;
+    }
+    int r = result;
+    g_mutex.Unlock();
+    return r;
+}
+
+class MyTask :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int ret = sum(100);
+            //cout &amp;lt;&amp;lt; &amp;quot;ret=&amp;quot; &amp;lt;&amp;lt; ret &amp;lt;&amp;lt; endl;
+            if (ret != 5050)cout &amp;lt;&amp;lt; &amp;quot;ret=&amp;quot; &amp;lt;&amp;lt; ret &amp;lt;&amp;lt; endl;
+            OS_Thread::Msleep(5);
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+int main()
+{
+    MyTask task1, task2;
+    task1.Start();
+    task2.Start();
+    getchar();
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;线程间的通知机制信号量&#34;&gt;线程间的通知机制，信号量&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;轮询机制：每隔一定的时间，查询一次&lt;br&gt;
+缺点：查询不能太频繁（浪费CPU），也不能太不频繁（缓冲区满），难以把握。性能不佳&lt;br&gt;
+标志：有Sleep&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &amp;lt;&amp;lt; &amp;quot;放入物品：&amp;quot; &amp;lt;&amp;lt; r &amp;lt;&amp;lt; endl;
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        //轮询机制：频繁地查询当前物品个数
+        while (!quit_flag) {
+            OS_Thread::Msleep(50);
+            g_mutex.Lock();
+            if (g_count &amp;gt; 0) {
+                for (int i = 0; i &amp;lt; g_count; ++i) {
+                    cout &amp;lt;&amp;lt; &amp;quot;消耗物品：&amp;quot; &amp;lt;&amp;lt; g_buf[i] &amp;lt;&amp;lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;通知机制&lt;br&gt;
+信号量：&lt;strong&gt;Semaphore&lt;/strong&gt;，用于实现线程间的通信机制（和Mutex一样，是一个&lt;strong&gt;系统级对象&lt;/strong&gt;）&lt;br&gt;
+使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;//定义一个信号量，并将内部的值置为0
+OS_Semaphore g_sem（0）;
+//第一个线程通知,信号量内部的值加1
+g_sem.Post();
+//第二个线程等待通知，信号量的值减1，如果信号量的值为0，线程进行等待
+g_sem.Wait();
+//超时等待
+int ret=g_sem.Wait(1000); //单位为毫秒
+if(ret!=0){ //如果返回值不为0，表明已经超时
+	//超时处理
+}
+线程在等待信号的时候，是不占cpu的，相当于被阻塞的状态
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+using namespace std;
+
+OS_Mutex g_mutex;
+int g_buf[100];//缓冲区，最多存放一百个数
+int g_count = 0;
+
+OS_Semaphore g_sem(0);
+
+//第一个线程：生产者
+class Producer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            int r = rand() % 20 + 1;//生成一个1……20之间的随机数
+            OS_Thread::Msleep(50 * r);//休息时间在50-1000毫秒之间
+            //存放一个物品（这里存放的数据代表物品）
+            g_mutex.Lock();
+            g_buf[g_count] = r;
+            ++g_count;
+            cout &amp;lt;&amp;lt; &amp;quot;放入物品：&amp;quot; &amp;lt;&amp;lt; r &amp;lt;&amp;lt; endl;
+            g_mutex.Unlock();
+            g_sem.Post();//把信号量的值加1
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+//第二个线程：消费者
+class Consumer :public OS_Thread {
+private:
+    virtual int Routine() {
+        while (!quit_flag) {
+            g_sem.Wait();
+            g_mutex.Lock();
+            if (g_count &amp;gt; 0) {
+                for (int i = 0; i &amp;lt; g_count; ++i) {
+                    cout &amp;lt;&amp;lt; &amp;quot;消耗物品：&amp;quot; &amp;lt;&amp;lt; g_buf[i] &amp;lt;&amp;lt; endl;
+                }
+                g_count = 0;
+            }
+            g_mutex.Unlock();
+        }
+        return 0;
+    }
+private:
+    bool quit_flag;
+public:
+    void Start() {
+        quit_flag = false;
+        Run();
+    }
+    void Stop() {
+        quit_flag = true;
+        Join(this);
+    }
+};
+
+int main()
+{
+    srand(time(nullptr));
+    //启动第一个线程
+    Producer producer;
+    producer.Start();
+    //启动第二个线程
+    Consumer consumer;
+    consumer.Start();
+    getchar();
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+">c++ 多线程 基于OSAPI</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/wang-luo-ji-yu-osapi/"" data-c="
+          &lt;h1 id=&#34;网络通讯和ip地址&#34;&gt;网络通讯和IP地址&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;两台主机通过网络来传输数据，称为网络通讯&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些术语&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;主机：&lt;strong&gt;Host&lt;/strong&gt;，包含台式机、笔记本、手机等设备&lt;/li&gt;
+&lt;li&gt;网络：&lt;strong&gt;Internet&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;网络介质：&lt;strong&gt;Media&lt;/strong&gt;，网线，光纤，无线局域网wifi，移动3G网络&lt;/li&gt;
+&lt;li&gt;数据：&lt;strong&gt;Data&lt;/strong&gt;，一串字节&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络通讯的观测&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装&lt;strong&gt;Wireshark&lt;/strong&gt;，即可对网络通讯进行观测&lt;/li&gt;
+&lt;li&gt;抓：&lt;strong&gt;capture&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;包：&lt;strong&gt;packet&lt;/strong&gt;，数据包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IP地址：&lt;strong&gt;Internet Protocol Address&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用于标识网络上的一台主机，IP地址用&lt;strong&gt;4字节&lt;/strong&gt;表示，称为&lt;strong&gt;IPv4&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;用字符串表示时，10进制，以点号分开**(0-255)**&lt;br&gt;
+“192.168.1.1”&lt;/li&gt;
+&lt;li&gt;用16进制表示&lt;br&gt;
+C0 A8 01 01(192.168.1.1)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ping&lt;/strong&gt;命令：检测连通&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;不连通的三种可能性&lt;/p&gt;
+&lt;p&gt;（1） 对方关机、离线&lt;br&gt;
+（2） 己方没有连网&lt;br&gt;
+（3） 对方在线，但对方屏蔽了PING服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看自己的IP地址&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;windows上，输入&lt;strong&gt;ipconfig&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;linux下，输入&lt;strong&gt;ifconfig&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;socket与复用技术&#34;&gt;Socket与复用技术&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Socket概念&lt;/p&gt;
+&lt;p&gt;两台主机进行通讯，运行不同的程序，它们都在使用网络进行数据传输，如何区分？&lt;/p&gt;
+&lt;p&gt;Socket原意时“插座”，它形象的表示：用一根线连接两个插座，即形成一个数据通道&lt;/p&gt;
+&lt;p&gt;每个插口用一个数字标识**（0-65535）&lt;strong&gt;，这个数字就称为端口&lt;/strong&gt;（port)**&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复用技术&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;待解决问题：&lt;/p&gt;
+&lt;p&gt;多个Socket，每个Socket上同时传输着不同的数据（视频流、文件流等），但是，网线只有一根，字节是&lt;strong&gt;串行&lt;/strong&gt;传输的（一个字节一个字节地发送）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决办法：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;封包&lt;/strong&gt;：将（IP，Port)放在包头，&lt;strong&gt;交替&lt;/strong&gt;发送包&lt;/p&gt;
+&lt;p&gt;这种在一个信道内，交叉间隔地传输数据的方案，称为**“分时复用”**&lt;/p&gt;
+&lt;p&gt;发送方：复用Mux，将每个Socket上的数据，&lt;strong&gt;拆分成固定格式的小包&lt;/strong&gt;，每个小包前面加上IP/Port，按照时间间隔，轮番发送到信道中&lt;/p&gt;
+&lt;p&gt;接收方：解复用Demux，从信道中接收到小包，根据包头的Port，将小包&lt;strong&gt;还原&lt;/strong&gt;成原始数据，再&lt;strong&gt;分发&lt;/strong&gt;给不同的Socket处理&lt;/p&gt;
+&lt;p&gt;分包目的：&lt;strong&gt;各Socket均匀占用网络&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;udp基本用法&#34;&gt;UDP基本用法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Socket的种类&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;UDP&lt;/li&gt;
+&lt;li&gt;TCP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP Socket&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;UDP（User Datagram Protocol），用户数据报文协议，&lt;strong&gt;适用于局域网的主机间的通信&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP的单机测试&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;发送方&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+int main() {
+	std::cout &amp;lt;&amp;lt; &amp;quot;发送方：port=9000\n&amp;quot;;
+    //创建Socket
+	OS_SockAddr local(&amp;quot;192.168.51.65&amp;quot;, 9000);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+		//让用户输入一段文本
+		char buf[128];
+		std::cout &amp;lt;&amp;lt; &amp;quot;&amp;gt;&amp;quot;;
+		gets_s(buf);
+		int n = strlen(buf);
+
+		//发送
+		OS_SockAddr peer(&amp;quot;192.168.51.65&amp;quot;, 9001);//对方地址
+		sock.SendTo(buf, n, peer);
+
+		//结束
+		if (strcmp(&amp;quot;bye&amp;quot;, buf) == 0) {
+			break;
+		}
+	}
+
+	//关闭Socket
+	sock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;接受方&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;quot;osapi/osapi.h&amp;quot;
+
+int main() {
+	std::cout &amp;lt;&amp;lt; &amp;quot;接受方：port=9001\n&amp;quot;;
+    //创建Socket
+	OS_SockAddr local(&amp;quot;192.168.51.65&amp;quot;, 9001);
+	OS_UdpSocket sock;
+	sock.Open(local, true);
+
+	while (1) {
+        //接受
+		char buf[128];
+		OS_SockAddr peer;//对方的地址
+		int n = sock.RecvFrom(buf, 128, peer);
+		if (n &amp;lt;= 0) {
+			break;
+		}
+		buf[n] = 0;
+		printf_s(&amp;quot;Got：%s\n&amp;quot;, buf);
+		//结束
+		if (strcmp(&amp;quot;bye&amp;quot;, buf) == 0) {
+			break;
+		}
+	}
+	//关闭socket
+	sock.Close();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP多机测试&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用虚拟机构造多机环境&lt;/p&gt;
+&lt;p&gt;本机环境：Microsoft Windows 10专业版 10.0.19041&lt;/p&gt;
+&lt;p&gt;虚拟机软件：Oracle VM VirtualBox-6.1.6&lt;/p&gt;
+&lt;p&gt;虚拟机系统：Ubuntu20.04&lt;/p&gt;
+&lt;p&gt;配置参照：&lt;/p&gt;
+&lt;p&gt;问题：通过&lt;strong&gt;ifconfig&lt;/strong&gt;查看IP地址，若IP地址显示10.0.2.15&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600780305386.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;解决：将网络的连接方式改为桥接网卡&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600780283253.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;借鉴了以下内容&lt;/p&gt;
+&lt;p&gt;​	&lt;a href=&#34;https://blog.csdn.net/u014581901/article/details/77771505&#34;&gt;VirtualBox安装Lunix系统ip地址的问题&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	 &lt;a href=&#34;https://blog.csdn.net/Wenen_/article/details/105176500&#34;&gt;VirtualBox安装ubuntu系统ip地址显示10.0.2.15&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;出现虚拟机Ping主机失败&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600780295973.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;解决方案：&lt;a href=&#34;https://blog.csdn.net/qq_26822029/article/details/80428138&#34;&gt;Ubuntu虚拟机无法ping通windows，反之可以的解决办法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">网络—基于OSAPI</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/dao-ru-di-san-fang-ku-osapi/"" data-c="
+          &lt;h1 id=&#34;下载osapi&#34;&gt;下载osapi&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://wws.lanzous.com/iLLplgu3aih&#34;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;导入osapi&#34;&gt;导入osapi&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Visual Studio版本：Visual Studio Community 2019 16.7.3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新建项目&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743246078.png&#34; alt=&#34;1&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743264763.png&#34; alt=&#34;2&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导入osapi&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743295195.png&#34; alt=&#34;1&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743309483.png&#34; alt=&#34;2&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743330514.png&#34; alt=&#34;3&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743342995.png&#34; alt=&#34;4&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743368836.png&#34; alt=&#34;5&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743416571.png&#34; alt=&#34;6&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743440162.png&#34; alt=&#34;7&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600743454254.png&#34; alt=&#34;8&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">导入第三方库—OSAPI</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/electron-de-shi-yong-1/"" data-c="
+          &lt;h1 id=&#34;electron文档&#34;&gt;Electron文档&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.electronjs.org/docs&#34;&gt;文档地址&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;使用electron脚手架&#34;&gt;使用Electron脚手架&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载Node.js&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/nodejs/nodejs-install-setup.html&#34;&gt;参考连接&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;克隆示例项目仓库&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/electron/electron-quick-start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入仓库&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd electron-quick-start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;换源，提高速度&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm config set ELECTRON_MIRROR https://npm.taobao.org/mirrors/electron/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;渲染进程和主进程&#34;&gt;渲染进程和主进程&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Electron分为渲染进程和主进程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;渲染进程：用户看见的web界面就是由渲染进程描绘出来的。包括html，css和js&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;渲染进程获取process对象时出错&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600614355235.png&#34; alt=&#34;process对象出错&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Main.js在createwindow时少了一个参数nodeIntegration:true&lt;/p&gt;
+&lt;p&gt;**require(&#39;electron&#39;)**出错也如上述所示&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;渲染进程获取文件信息&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;设置一个dom对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取dom对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为dom对象添加事件——“drop”并设置回调，传回事件参数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阻止drop事件默认行为——preventDefault&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取文件对象——e.dataTransfer.files&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为dom对象添加事件——“dragover&amp;quot;并设置回调，传回参数e&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阻止dragover事件默认行为&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://dr526.github.io//post-images/1600614376392.png&#34; alt=&#34;渲染进程获取文件路径信息&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;显示文件内容&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;添加const fs=require(&amp;quot;fs&amp;quot;)&lt;/li&gt;
+&lt;li&gt;读取fs.readFileSync(path)——默认是buffer&lt;/li&gt;
+&lt;li&gt;需要toString()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主进程：Electron运行package.json的main脚本的进程被称为主进程。在主进程中运行的脚本通过创建web页面来展示用户界面。&lt;strong&gt;一个Electron应用总是有且只有一个主进程&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主进程的调试：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;electron --inspect=[port]
+例如：electron --inspect=5858 your/app
+打开浏览器输入：chrome://inspect
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;渲染进程调试：与web调试一致&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm start //运行项目
+View-&amp;gt;toggle developer tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;一些常用事件&#34;&gt;一些常用事件&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;APP常用事件
+&lt;ul&gt;
+&lt;li&gt;ready：当Electron完成初始化时被触发&lt;/li&gt;
+&lt;li&gt;window-all-closed：所有窗口被关闭&lt;/li&gt;
+&lt;li&gt;before-quit：在应用程序开始关闭窗口之前触发&lt;/li&gt;
+&lt;li&gt;will-quit：当所有窗口都已经关闭并且应用程序将退出时发出&lt;/li&gt;
+&lt;li&gt;quit：在应用程序退出时发出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;webContents常用事件
+&lt;ul&gt;
+&lt;li&gt;did-finish-load：导航完成时触发，即选项卡的旋转器将停止旋转，并指派onload事件后&lt;/li&gt;
+&lt;li&gt;dom-ready：一个框架中的文本加载完成后触发该事件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Electron的使用(1)</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/czhong-de-0nullnullptr/"" data-c="
+          &lt;h1 id=&#34;cc中的null&#34;&gt;c/c++中的NULL&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;共同点：c/c++都有NULL，它是一个宏，值是一个空指针常量&lt;/li&gt;
+&lt;li&gt;不同点：
+&lt;ol&gt;
+&lt;li&gt;c将(void *)0作为空指针常量，因为c允许(void *)和其它指针类型相互隐式转换&lt;/li&gt;
+&lt;li&gt;c++将0作为空指针常量，因为c++不允许(void *)和其它类型相互隐式转换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;总结：c++中0既是空指针常量，也是整形常量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;nullptr的引入&#34;&gt;nullptr的引入&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;c++中使用NULL可能会导致二义性&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include&amp;lt;stddef.h&amp;gt;
+void foo(int){} //#1
+void foo(char*){} //#2
+int main(){
+	foo(NULL); //调用#1还是#2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时，编译器将执行#1，与函数定义顺序无关&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引入nullptr&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;nullptr能够根据环境自动转换成相应的指针类型，但是不会被转换成任何整形&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nullptr仍然存在一定问题&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void foo(char *ptr)
+void foo(int *ptr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时无法区分实际调用哪个函数，必须显示指明类型，如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;foo(static_cast&amp;lt;char*&amp;gt;(nullptr))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">c++中的0、NULL、nullptr</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/cqian-jia-yu-hou-jia/"" data-c="
+          &lt;h1 id=&#34;左值与右值&#34;&gt;左值与右值&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;左值：占据内存中某个地址的对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右值：没有占据内存中某个地址的对象，即：只存在于计算过程中的某个临时寄存器中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左值能够进行赋值操作，而右值不能，因为右值没有与之对应的内存存储数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int foo(){return 2;}//#func1
+int&amp;amp; foo(){int* a=new int;return *a;}//#func2
+int main(){
+    foo()=2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当调用的函数是#func1时，由于#func1返回的值是一个临时值，不会占据内存某个地址，因此是一个右值，所以无法进行赋值操作，编译器会报错。而#func2则相反&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;前加与后加&#34;&gt;前加与后加&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;前加：变量先进行加1运算，再返回加1运算后的&lt;strong&gt;左值&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后加：将变量取一个副本，自己调用前加进行加1运算，并将副本作为&lt;strong&gt;右值&lt;/strong&gt;返回，即：后加返回的是&lt;strong&gt;未进行加1运算的左值&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;++i=3;//正确
+i++=3;//错误，不能对右值进行赋值操作
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">c++前加与后加</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://dr526.github.io/post/typora-makedown-yu-fa/"" data-c="
+          &lt;h3 id=&#34;标题&#34;&gt;标题&lt;/h3&gt;
+&lt;p&gt;“#”+“ ”+标题名字&lt;br&gt;
+共有6级标题，‘#’个数代表级数&lt;/p&gt;
+&lt;h3 id=&#34;字体&#34;&gt;字体&lt;/h3&gt;
+&lt;h4 id=&#34;粗体&#34;&gt;粗体&lt;/h4&gt;
+&lt;p&gt;**+内容+和开头一致&lt;/p&gt;
+&lt;h4 id=&#34;斜体&#34;&gt;斜体&lt;/h4&gt;
+&lt;p&gt;”*“+内容+和开头一致&lt;/p&gt;
+&lt;h4 id=&#34;粗体斜体&#34;&gt;粗体+斜体&lt;/h4&gt;
+&lt;p&gt;***+内容+和开头一致&lt;/p&gt;
+&lt;h4 id=&#34;中划线&#34;&gt;中划线&lt;/h4&gt;
+&lt;p&gt;~~+内容+和开头一致&lt;/p&gt;
+&lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
+&lt;p&gt;”&amp;gt;“+空格+内容&lt;/p&gt;
+&lt;h3 id=&#34;分割线&#34;&gt;分割线&lt;/h3&gt;
+&lt;p&gt;---+回车&lt;br&gt;
+***+回车&lt;/p&gt;
+&lt;h3 id=&#34;图片&#34;&gt;图片&lt;/h3&gt;
+&lt;p&gt;”！“+”[“+图片名+”]“+”（“+图片路径+”）“&lt;/p&gt;
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+&lt;p&gt;&amp;quot;&amp;quot;+相应的代码名字&lt;/p&gt;
+&lt;h3 id=&#34;表格表示&#34;&gt;表格表示&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;代码表示&lt;br&gt;
+”名字“+”|“+”性别“+”|“+”生日“&lt;br&gt;
+”--“+”|“+”--“+”|“+”--“+”|“&lt;br&gt;
+”张三“+”|“+”李四“+”|“+”王五“&lt;/li&gt;
+&lt;li&gt;进入源码模式&lt;/li&gt;
+&lt;li&gt;删除多余空行&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;列表&#34;&gt;列表&lt;/h3&gt;
+&lt;p&gt;####有序列表&lt;br&gt;
+1.+空格&lt;br&gt;
+####无序列表&lt;br&gt;
+-+空格&lt;/p&gt;
+&lt;h3 id=&#34;超链接&#34;&gt;超链接&lt;/h3&gt;
+&lt;p&gt;”[“+超链接名+”]“+”（“+”超链接地址“+”）“&lt;/p&gt;
+">typora——Makedown语法</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 200
+  });
+</script>
+
+
+
+
+
+
 </html>

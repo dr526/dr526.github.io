@@ -1,321 +1,94 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="进程的调度
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>操作系统导论（2） | dr526</title>
+<link rel="shortcut icon" href="https://dr526.github.io//favicon.ico?v=1602046645180">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-考虑因素
 
-
-为了构建调度策略，需要做一些简化假设，这些假设和系统中运行的进程相关，统称为工作负载(workload)
-（1）每一个进程（工作）运行相同的时间
-（2）所有工作同时到达，有时候当多个工作到达的时间相差很小的时候..." />
-    <meta name="keywords" content="读书笔记" />
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://dr526.github.io/">
+  <img class="avatar" src="https://dr526.github.io//images/avatar.png?v=1602046645180" alt="">
+  </a>
+  <h1 class="site-title">
+    dr526
+  </h1>
+  <p class="site-description">
+    十步one code，千里no bug
+  </p>
+  <div class="menu-container">
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              操作系统导论（2）
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2020-10-05 ·
+              </time>
               
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-    <title>dr526</title>
-</head>
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
-    <meta name="description" content="十步one code，千里no bug" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://dr526.github.io//images/avatar.png?v=1602045143690" class="avatar">
-        </div>
-        <div class="sitename">dr526</div>
-        <span class="describtion" data-text='["十步one code，千里no bug"]'>&nbsp;</span>
-        
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>社交按钮</span>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://dr526.github.io//media/images/QQ.png" alt=""></i></a>
-        
-        
-        <a href="https://www.zhihu.com/people/xiao-fen-rui-14" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/zh.png" alt=""></i></a>
-        
-        
-        <a href="https://space.bilibili.com/86884992" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/bilibili.png" alt=""></i></a>
-        
-        
-        
-    </div>
-    <div id="qq" style="display:none">3227438823</div>
-    
-    
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            首页
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            归档
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/tags" class="menubutton">
-            标签
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/post/about" class="menubutton">
-            关于
-        </a>
-    </div>
-    
-    
-    
-        <div class="mchocie describtion">
-            <a href="https://dr526.github.io//friends" class="menubutton">友人帐</a>
-        </div>
-    
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/02/2020</div>
-    </div>
-</body>
-
-</html>
-<script src="https://dr526.github.io//media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
-
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
-
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
-
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 15 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/Y66xhJp6y/" class="postlink">
-                        <i class="fa fa-tag"></i> 读书笔记
-                    </a>
-                    
-                </div>
+                <a href="https://dr526.github.io/tag/Y66xhJp6y/" class="post-tag">
+                  # 读书笔记
+                </a>
+              
             </div>
             
-            <div id="texttitle" style="text-align: center">
-                <h2>操作系统导论（2）</h2>
-            </div>
-            <div class="text ">
-                <h1 id="进程的调度">进程的调度</h1>
+            <div class="post-content">
+              <h1 id="进程的调度">进程的调度</h1>
 <ul>
 <li>
 <p>考虑因素</p>
@@ -563,62 +336,23 @@
 </ul>
 
             </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/">
-                    c++ TCP相关——基于OSAPI
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/">
-                    操作系统导论（1）
-                </a>
-            </div>
-            
+          </article>
         </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            
-                            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/">
+              <h3 class="post-title">
+                操作系统导论（1）
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
@@ -639,473 +373,21 @@
 
 </script>
 
-                            
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6">进程的调度</a></li>
-</ul>
+          
 
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
+          
+        
 
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-</head>
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://dr526.github.io//atom.xml" target="_blank">RSS</a>
+</div>
 
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">dr526&nbsp;&nbsp;|</a>
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          <li><a href="https://dr526.github.io//friends">友链</a></li>
-
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 15 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/Y66xhJp6y/" class="postlink">
-                        <i class="fa fa-tag"></i> 读书笔记
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>操作系统导论（2）</h2>
-            </div>
-            <div class="text ">
-                <h1 id="进程的调度">进程的调度</h1>
-<ul>
-<li>
-<p>考虑因素</p>
-<ol>
-<li>
-<p>为了构建调度策略，需要做一些<strong>简化假设</strong>，这些假设和系统中运行的<strong>进程相关</strong>，统称为<strong>工作负载</strong>(workload)</p>
-<p>（1）每一个进程（工作）<strong>运行相同的时间</strong></p>
-<p>（2）所有工作<strong>同时到达</strong>，有时候当多个工作到达的时间相差很小的时候，也近似认为是同时到达的</p>
-<p>（3）一旦开始工作，每个<strong>工作将保持运行直到完成</strong></p>
-<p>（4）所有工作<strong>只是使用CPU</strong>，即：它们不执行I/O操作</p>
-<p>（5）每个工作的<strong>运行时间</strong>是<strong>已知</strong>的</p>
-</li>
-<li>
-<p>为了能够衡量不同调度策略的优缺点，提出一个指标——<strong>周转时间</strong>（turnaround time)</p>
-<p>（1）定义：任务完成时间减去任务到达的时间，即：</p>
-</li>
-</ol>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200927184635947.png#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<pre><code> （2）当满足假设同时到达时，到达时间为0，周转时间等于完成时间
-
- （3）周转时间是一个**性能**（performance）**指标**。而性能和公平在调度系统往往时矛盾的。调度系统可以优化性能，但代价时阻止一些任务运行，这就降低了公平
-</code></pre>
-<ul>
-<li>
-<p>先进先出（FIFO）</p>
-<ol>
-<li>
-<p>先进先出（First In First Out)：先就绪的工作先执行</p>
-</li>
-<li>
-<p>假设有A、B、C三个工作，A比B早一点点，B比C早一点点，此时根据我们的假设，可以将A、B、C近似看作时同时到达的。但是根据实际情况，是A先执行，其次是B，最后是C。假设每个工作运行10s，求工作的平均周转时间（average turnaround time)？<br>
-<img src="https://img-blog.csdnimg.cn/2020092718470180.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<p>A的周转时间为10s，B的周转时间为20s，C的周转时间为30s</p>
-<p>平均周转时间为（10+20+30）/3=20</p>
-</li>
-<li>
-<p>现在放宽假设1，让<strong>A、B、C运行时间不同</strong>，考虑FIFO是否存在平均周转时间较长的情况</p>
-</li>
-<li>
-<p>假设A、B、C三个工作，A运行时间为100s，B和C运行时间为10s，如果依旧是A先早到一点，然后是B，最后是C（仍然近似认为是同时到达的），此时系统的<strong>平均周转时间较长</strong>（100+110+120）/3=110</p>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200927185220517.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-<li>
-<p>FIFO出现4这种情况被称为<strong>护航效应</strong>（convoy effect），即：一些耗时较少的潜在资源消耗者排在重量级的资源消费者后面。例如：在杂货店只有一个排队队伍的时候，你看见前面的装满了3辆购物车的货物时，这会让你等很长时间</p>
-</li>
-</ol>
-</li>
-<li>
-<p>最短任务优先（SJF）</p>
-<ol>
-<li>
-<p>最短任务优先（Shortest Job First）：先运行最短的时间，然后是次短的时间，如此继续</p>
-</li>
-<li>
-<p>依旧在上述4的情况下，按照SJF的策略，平均周转时间为（10+20+120）/3=50，和FIFO相比，显著降低了平均周转时间。但前提是<strong>满足</strong>假设2——<strong>同时到达</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200927184743434.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<p>现在放宽假设2，即：工作能够随时到达，考虑SJF平均周转时间较长的情况</p>
-</li>
-<li>
-<p>依旧是FIFO中4的情况，假设A在t=0时到达，并且需要运行100s，而B和C在t=10s到达，各自运行10s。则A的周转时间为100s，B的周转时间为110-10=100，C的周转时间为120-10=110。平均周转时间为（100+100+110）/3=103.33s</p>
-</li>
-<li>
-<p>很明显当<strong>工作能够随时到达</strong>的情况下，SJF可能会出现平<strong>均周转时间较长</strong>的情况</p>
-</li>
-</ol>
-</li>
-<li>
-<p>最短完成时间优先（STCF）</p>
-<ol>
-<li>
-<p>最短完成时间优先（Shortest Time-to-Completion First）：放宽假设3，即：调度程序可以安排其它工作<strong>抢占</strong>正在运行的工作占用的CPU。</p>
-</li>
-<li>
-<p>在SJF中添加了抢占，每当新工作进入就绪状态时，它就会确定剩余工作和新工作中，谁的完成时间最少，然后调度这个工作</p>
-</li>
-<li>
-<p>在上述4的情况下，STCF将抢占A并先运行完B和C后，才会继续运行。则A的周转时间为120s，B的周转时间为10s，C的周转时间为20s，平均周转时间为(120+10+20)/3=50，显著降低了SJF相同情况下的平均周转时间</p>
-</li>
-</ol>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200927184814172.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-<li>
-<p>增加考虑因素</p>
-<ol>
-<li>
-<p>当符合假设4、5成立时，即：知道任务长度，并且任务只使用CPU，根据当前的唯一衡量指标为周转时间时，STCF是一个很好的策略。但是，引入分时系统时，就出现了问题，因为此时需要任务和用户进行交互，而周转时间无法衡量任务的交互性</p>
-</li>
-<li>
-<p>响应时间（response time）：能够<strong>衡量</strong>任务的<strong>交互性</strong>，定义为从任务到达系统到首次运行的时间<br>
-<img src="https://img-blog.csdnimg.cn/20200927184834948.png#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-</ol>
-</li>
-<li>
-<p>轮转（RR）</p>
-<ol>
-<li>
-<p>轮转（Round-Robin）：在一个时间片内运行一个工作，然后切换到运行队列的下一个任务，而不是运行一个任务直到结束。它反复执行，直到所有任务完成。</p>
-</li>
-<li>
-<p>时间片长度必须时时钟周期的倍数。如果不是，进行上下文切换的时候需要等待一段时间，此时CPU没工作，就浪费了CPU资源</p>
-</li>
-<li>
-<p>假设3个任务，A、B、C在系统中同时到达，并且它们都希望运行5s，SJF调度程序必须运行完当前任务才能运行下一个任务，而1s时间片的RR能够快速循环工作。RR平均响应时间为：（0+1+2）/3=1（注：同时到达，到达时间为0），SJF算法平均响应时间为（0+5+10）/3=5<br>
-<img src="https://img-blog.csdnimg.cn/20200927184921655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<p>时间片长度对RR至关重要，越短，RR在响应时间上的表现越好，但是时间片不能设置得太短：突然上下文切换会影响整体性能。因为上下文切换的成本不仅仅来自保存和恢复少量寄存器的操作系统操作。程序在运行时，还会在CPU高速缓存、TLB、分支预测器和其他片上的硬件中建立了大量的状态。所以<strong>时间片长度需要慎重权衡，让它足够长，以便摊销上下文切换成本，而又不会让系统不及时响应</strong></p>
-</li>
-<li>
-<p><strong>摊销</strong>（amortize)：通过减少成本的频度（即：执行较少的操作），系统的总成本就会降低。例如：如果时间片设置为10ms，并且上下文切换时间为1ms，大约会浪费10%的时间用于上下文切换。为了摊销这个成本，可以把时间片长度增加到100ms，则只有不到1%的时间会用于上下文切换。</p>
-</li>
-<li>
-<p>在3中，我们只考虑了响应时间，没考虑周转时间，如果计算RR的周转时间，A为13，B为14，C为15，平均14。而SJF的周转时间为，A为5，B为10，C为15，平均10.此时RR虽然响应时间较好，但是周转时间较差。</p>
-</li>
-<li>
-<p>到目前为止。有两类调度程序</p>
-<p>（1）SJF、STCF优化了周转时间，但是响应时间——交互性不好</p>
-<p>（2）RR优化了响应时间，但是周转时间不好</p>
-</li>
-</ol>
-</li>
-<li>
-<p>结合I/O</p>
-<ol>
-<li>
-<p>放宽假设4，即：工作会执行I/O，此时调度程序会面临两个问题</p>
-<p>（1）发起I/O请求做出决定，因为当前运行的任务在I/O期间<strong>不会使用CPU</strong>，它会被阻塞等待I/O完成。这时调度程序需要考虑是否等待该任务的执行还是安排另一项任务</p>
-<p>（2）I/O完成时做出决定。I/O完成时会产生中断，操作系统运行并将发出I/O的进程从阻塞状态移回到就绪状态。此时调度程序将考虑是继续执行该任务，还是执行其他任务</p>
-</li>
-<li>
-<p>假设有两项工作A、B，每项工作需要50ms的CPU时间。A每运行10ms，就会发出一次I/O请求，而B只是单纯地使用CPU50ms.调度程序先运行A再运行B。假设构建STCF调度程序。可以将A的每个10ms的子工作看作是一项独立的工作。所以任务运行时，先执行A10ms的子任务，完成后，会执行B，当I/O请求完成后，就会抢占B并运行10ms，这样就会充分利用系统。</p>
-</li>
-</ol>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200927184940288.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<ol start="3">
-<li><strong>当交互式作业（即：I/O请求较多）正在执行I/O时，其他CPU密集型任务（即：I/O操作很少）将运行，从而更好的利用处理器</strong></li>
-</ol>
-</li>
-<li>
-<p>多级反馈队列（MLFQ）</p>
-<ol>
-<li>
-<p>多级反馈队列（Multi-level Feedback Queue，MLFQ）需要解决的问题</p>
-<p>（1）优化周转时间</p>
-<p>（2）放宽假设5，即：不知道任务运行时间</p>
-<p>（3）降低响应时间，获取更好的交互体验</p>
-</li>
-<li>
-<p>基本构成：有许多独立的队列，每个队列有不同的<strong>优先级</strong>（priority level）</p>
-</li>
-<li>
-<p>基本规则：</p>
-<p>（1）<strong>规则1</strong>：如果A的优先级&gt;B的优先级，运行A（不运行B）</p>
-<p>（2）<strong>规则2</strong>：如果A的优先级=B的优先级，轮转运行A和B</p>
-</li>
-<li>
-<p>如何改变优先级（1）？</p>
-<p>（1）系统需要执行的任务可以分为下列两类</p>
-<p>​		a. 运行时间很短、频繁放弃CPU的<strong>交互性任务</strong></p>
-<p>​		b. 需要很多CPU时间、响应时间不是很重要的长时间<strong>计算密集型任务</strong></p>
-<p>（2）优先级调整算法</p>
-<p>​		a. <strong>规则3</strong>：任务进入系统时，放在最高优先级（最上层队列）</p>
-<p>​		b. <strong>规则4a</strong>：任务用完整个时间片后，降低优先级（移入下一个队列）</p>
-<p>​		c. <strong>规则4b</strong>：如果工作再其时间片内主动释放CPU，则优先级不变</p>
-<p>（3）实例1：单个长工作</p>
-<p>下图展示了一个有三个队列的调度程序。该工作首先进入最高优先级（Q2），执行10ms的时间片后，优先级-1，最终进入Q1，并一直到执行完毕</p>
-<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200927185009681.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<p>（4）实例2：来了一个短工作</p>
-<p>有两个工作：A时一个长时间运行的CPU密集任务，B是一个运行时间很短的交互型任务。假设A执行一段时间后B到达。下图中A（用黑色表示）在最低优先队列中（由（3）可知：长时间任务很长时间都会在最低队列中），B（用灰色表示）在时间T=100时到达，并加入最高优先级队列中。由于它运行时间很短，经过两个时间片，在被移入最低优先级队列之前，B执行完毕。然后A继续运行。</p>
-<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200927185023424.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<p>（5）MLFQ算法的目标：如果不知道任务时短任务还是长任务，那么就在考试的时候假设它时短任务，并赋予最高优先级。如果确实是短任务，则会很快执行完毕。否则就会被慢慢移入低优先级队列，而这个时候该任务也被认为是长任务了。通过这种方式，MLFQ近似于SJF。</p>
-<p>（6）实例3：有I/O</p>
-<p>根据4b，交互型工作中有大量的I/O操作（比如等待用户的键盘或鼠标输入），它会在时间片用完之前放弃CPU，在这种情况下，我们会保持它的优先级不变</p>
-<p>假设交互型工作B（用灰色表示）每执行1ms便需要进行I/O操作，它与长时间运行的工作A（用黑色表示）竞争CPU。MLFQ算法保持B在最高优先级，因为B总是让CPU。如果B是交互型工作，MLFQ就进一步实现了它的目标，让交互型工作快速运行。</p>
-</li>
-<li>
-<p>现在，MLFQ在长时间任务之间可以公平地分享CPU，又能给短工作或交互型工作很好地响应时间。这样就完美呢？其实还有问题</p>
-<p>a. 饥饿问题（starvation）问题。即：系统有许多交互型工作，就会不停地抢占长时间任务地CPU，让它们永远无法得到CPU</p>
-<p>b. 愚弄调度程序（game the scheduler）。即：进程在时间片用完之前，调用一个I/O操作（比如访问一个无关的文件），从而主动释放CPU。如此便可以保持吃在高优先级，占用更多的CPU时间</p>
-<p>c. 一个程序可能在不同时间表现不同。即：一个计算密集型的进程可能在某段时间表现为一个交互型的进程</p>
-</li>
-</ol>
-</li>
-<li>
-<p>如何提高优先级（2)?</p>
-<ol>
-<li>
-<p>如何解决上述5中的问题？</p>
-<p>周期性地提升所有任务地优先级。最简单的就是周期性的将所有任务放到最高优先级队列中</p>
-<p><strong>规则5</strong>：经过<strong>一段时间S</strong>，就将系统的任务<strong>重新加入到最高优先级队列</strong>中。</p>
-</li>
-<li>
-<p>新规则解决的问题</p>
-<p>（1）进程不会饿死——在最高优先级队列中，它会以RR的方式，和其他高优先级工作分享CPU，从而最终获得执行</p>
-<p>（2）如果一个CPU密集型工作变成了交互型，当它的优先级提升，调度程序会正确对待它</p>
-</li>
-<li>
-<p>下边有两张图，左边没有优先级提升，长时间任务在两个短任务到达后被饿死。右边的每隔50ms就有一次优先级提升（50ms只是举例），因此至少保证了长任务的工作会有一定的进程，每过50ms就被提升到最高优先级，从而定期获得执行。</p>
-<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/202009271850459.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-<li>
-<p>剩余问题</p>
-<p>（1）S的值如何设置？如果S设置得太高，长任务会被饿死，如果太低，交互型工作得不到合适的CPU时间比例</p>
-<p>（2）如何阻止调度程序被愚弄？工作在时间片以内释放CPU就保留它的优先级是存在问题的</p>
-</li>
-</ol>
-</li>
-<li>
-<p>选择好的计时方式</p>
-<ol>
-<li>
-<p>更完善的CPU计时方式：调度程序应该记录一个进程在某一层消耗的总时间，只要进程用完了自己的配额，就将它降到低一级的优先级队列中。</p>
-</li>
-<li>
-<p>重写规则4a和4b</p>
-<p><strong>规则4</strong>：一旦工作用完了其在某一层的时间配额（无论中间主动放弃了多少次的CPU），就降低其优先级（移入低一级队列）</p>
-</li>
-<li>
-<p>下图对比了在规则4a、4b的策略下（左图），以及在新的规则4（右图）的策略下，同样试图愚弄调度程序的进程的表现。灭有规则4的保护下，进程可以在每个时间片结束前发起一次I/O操作，从而垄断CPU时间，有了这样的保护，无论进程的I/O行为如何，都会慢慢降低优先级</p>
-<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20200927185100423.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-</ol>
-</li>
-<li>
-<p>MLFQ调优以及其他问题</p>
-<p>问题：</p>
-<p>（1）配置多少队列</p>
-<p>（2）每一层队列的时间片配置多大</p>
-<p>这些问题没有显而易见的答案，只有利用对工作负载的经验以及后续对调优程序的调优，才会取得令人满意的平衡</p>
-<p>例如：高优先级队列通常只有较短的时间片，使得交互型工作能够更快的切换。而低优先级队列中更多的是CPU密集性工作，配置更长的时间片会更好</p>
-</li>
-<li>
-<p>MLFQ规则小结</p>
-<p>（1）<strong>规则1</strong>：如果A的优先级&gt;B的优先级，运行A（不运行B）</p>
-<p>（2）<strong>规则2</strong>：如果A的优先级=B的优先级，轮转运行A和B</p>
-<p>（3） <strong>规则3</strong>：任务进入系统时，放在最高优先级（最上层队列）</p>
-<p>（4）<strong>规则4</strong>：一旦工作用完了其在某一层的时间配额（无论中间主动放弃了多少次的CPU），就降低其优先级（移入低一级队列）</p>
-<p>（5）<strong>规则5</strong>：经过<strong>一段时间S</strong>，就将系统的任务<strong>重新加入到最高优先级队列</strong>中。</p>
-</li>
-</ul>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/">
-                    c++ TCP相关——基于OSAPI
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-1/">
-                    操作系统导论（1）
-                </a>
-            </div>
-            
-        </div>
     </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-                
-                
-                
-            </div>
-        </div>
-    </div>
-    <div id="landlord">
-        <div class="message" style="opacity:0"></div>
-        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-    </div>
-</body>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://dr526.github.io//media/js/post.js"></script>
-
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
-</script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://dr526.github.io//media/live2d/assets/tororo.model.json");
-</script>
+  </body>
+</html>

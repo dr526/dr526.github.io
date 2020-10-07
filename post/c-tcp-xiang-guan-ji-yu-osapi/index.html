@@ -1,326 +1,94 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TCP基本用法
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>c++ TCP相关——基于OSAPI | dr526</title>
+<link rel="shortcut icon" href="https://dr526.github.io//favicon.ico?v=1602046645180">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
 
-TCP设计模式
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-C/S（client-server）：客户端-服务器模式
-UDP则是peer-to-peer模式，即：对等模式，两端地位相等，而TCP两端地位不等
 
-
-TCP Socket的工作模式
-
-
-客户端
-（1）..." />
-    <meta name="keywords" content="c++" />
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://dr526.github.io/">
+  <img class="avatar" src="https://dr526.github.io//images/avatar.png?v=1602046645180" alt="">
+  </a>
+  <h1 class="site-title">
+    dr526
+  </h1>
+  <p class="site-description">
+    十步one code，千里no bug
+  </p>
+  <div class="menu-container">
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              c++ TCP相关——基于OSAPI
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2020-10-05 ·
+              </time>
               
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-    <title>dr526</title>
-</head>
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
-    <meta name="description" content="十步one code，千里no bug" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://dr526.github.io//images/avatar.png?v=1602045143690" class="avatar">
-        </div>
-        <div class="sitename">dr526</div>
-        <span class="describtion" data-text='["十步one code，千里no bug"]'>&nbsp;</span>
-        
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>社交按钮</span>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://dr526.github.io//media/images/QQ.png" alt=""></i></a>
-        
-        
-        <a href="https://www.zhihu.com/people/xiao-fen-rui-14" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/zh.png" alt=""></i></a>
-        
-        
-        <a href="https://space.bilibili.com/86884992" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/bilibili.png" alt=""></i></a>
-        
-        
-        
-    </div>
-    <div id="qq" style="display:none">3227438823</div>
-    
-    
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            首页
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            归档
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/tags" class="menubutton">
-            标签
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/post/about" class="menubutton">
-            关于
-        </a>
-    </div>
-    
-    
-    
-        <div class="mchocie describtion">
-            <a href="https://dr526.github.io//friends" class="menubutton">友人帐</a>
-        </div>
-    
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/02/2020</div>
-    </div>
-</body>
-
-</html>
-<script src="https://dr526.github.io//media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
-
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
-
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
-
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 12 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
-                    
-                </div>
+                <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="post-tag">
+                  # c++
+                </a>
+              
             </div>
             
-            <div id="texttitle" style="text-align: center">
-                <h2>c++ TCP相关——基于OSAPI</h2>
-            </div>
-            <div class="text ">
-                <h1 id="tcp基本用法">TCP基本用法</h1>
+            <div class="post-content">
+              <h1 id="tcp基本用法">TCP基本用法</h1>
 <ul>
 <li>TCP设计模式</li>
 </ul>
@@ -830,62 +598,23 @@ select(hSock+1,&amp;fds,NULL,NULL,&amp;tm);
 </ol>
 
             </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cshi-xian-duo-xian-cheng-xia-zai-qi/">
-                    c++实现多线程下载器
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-2/">
-                    操作系统导论（2）
-                </a>
-            </div>
-            
+          </article>
         </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            
-                            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-2/">
+              <h3 class="post-title">
+                操作系统导论（2）
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
@@ -906,738 +635,21 @@ select(hSock+1,&amp;fds,NULL,NULL,&amp;tm);
 
 </script>
 
-                            
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li><a href="#tcp%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">TCP基本用法</a></li>
-<li><a href="#tcp%E5%86%85%E9%83%A8%E7%BC%93%E5%86%B2%E5%8C%BA">TCP内部缓冲区</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E7%9A%84%E4%BC%A0%E8%BE%93">数据包的传输</a></li>
-<li><a href="#select%E6%9F%A5%E8%AF%A2%E6%9C%BA%E5%88%B6">Select查询机制</a></li>
-</ul>
+          
 
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
+          
+        
 
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-</head>
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://dr526.github.io//atom.xml" target="_blank">RSS</a>
+</div>
 
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">dr526&nbsp;&nbsp;|</a>
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          <li><a href="https://dr526.github.io//friends">友链</a></li>
-
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 12 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>c++ TCP相关——基于OSAPI</h2>
-            </div>
-            <div class="text ">
-                <h1 id="tcp基本用法">TCP基本用法</h1>
-<ul>
-<li>TCP设计模式</li>
-</ul>
-<ol>
-<li><strong>C/S</strong>（client-server）：客户端-服务器模式</li>
-<li>UDP则是<strong>peer-to-peer</strong>模式，即：对等模式，两端地位相等，而TCP两端地位不等</li>
-</ol>
-<ul>
-<li>TCP Socket的工作模式</li>
-</ul>
-<ol>
-<li>客户端<br>
-（1）连接服务器<br>
-（2）通讯</li>
-<li>服务器<br>
-（1）主Socket接受连接<br>
-（2）当有连接到来时，创建一个WorkingSocket为Client Socket提供服务</li>
-<li>注：每个Client都分配有一个Socket，专门地、一对一地提供服务<br>
-<img src="https://img-blog.csdnimg.cn/20200926161853655.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<ul>
-<li>示例</li>
-</ul>
-<ol>
-<li>TCP中应该使用多线程技术</li>
-<li>服务器<br>
-（1）创建：serverSock.Open(OS_SockAddr(9000),true);<br>
-（2）监听：serverSock.Listen();<br>
-（3）接收：serverSock.Accept(&amp;workSock);</li>
-</ol>
-<pre><code class="language-cpp">//TcpWork.h
-#pragma once
-#include&quot;osapi/osapi.h&quot;
-class TcpWork :
-    public OS_Thread
-{
-private:
-    OS_TcpSocket workSocket;
-public:
-    TcpWork(OS_TcpSocket workSocket):workSocket(workSocket){}
-private:
-    int Routine();
-};
-</code></pre>
-<pre><code class="language-cpp">//TcpWork.cpp
-#include &quot;TcpWork.h&quot;
-int TcpWork::Routine() {
-	//为client提供服务
-	char buf[128];
-	//接受客户的请求
-	int n = workSocket.Recv(buf, 128);
-	buf[n] = 0;
-	printf_s(&quot;客户请求：%s\n&quot;, buf);
-
-	//应答客户
-	strcpy_s(buf, &quot;我已收到\n&quot;);
-	n = strlen(buf);
-	workSocket.Send(buf, n);
-	workSocket.Close();
-	return 0;
-}
-</code></pre>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&quot;osapi/osapi.h&quot;
-#include&quot;TcpWork.h&quot;
-
-using namespace std;
-
-int main() {
-	//创建server socket
-	OS_SockAddr local(&quot;127.0.0.1&quot;, 9002);
-	OS_TcpSocket serverSocket;
-	serverSocket.Open(local, true);
-
-	//监听请求，没有请求会阻塞
-	serverSocket.Listen();
-
-	while (true) {
-		//接受请求，并创建workSocket
-		OS_TcpSocket workSocket;
-		if (serverSocket.Accept(&amp;workSocket) &lt; 0) {
-			break;
-		}
-
-		//新建一个线程，处理client的请求
-        //?如何销毁
-		TcpWork* conn = new TcpWork(workSocket);//不能TcpWork tcpWork(workSocket)
-		conn-&gt;Run();
-	}
-	return 0;
-}
-</code></pre>
-<ol start="3">
-<li>客户端<br>
-（1）创建：Open();<br>
-（2）连接：Connect();<br>
-（3）发送：Send();<br>
-（4）接收：Recv();</li>
-</ol>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&quot;osapi/osapi.h&quot;
-
-using namespace std;
-
-/**
-	客户端
-**/
-int main() {
-	//打开Socket
-	OS_SockAddr local(&quot;127.0.0.1&quot;, 9005);
-	OS_TcpSocket clientSock;
-	clientSock.Open(local,true);
-
-	//连接服务器
-	OS_SockAddr serverAddr(&quot;127.0.0.1&quot;, 9002);
-	if (clientSock.Connect(serverAddr) &lt; 0) {
-		cout &lt;&lt; &quot;无法连接服务器&quot; &lt;&lt; endl;
-		return -1;
-	}
-
-	char buf[128];
-
-	//发送请求
-	strcpy_s(buf, &quot;I'm client\n&quot;);
-	int n = strlen(buf);
-	clientSock.Send(buf, n);
-
-	//接受应答
-	n = clientSock.Recv(buf, sizeof(buf));
-	buf[n] = 0;
-	printf_s(&quot;Got：%s\n&quot;, buf);
-
-	//关闭Socket
-	clientSock.Close();
-	return 0;
-}
-</code></pre>
-<ol start="4">
-<li>注意事项<br>
-（1）请求/应答模式<br>
-一般情况下，需要客户端发起一个请求（request），然后服务器做出针对性的应答。即：<strong>客户端</strong>是<strong>主动</strong>的，<strong>服务器</strong>是<strong>被动</strong>的<br>
-（2）服务器应该处于常开的状态，服务器程序应该保持一直运行，随时等待由Client发起请求<br>
-（3）Send/Recv不需要再指定目标地址，在Connect成功之后，Client和服务器的某个Working Socket已经配对成功，变为一对一的通话<br>
-（4）服务器一般只需要指定端口号OS_SocketAddr(9002);相当于OS_Socket(&quot;127.0.0.1&quot;,9002);</li>
-</ol>
-<h1 id="tcp内部缓冲区">TCP内部缓冲区</h1>
-<ul>
-<li>发送/接收缓冲区——与UDP相比</li>
-</ul>
-<ol>
-<li>相同点<br>
-每个Socket都拥有一个发送缓冲区和接受缓冲区</li>
-<li>不同点<br>
-UDP Socket的缓冲区：<strong>包式存取</strong>，每个包带地址<br>
-TCP Socket的缓冲区：<strong>流式存取</strong>，每个包不带地址</li>
-</ol>
-<ul>
-<li>流式存储——针对缓冲区<br>
-类似于管道中的水，第一次放出200斤的水到盆中，第二次放出300斤的水到盆中，然后你在盆中取的时候，是无法区分哪些来自第一次，哪些来自第二次，它们是<strong>没有界限</strong>的。<br>
-例如：发送数据时，第一次发送hello，第二次发送word，两次达到接受缓冲区后，操作系统取出的就是helloword，没法区分界限了</li>
-</ul>
-<pre><code class="language-cpp">//服务器端和上述一致
-#include&lt;iostream&gt;
-#include&quot;osapi/osapi.h&quot;
-
-using namespace std;
-
-/**
-	客户端
-**/
-int main() {
-	//打开Socket
-	OS_SockAddr local(&quot;127.0.0.1&quot;, 9005);
-	OS_TcpSocket clientSock;
-	clientSock.Open(local,true);
-
-	//连接服务器
-	OS_SockAddr serverAddr(&quot;127.0.0.1&quot;, 9002);
-	if (clientSock.Connect(serverAddr) &lt; 0) {
-		cout &lt;&lt; &quot;无法连接服务器&quot; &lt;&lt; endl;
-		return -1;
-	}
-
-	char buf[128];
-
-	clientSock.Send(&quot;hello&quot;, 5);
-	clientSock.Send(&quot;world&quot;, 5);
-	
-	//接受应答
-	int n = clientSock.Recv(buf, 128);
-	buf[n] = 0;
-	printf_s(&quot;Got：%s\n&quot;, buf);
-
-	//关闭Socket
-	clientSock.Close();
-	return 0;
-}
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200926162519630.png#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li>定义边界</li>
-</ul>
-<ol>
-<li>
-<p>背景：由于TCP Socket是流式存取，如何判断Recv()已经取走了全部数据（接收方是不知道发送方发送数据的大小）</p>
-</li>
-<li>
-<p>方法</p>
-<p>（1）先发送长度，后发送数据。例如：05 hello，发送方先发送长度，接受方接受后，发送方再发送数据</p>
-</li>
-</ol>
-<pre><code class="language-cpp">int WaitBytes(OS_TcpSocket sock, void* buf, int count, int timeout) {
-	//设置超时
-	if (timeout &gt; 0) {
-		sock.SetOpt_RecvTimeout(timeout);
-	}
-
-	//反复接受，知道接满指定的字节数
-	int bytes = 0;
-	while (bytes &lt; count) {
-		int n = sock.Recv((char*)buf + bytes, count - bytes);
-		if (n &lt;= 0) {
-			return bytes;
-		}
-		bytes += n;
-	}
-	return bytes;
-}
-</code></pre>
-<pre><code class="language-cpp">//客户端
-#include&lt;iostream&gt;
-#include&quot;osapi/osapi.h&quot;
-
-using namespace std;
-
-//unsigned short类型转换为按大端方式的2个字节
-inline void itob_16be(unsigned short a, unsigned char bytes[])
-{
-	bytes[0] = (unsigned char)(a &gt;&gt; 8);
-	bytes[1] = (unsigned char)(a);
-}
-
-/**
-	客户端
-**/
-int main() {
-	//打开Socket
-	OS_SockAddr local(&quot;127.0.0.1&quot;, 9005);
-	OS_TcpSocket clientSock;
-	clientSock.Open(local,true);
-
-	//连接服务器
-	OS_SockAddr serverAddr(&quot;127.0.0.1&quot;, 9002);
-	if (clientSock.Connect(serverAddr) &lt; 0) {
-		cout &lt;&lt; &quot;无法连接服务器&quot; &lt;&lt; endl;
-		return -1;
-	}
-
-	char buf[128];
-
-	unsigned char bytes[2];
-	itob_16be(10, bytes);//长度为5个字节，并转换为2个字节放在bytes中
-	clientSock.Send(bytes, 2);
-	clientSock.Send(&quot;helloworld&quot;, 10);
-	
-	//接受应答
-	int n = clientSock.Recv(buf, 128);
-	buf[n] = 0;
-	printf_s(&quot;Got：%s\n&quot;, buf);
-
-	//关闭Socket
-	clientSock.Close();
-	return 0;
-}
-</code></pre>
-<pre><code class="language-cpp">//服务端，改动TcpWork.cpp
-#include &quot;TcpWork.h&quot;
-
-//将按大端方式的2个字节转换为unsigned short类型
-inline unsigned short btoi_16be(unsigned char bytes[])
-{
-	unsigned short a = 0;
-	a += (bytes[0] &lt;&lt; 8);
-	a += (bytes[1]);
-	return a;
-}
-
-int TcpWork::WaitBytes(OS_TcpSocket sock, void* buf, int count, int timeout) {
-	//设置超时
-	if (timeout &gt; 0) {
-		sock.SetOpt_RecvTimeout(timeout);
-	}
-
-	//反复接受，知道接满指定的字节数
-	int bytes = 0;
-	while (bytes &lt; count) {
-		int n = sock.Recv((char*)buf + bytes, count - bytes);
-		if (n &lt;= 0) {
-			return bytes;
-		}
-		bytes += n;
-	}
-	return bytes;
-}
-
-int TcpWork::Routine() {
-	//为client提供服务
-	char buf[128];
-	unsigned char length[2];
-
-	//使用边界,获取接受数据的长度
-	WaitBytes(workSocket, length, 2);
-	unsigned short count = btoi_16be(length);
-	int n = WaitBytes(workSocket, buf, count);
-	buf[n] = 0;
-	printf(&quot;Got：%s\n&quot;, buf);
-	
-
-	//应答客户
-	workSocket.Send(&quot;我接受到了\n&quot;, 12);
-
-	workSocket.Close();
-	return 0;
-}
-
-</code></pre>
-<p>（2）每段消息加上结束符（结束符不属于正文）</p>
-<p>例如：hello\n，当接受方接受到\n时，就知道接受完毕了</p>
-<ul>
-<li>阻塞</li>
-</ul>
-<ol>
-<li>Send()阻塞：当发送缓冲区满的时候<br>
-例如：发送方不停发送数据，将接收缓冲区填满，此时发送方操作系统就无法发送数据，最终导致发送缓冲区满，Send()阻塞</li>
-<li>Recv()阻塞：当接收缓冲区为空的时候</li>
-<li>Socket默认是阻塞方式，也可以手工设置为非阻塞方式</li>
-</ol>
-<pre><code class="language-cpp">//设置成非阻塞模式
-sock.Ioctl_SetBlockedIo(false);
-</code></pre>
-<ul>
-<li>获取缓冲区大小</li>
-</ul>
-<pre><code class="language-cpp">// 获取发送缓冲区的大小 
-int bufsize = 0; 
-socklen_t len = 4;
-int ret = getsockopt(clientSocket.hSock,SOL_SOCKET,
-			SO_SNDBUF,
-			(char*)&amp;bufsize,&amp;len);
-if(ret &lt; 0){
-	// 获取失败
-}
-</code></pre>
-<ul>
-<li>设置缓冲区大小</li>
-</ul>
-<pre><code class="language-cpp">// 设置发送缓冲区的大小
-int bufsize = 128*1024; // 128K
-int ret = setsockopt(clientSocket.hSock,SOL_SOCKET,
-			SO_SNDBUF,
-			(const char*)&amp;bufsize,sizeof(int));
-if(ret &lt; 0){
-	// 设置失败
-}
-</code></pre>
-<h1 id="数据包的传输">数据包的传输</h1>
-<ul>
-<li>数据的发送/接收</li>
-</ul>
-<ol>
-<li>交换机的职责：交换数据，即：将从一个口进入数据的数据包转发到其他口</li>
-<li>交换机的转发<br>
-（1）交换机直接将数据包复制转发到每一个口<br>
-（2）交换机记录了每个口的主机的IP，选择对应的口转发</li>
-<li>发送：操作系统把数据包通过网卡、上行传输到交换机</li>
-<li>接收：操作系统从网卡获取数据包<br>
-<img src="https://img-blog.csdnimg.cn/20200926163041128.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<ul>
-<li>UDP的传输</li>
-</ul>
-<ol>
-<li>正常的传输流程：<br>
-（1）主机A发出一个UDP包并抵达交换机的1口<br>
-（2）交换机将此包复制到2，3，4口<br>
-（3）处于2口的主机B，接收到这个包</li>
-<li>不正常的情况：交换机丢掉了这个包，没有转到2口</li>
-<li>问题：主机A无法得知这个包有没有抵达目标主机</li>
-<li>UDP是<strong>不可靠</strong>的传输协议<br>
-（１）A将数据包发出后，可能会丢包，无法抵达B<br>
-（２）当（１）发生时，A无法得知此包已经被丢失。注：A接收B的应答属于B发送一个数据包给A，属于我们的设计<br>
-（3）UDP的发送端不会失败，它只负责将数据发送出去，不会负责数据是否抵达</li>
-</ol>
-<ul>
-<li>TCP的传输</li>
-</ul>
-<ol>
-<li>正常的传输流程<br>
-（1）主机Ａ发送数据包，抵达１口<br>
-（２）交换机将１口的数据复制到２口<br>
-（３）主机Ｂ接收到包后，会回发一个<strong>确认包</strong>（<strong>操作系统完成</strong>）<br>
-（４）交换机将２口的确认包复制到１口<br>
-（５）主机Ａ收到确认包</li>
-<li>TCP是一来一回，带有确认回复的，当没有收到确认包时，操作系统会重发数据包</li>
-<li>TCP是<strong>可靠</strong>的传输协议<br>
-（1）发送端能够知道数据包有没有抵达目标，并且操作系统还有重发机制<br>
-（2）TCP的发送端可能会失败，当网络断开或者没有收到确认包时，就是发送失败了</li>
-</ol>
-<h1 id="select查询机制">Select查询机制</h1>
-<ul>
-<li>Select</li>
-</ul>
-<ol>
-<li>select是一个函数，用于向操作系统查询，即：在一堆socket中，查出可以读、写的socket</li>
-<li>OS_Socket对其做了一个封装，用于查询单个socket是否可以读写</li>
-</ol>
-<pre><code class="language-cpp">//返回值：&gt;0表示可以读或写
-//&lt;0表示不可读或写
-//=0表示超时
-//timeout单位为毫秒
-int Select_ForReading(int timeout);
-int Select_ForWriting(int timeout);
-</code></pre>
-<pre><code class="language-cpp">//客户端
-#include&lt;iostream&gt;
-#include&quot;osapi/osapi.h&quot;
-
-using namespace std;
-
-
-/**
-	客户端
-**/
-int main() {
-	//打开Socket
-	OS_SockAddr local(&quot;127.0.0.1&quot;, 9005);
-	OS_TcpSocket clientSock;
-	clientSock.Open(local,true);
-
-	//连接服务器
-	OS_SockAddr serverAddr(&quot;127.0.0.1&quot;, 9002);
-	if (clientSock.Connect(serverAddr) &lt; 0) {
-		cout &lt;&lt; &quot;无法连接服务器&quot; &lt;&lt; endl;
-		return -1;
-	}
-
-	char buf[128];
-	int n;
-
-	//发送请求
-	strcpy_s(buf, &quot;I'm client\n&quot;);
-	n = strlen(buf);
-	clientSock.Send(buf, n);
-
-	//select
-	cout &lt;&lt; &quot;wait……&quot; &lt;&lt; endl;
-    //等待6秒的原因是服务器需要等待5秒才响应
-    //小于5秒会超时
-	int ret = clientSock.Select_ForReading(6000);
-	cout &lt;&lt; &quot;ret：&quot; &lt;&lt; ret &lt;&lt; endl;
-
-	//接受应答
-	n = clientSock.Recv(buf, 128);
-	buf[n] = 0;
-	printf_s(&quot;Got：%s\n&quot;, buf);
-
-	//关闭Socket
-	clientSock.Close();
-	return 0;
-}
-</code></pre>
-<pre><code class="language-cpp">//服务器端的TcpWork.cpp
-#include &quot;TcpWork.h&quot;
-
-int TcpWork::Routine() {
-	//为client提供服务
-	char buf[128];
-	
-	//接收客户的请求
-	int n = workSocket.Recv(buf, 128);
-	buf[n] = 0;
-	printf_s(&quot;客户请求：%s\n&quot;, buf);
-
-	OS_Thread::Msleep(5000);
-
-	//应答客户
-	workSocket.Send(&quot;我接受到了\n&quot;, 12);
-
-	workSocket.Close();
-	return 0;
-}
-</code></pre>
-<ol start="3">
-<li>select函数简介</li>
-</ol>
-<pre><code class="language-cpp">//fds表示socket列表
-//tm表示超时
-//具体信息可以查看OSAPI中的Socket.cpp
-select(hSock+1,&amp;fds,NULL,NULL,&amp;tm);
-//在指定时间内，有任意的socket处于可读的状态，则select立刻返回，在fds中只剩下可读的socket。返回值为socket个数
-//到了指定时间，没有任何socket可读，则返回0，意味超时
-//如果出错返回-1
-</code></pre>
-<ol start="4">
-<li>select用途<br>
-当服务器同时和大量客户端交互，可以用select查询那些socket有发送来的数据，才做响应</li>
-</ol>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://dr526.github.io/post/cshi-xian-duo-xian-cheng-xia-zai-qi/">
-                    c++实现多线程下载器
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/cao-zuo-xi-tong-dao-lun-2/">
-                    操作系统导论（2）
-                </a>
-            </div>
-            
-        </div>
     </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-                
-                
-                
-            </div>
-        </div>
-    </div>
-    <div id="landlord">
-        <div class="message" style="opacity:0"></div>
-        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-    </div>
-</body>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://dr526.github.io//media/js/post.js"></script>
-
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
-</script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://dr526.github.io//media/live2d/assets/tororo.model.json");
-</script>
+  </body>
+</html>

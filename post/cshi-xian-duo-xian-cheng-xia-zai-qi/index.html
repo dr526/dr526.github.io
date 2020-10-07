@@ -1,325 +1,94 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="多线程下载原理
-对于一个指定长度的文件F，假如它的长度为L，若需要n个线程来来下载。有两种情况需要考虑：
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>c++实现多线程下载器 | dr526</title>
+<link rel="shortcut icon" href="https://dr526.github.io//favicon.ico?v=1602046645180">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-当L%n==0时
 
-
-
-当L%n!=0时
-
-
-
-注：由于各个线程都是下载文件的不同部分，那么它们请求的时候就该请求文件的不同部分，..." />
-    <meta name="keywords" content="c++" />
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://dr526.github.io/">
+  <img class="avatar" src="https://dr526.github.io//images/avatar.png?v=1602046645180" alt="">
+  </a>
+  <h1 class="site-title">
+    dr526
+  </h1>
+  <p class="site-description">
+    十步one code，千里no bug
+  </p>
+  <div class="menu-container">
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              c++实现多线程下载器
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2020-10-05 ·
+              </time>
               
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/live2d.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-    <title>dr526</title>
-</head>
-
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://dr526.github.io//styles/main.css">
-    <meta name="description" content="十步one code，千里no bug" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://dr526.github.io//images/avatar.png?v=1602045143690" class="avatar">
-        </div>
-        <div class="sitename">dr526</div>
-        <span class="describtion" data-text='["十步one code，千里no bug"]'>&nbsp;</span>
-        
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>社交按钮</span>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://dr526.github.io//media/images/QQ.png" alt=""></i></a>
-        
-        
-        <a href="https://www.zhihu.com/people/xiao-fen-rui-14" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/zh.png" alt=""></i></a>
-        
-        
-        <a href="https://space.bilibili.com/86884992" target="_blank"><i><img class="icon"
-                    src="https://dr526.github.io//media/images/bilibili.png" alt=""></i></a>
-        
-        
-        
-    </div>
-    <div id="qq" style="display:none">3227438823</div>
-    
-    
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            首页
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            归档
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/tags" class="menubutton">
-            标签
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/post/about" class="menubutton">
-            关于
-        </a>
-    </div>
-    
-    
-    
-        <div class="mchocie describtion">
-            <a href="https://dr526.github.io//friends" class="menubutton">友人帐</a>
-        </div>
-    
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/02/2020</div>
-    </div>
-</body>
-
-</html>
-<script src="https://dr526.github.io//media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
-
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
-
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
-
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
-                    
-                </div>
+                <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="post-tag">
+                  # c++
+                </a>
+              
             </div>
             
-            <div id="texttitle" style="text-align: center">
-                <h2>c++实现多线程下载器</h2>
-            </div>
-            <div class="text ">
-                <h1 id="多线程下载原理">多线程下载原理</h1>
+            <div class="post-content">
+              <h1 id="多线程下载原理">多线程下载原理</h1>
 <p>对于一个指定长度的文件F，假如它的长度为L，若需要n个线程来来下载。有两种情况需要考虑：</p>
 <ol>
 <li>
@@ -631,55 +400,23 @@ int threadNum = 36;//要使用的线程数量
 <figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20201005112612771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
 
             </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/">
-                    c++ TCP相关——基于OSAPI
-                </a>
-            </div>
-            
+          </article>
         </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            
-                            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/">
+              <h3 class="post-title">
+                c++ TCP相关——基于OSAPI
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
@@ -700,533 +437,21 @@ int threadNum = 36;//要使用的线程数量
 
 </script>
 
-                            
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li><a href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%E5%8E%9F%E7%90%86">多线程下载原理</a></li>
-<li><a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">开发环境配置</a></li>
-<li><a href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1">程序设计</a></li>
-<li><a href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C">运行结果</a></li>
-</ul>
+          
 
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
+          
+        
 
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://dr526.github.io//media/css/bootstrap.min.css">
-</head>
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://dr526.github.io//atom.xml" target="_blank">RSS</a>
+</div>
 
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">dr526&nbsp;&nbsp;|</a>
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          <li><a href="https://dr526.github.io//friends">友链</a></li>
-
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://dr526.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-10-05</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://dr526.github.io/tag/rkgvoQhuF/" class="postlink">
-                        <i class="fa fa-tag"></i> c++
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>c++实现多线程下载器</h2>
-            </div>
-            <div class="text ">
-                <h1 id="多线程下载原理">多线程下载原理</h1>
-<p>对于一个指定长度的文件F，假如它的长度为L，若需要n个线程来来下载。有两种情况需要考虑：</p>
-<ol>
-<li>
-<p>当L%n==0时</p>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20201005112348276.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-<li>
-<p>当L%n!=0时</p>
-</li>
-</ol>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20201005112406979.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<p>注：由于各个线程都是下载文件的不同部分，那么它们请求的时候就该请求文件的不同部分，即：使用http协议中的<strong>范围请求</strong></p>
-<h1 id="开发环境配置">开发环境配置</h1>
-<ul>
-<li>
-<p>开发工具：Visual Studio Community 2019 16.7.3</p>
-</li>
-<li>
-<p>第三方库：</p>
-<ol>
-<li>
-<p>libcurl（curl-7.72.0)</p>
-<p>配置参考：<a href="https://blog.csdn.net/wanghualin033/article/details/78234474">libcurl库源码编译，安装c++_wanghualin033的博客-CSDN博客</a></p>
-<p>我已经编译完成，需要自取：https://wws.lanzous.com/iKOU7h6o4ri</p>
-</li>
-<li>
-<p>osapi</p>
-<p>配置参考：<a href="https://blog.csdn.net/qq_43326744/article/details/108760582">c++导入第三方库_qq_43326744的博客-CSDN博客</a></p>
-<p>下载地址：<a href="https://wws.lanzous.com/iLLplgu3aih">osapi.rar - 蓝奏云 (lanzous.com)</a></p>
-</li>
-</ol>
-</li>
-</ul>
-<h1 id="程序设计">程序设计</h1>
-<ul>
-<li>
-<p>完整项目下载地址：<a href="https://wws.lanzous.com/ifRHPh6p8cd">下载</a></p>
-</li>
-<li>
-<p>主要框架图</p>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20201005112538843.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-<li>
-<p>主线程</p>
-<ol>
-<li>
-<p>获取文件长度</p>
-<pre><code class="language-c++">/**
-    要下载文件的大小
-**/
-long getDownloadFileLenth(const char* url)
-{
-    double downloadFileLenth = 0;
-    CURL* handle = curl_easy_init();
-    curl_easy_setopt(handle, CURLOPT_URL, url);
-    curl_easy_setopt(handle, CURLOPT_HEADER, 1);	//只需要header头
-    curl_easy_setopt(handle, CURLOPT_NOBODY, 1);	//不需要body
-    if (curl_easy_perform(handle) == CURLE_OK)
-    {
-        curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &amp;downloadFileLenth);
-    }
-    else
-    {
-        downloadFileLenth = -1;
-    }
-    return downloadFileLenth;
-}
-</code></pre>
-</li>
-<li>
-<p>线程分配</p>
-<pre><code class="language-c++">       long fileLength = getDownloadFileLenth(url);
-        long partSize = fileLength / threadNum;
-        //计算每个线程负责的大小
-        for (int i = 0; i &lt;= threadNum; ++i) {
-            tNode* tnode = new tNode;
-            if (i &lt; threadNum) {
-                tnode-&gt;startPos = i * partSize;
-                tnode-&gt;endPos = (i + 1) * partSize - 1;
-            }
-            else {
-                if (fileLength % threadNum != 0) {
-                    tnode-&gt;startPos = i * partSize;
-                    tnode-&gt;endPos = fileLength - 1;
-                }
-                else
-                    break;
-            }
-            tnode-&gt;curl = curl_easy_init();
-            tnode-&gt;fp = fp;
-            tnode-&gt;id = i;
-            downLoad(url, tnode);
-            DownThread* task = new DownThread(tnode);
-            task-&gt;start();
-</code></pre>
-<pre><code class="language-c++">/**
-    文件下载的准备工作
-**/
-void downLoad(char* url,tNode* tnode) {
-    char progress_data[3] = &quot;* &quot;;
-    char range[64] = { 0 };
-    snprintf(range, sizeof(range), &quot;%ld-%ld&quot;, tnode-&gt;startPos, tnode-&gt;endPos);
-    if (tnode-&gt;curl)
-    {
-        //设置请求路径
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_URL, url);
-
-        //允许跳转
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_FOLLOWLOCATION, 1);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-
-        //写入文件
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_WRITEDATA, tnode);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_WRITEFUNCTION, curlWriteFunction);
-
-        //设置进度回调
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_NOPROGRESS, FALSE);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_PROGRESSFUNCTION, my_progress_func);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_PROGRESSDATA, &amp;tnode-&gt;id);
-
-        //设置范围请求
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_NOSIGNAL, 1L);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_LOW_SPEED_LIMIT, 1L);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_LOW_SPEED_TIME, 5L);
-        curl_easy_setopt(tnode-&gt;curl, CURLOPT_RANGE, range);
-    }
-}
-
-</code></pre>
-<pre><code class="language-c++">/**
-    将数据写入文件中
-**/
-size_t curlWriteFunction(void* ptr, size_t size, size_t nmemb, tNode* tnode)
-{
-    //ptr指向待下载数据，size为被写入每个元素的大小，大小为字节，nmemb是元素个数，大小为size字节
-    size_t written = 0;
-    mutex.Lock();
-    if (tnode-&gt;startPos + size * nmemb &lt;= tnode-&gt;endPos) {
-        fseek(tnode-&gt;fp, tnode-&gt;startPos, SEEK_SET);
-        written = fwrite(ptr, size, nmemb, tnode-&gt;fp);
-        tnode-&gt;startPos += size * nmemb;
-    }
-    else {
-        fseek(tnode-&gt;fp, tnode-&gt;startPos, SEEK_SET);
-        written = fwrite(ptr, 1, tnode-&gt;endPos - tnode-&gt;startPos + 1, tnode-&gt;fp);
-        tnode-&gt;startPos = tnode-&gt;endPos;
-    }
-    mutex.Unlock();
-    return written;
-}
-
-/**
-    显示文件下载进度
-**/
-int my_progress_func(int* progress_data,
-    double t, /* 下载数据大小 */
-    double d, /* 当前已经下载大小 */
-    double ultotal,
-    double ulnow)
-{
-    printf_s(&quot;当前线程为：%d %g / %g (%g %%)\n&quot;, *progress_data, d, t, d * 100.0 / t);
-    return 0;
-}
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>下载线程</p>
-<pre><code class="language-c++">#pragma once
-#include&quot;osapi/osapi.h&quot;
-#include&quot;tNode.h&quot;
-#include&lt;iostream&gt;
-using namespace std;
-class DownThread :public OS_Thread {
-public:
-    DownThread(tNode* tnode) :tnode(tnode) {
-        id = tnode-&gt;id;
-        alive = false;
-    }
-    bool getAlive()const {
-        return this-&gt;alive;
-    }
-    void start() {
-        Run();
-        alive = true;
-    }
-    int getId() {
-        return id;
-    }
-private:
-    virtual int Routine() {
-        int res = curl_easy_perform(tnode-&gt;curl);
-        if (res != 0) {
-            cout &lt;&lt; &quot;下载出错&quot; &lt;&lt; endl;
-        }
-        curl_easy_cleanup(tnode-&gt;curl);
-        this-&gt;alive = false;
-        delete tnode;
-        return 0;
-    }
-private:
-    bool alive;
-    tNode* tnode;
-    int id;
-};
-</code></pre>
-</li>
-<li>
-<p>回收管理</p>
-<pre><code class="language-c++">//ThreadMonitor.h
-#pragma once
-#include&quot;osapi/osapi.h&quot;
-#include&quot;DownThread.h&quot;
-#include&lt;iostream&gt;
-#include&lt;list&gt;
-using namespace std;
-class ThreadMonitor :public OS_Thread
-{
-public:
-	//单例模式
-	static ThreadMonitor* object();
-private:
-	ThreadMonitor(){}
-	~ThreadMonitor(){}
-public:
-	void start();
-	void stop();
-	void monitor(DownThread* task);
-private:
-	virtual int Routine();
-private:
-	list&lt;DownThread*&gt;tasks;//线程的列表
-	bool quit_flag;
-	OS_Mutex mutex;
-};
-</code></pre>
-<pre><code class="language-c++">//ThreadMonitor.cpp
-#include &quot;ThreadMonitor.h&quot;
-
-//单例模式的实现
-ThreadMonitor* ThreadMonitor::object() {
-	static ThreadMonitor only;
-	return &amp;only;
-}
-
-void ThreadMonitor::start() {
-	quit_flag = false;
-	Run();
-}
-
-void ThreadMonitor::stop() {
-	quit_flag = false;
-	Join(this);
-}
-
-void ThreadMonitor::monitor(DownThread* task) {
-	mutex.Lock();
-	tasks.push_back(task);
-	mutex.Unlock();
-}
-
-int ThreadMonitor::Routine() {
-	while (!quit_flag) {
-		mutex.Lock();
-		//遍历tasks，找到已经完成的线程并回收
-		for (auto iter = tasks.begin(); iter != tasks.end();) {
-			DownThread* task = *iter;
-			if (task-&gt;getAlive())++iter;
-			else {
-				cout &lt;&lt; &quot;已经回收DownThread：&quot; &lt;&lt; task-&gt;getId() &lt;&lt; endl;
-				iter = tasks.erase(iter);
-				Join(task);
-				delete(task);
-			}
-		}
-		mutex.Unlock();
-		OS_Thread::Sleep(1);
-	}
-	return 0;
-}
-</code></pre>
-</li>
-<li>
-<p>其他</p>
-<pre><code class="language-c++">//tNode.h
-#pragma once
-#include &lt;cstdio&gt;
-#include &lt;curl\curl.h&gt;
-#pragma comment(lib,&quot;libcurl-d_imp.lib&quot;)
-struct tNode
-{
-    int id;
-    FILE* fp;
-    long startPos;
-    long endPos;
-    CURL* curl;
-};
-</code></pre>
-</li>
-</ul>
-<h1 id="运行结果">运行结果</h1>
-<pre><code class="language-c++">char fileName[50] = &quot;TIM.exe&quot;;//保存路径，在当前项目目录下
-char url[128] = &quot;https://dldir1.qq.com/qqfile/qq/PCTIM/TIM3.2.0/TIM3.2.0.21856.exe&quot;;//下载路径
-int threadNum = 36;//要使用的线程数量
-</code></pre>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20201005112601581.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20201005112612771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI2NzQ0,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://dr526.github.io/post/c-tcp-xiang-guan-ji-yu-osapi/">
-                    c++ TCP相关——基于OSAPI
-                </a>
-            </div>
-            
-        </div>
     </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-                
-                
-                
-            </div>
-        </div>
-    </div>
-    <div id="landlord">
-        <div class="message" style="opacity:0"></div>
-        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
-    </div>
-</body>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://dr526.github.io//media/js/post.js"></script>
-
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = 'http://ericam.top/' //此处修改为你的域名，必须带斜杠
-</script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://dr526.github.io//media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://dr526.github.io//media/live2d/assets/tororo.model.json");
-</script>
+  </body>
+</html>
